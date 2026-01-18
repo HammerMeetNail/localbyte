@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | LocalByte LLC</title>
+  <meta name="description" content="Contact LocalByte LLC to start your website or web application project." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html">
+        <img src="assets/img/localbyte_logo.png" alt="LocalByte LLC logo" />
+        <span class="brand">LocalByte</span>
+      </a>
+      <nav class="nav-links" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a class="nav-cta active" href="contact.html">Contact</a>
+        <button class="theme-toggle" type="button" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="theme-label">Dark mode</span>
+        </button>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" title="Menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <span class="badge">Contact</span>
+      <h1>Let us know what you are building.</h1>
+      <p>Share a few details and we will follow up within two business days with a recommended package and a firm quote after a quick scope call.</p>
+      <div class="cta-group">
+        <a class="button secondary" href="pricing.html">View pricing packages</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="contact-panel">
+          <div class="card">
+            <h2>Send a project inquiry</h2>
+            <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="small" hidden>
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+              </p>
+              <label>
+                Name
+                <input type="text" name="name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" required />
+              </label>
+              <label>
+                Company / Organization
+                <input type="text" name="company" />
+              </label>
+              <label>
+                What do you need help with?
+                <select name="service" required>
+                  <option value="">Select a service</option>
+                  <option value="Website">Website design</option>
+                  <option value="Web App">Web application</option>
+                  <option value="Refresh">Site refresh</option>
+                  <option value="Support">Ongoing support</option>
+                </select>
+              </label>
+              <label>
+                Project details
+                <textarea name="message" required></textarea>
+              </label>
+              <button class="button primary" type="submit">Submit request</button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h2>Quick contact</h2>
+            <p>Email: <a href="mailto:info@localbytellc.com">info@localbytellc.com</a></p>
+            <p>Phone: <a href="tel:+15551234567">(555) 123-4567</a></p>
+            <p class="small">Note: phone number is a placeholder until launch.</p>
+          </div>
+          <div class="card">
+            <h3>What happens next</h3>
+            <ul class="list">
+              <li>We confirm your goals and recommend a package.</li>
+              <li>We scope requirements and timelines.</li>
+              <li>You receive a firm quote before work begins.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">
+          <img src="assets/img/localbyte_logo.png" alt="LocalByte LLC logo" />
+          <span class="brand">LocalByte</span>
+        </div>
+        <p class="small">Web design, web applications, and digital strategy for local growth.</p>
+      </div>
+      <div>
+        <strong>Pages</strong>
+        <div class="small">
+          <a href="services.html">Services</a><br />
+          <a href="portfolio.html">Portfolio</a><br />
+          <a href="about.html">About</a><br />
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <strong>Legal</strong>
+        <div class="small">
+          <a href="privacy.html">Privacy Policy</a><br />
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+      <div>
+        <strong>Contact</strong>
+        <p class="small"><a href="mailto:info@localbytellc.com">info@localbytellc.com</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/theme.js?v=2"></script>
+</body>
+</html>
