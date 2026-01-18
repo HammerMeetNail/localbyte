@@ -592,6 +592,13 @@ input, textarea, select {
   border: 1px solid var(--border);
   font-family: inherit;
   font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--card);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
 }
 
 textarea {
@@ -1237,6 +1244,7 @@ footer a:hover {
 .quick-contact input,
 .quick-contact textarea {
   background: var(--bg);
+  color: var(--ink);
 }
 
 .quick-contact .button {
