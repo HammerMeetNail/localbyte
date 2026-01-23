@@ -9,7 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png" />
+  <link rel="manifest" href="site.webmanifest" />
 </head>
 <body>
   <header>
@@ -56,8 +63,14 @@
   <main class="container">
     <section class="page-hero">
       <span class="badge">Contact</span>
-      <h1>Let us know what you are building.</h1>
-      <p>Share a few details and we will follow up within two business days with a recommended package and a firm quote after a quick scope call.</p>
+      <h1>Tell us what you are building.</h1>
+      <p>We reply within two business days.</p>
+      <ul class="list">
+        <li>Recommended package</li>
+        <li>Clear next steps</li>
+        <li>Firm quote after scope</li>
+        <li>No pressure call</li>
+      </ul>
       <div class="cta-group">
         <a class="button secondary" href="pricing.html">View pricing packages</a>
       </div>
@@ -67,7 +80,7 @@
       <div class="split">
         <div class="contact-panel">
           <div class="card">
-            <h2>Send a project inquiry</h2>
+            <h2>Send a project request</h2>
             <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="contact" />
               <p class="small" hidden>
@@ -108,14 +121,14 @@
             <h2>Quick contact</h2>
             <p>Email: <a href="mailto:info@localbytellc.com">info@localbytellc.com</a></p>
             <p>Phone: <a href="tel:+15551234567">(555) 123-4567</a></p>
-            <p class="small">Note: phone number is a placeholder until launch.</p>
+            <p class="small">Phone line available after launch.</p>
           </div>
           <div class="card">
             <h3>What happens next</h3>
             <ul class="list">
-              <li>We confirm your goals and recommend a package.</li>
-              <li>We scope requirements and timelines.</li>
-              <li>You receive a firm quote before work begins.</li>
+              <li>Confirm goals and package</li>
+              <li>Scope requirements and timeline</li>
+              <li>Firm quote before build</li>
             </ul>
           </div>
         </div>
@@ -136,6 +149,7 @@
         <strong>Pages</strong>
         <div class="small">
           <a href="services.html">Services</a><br />
+          <a href="pricing.html">Pricing</a><br />
           <a href="portfolio.html">Portfolio</a><br />
           <a href="about.html">About</a><br />
           <a href="contact.html">Contact</a>
