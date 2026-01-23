@@ -27,16 +27,17 @@ Then visit: http://localhost:9000
 ### Testing
 This is a static site with no automated tests. Manual testing involves:
 - Open each page in browser (public/index.html, public/services.html, public/pricing.html, public/portfolio.html, public/about.html, public/contact.html, public/privacy.html, public/terms.html)
-- Test dark mode toggle functionality
+- Test the dark mode toggle in the main nav (`.theme-toggle`) and verify theme persistence (localStorage + OS preference fallback)
+- Test the mobile hamburger menu (`.menu-toggle`): open/close, closes on outside click, closes on Escape, closes after clicking a nav link
 - Test responsive layouts at different screen sizes (mobile: 320-720px, tablet: 720-1024px, desktop: 1024+px)
 - Verify navigation links work correctly
-- Test settings menu toggle and theme persistence
+- Sanity check forms (e.g., `public/contact.html` Netlify form markup) and confirm required fields behave as expected
 
 ### Linting/Validation
 No automated linting configured. Validate HTML at: https://validator.w3.org/
 
 ### Deployment
-Static files can be deployed to any web server or static hosting service (GitHub Pages, Netlify, Vercel, S3, etc.)
+Static files can be deployed to any web server or static hosting service (GitHub Pages, Netlify, Vercel, S3, etc.). Note: `public/contact.html` uses Netlify Forms attributes; if deploying elsewhere, swap to another form handler (or a backend endpoint).
 
 ## Code Style Guidelines
 
@@ -57,11 +58,12 @@ Static files can be deployed to any web server or static hosting service (GitHub
 
 **Linking:**
 - External stylesheet: `<link rel="stylesheet" href="assets/css/style.css" />`
-- External script: `<script src="assets/js/theme.js"></script>` (at end of body)
+- External script: `<script src="assets/js/theme.js?v=2"></script>` (at end of body; bump `v=` for cache busting when changing JS)
+- Favicon: `<link rel="icon" type="image/png" href="assets/img/favicon.png" />`
 - Navigation links use relative paths (`index.html`, `services.html`, etc.)
 
 **Class Naming:**
-- Use descriptive, hyphenated class names: `.hero-card`, `.nav-links`, `.settings-toggle`
+- Use descriptive, hyphenated class names: `.hero-card`, `.nav-links`, `.theme-toggle`, `.menu-toggle`
 - Utility classes are single words or simple compounds: `.small`, `.badge`, `.reveal`
 - Component modifiers use double hyphens or simple adjectives: `.price-card.recommended`, `.reveal.delay-1`
 
@@ -82,13 +84,17 @@ Static files can be deployed to any web server or static hosting service (GitHub
 --muted        /* Muted/tertiary text */
 --brand        /* Primary brand color (teal) */
 --brand-2      /* Secondary brand color */
---accent       /* Accent color (coral/orange) */
---accent-2     /* Light accent */
+--accent       /* Accent color (gold) */
+--accent-2     /* Light accent (gold) */
+--coral        /* Secondary accent (coral) */
+--coral-2      /* Light coral */
 --bg           /* Background color */
 --card         /* Card background */
 --card-2       /* Alternate card background */
 --border       /* Border color */
 --shadow       /* Box shadow value */
+--dark-section /* Dark section background */
+--dark-section-2 /* Dark section alternate */
 ```
 
 **Spacing and Sizing:**
@@ -118,7 +124,7 @@ transition: transform 0.2s ease, box-shadow 0.2s ease;
 **Style:**
 - Use IIFE (Immediately Invoked Function Expressions) to avoid global scope pollution
 - Use `var` for variables (ES5 compatibility)
-- Use camelCase for variable names: `settingsToggle`, `settingsMenu`, `syncState`
+- Use camelCase for variable names: `themeToggle`, `menuToggle`, `navMenu`, `syncState`
 - Use double quotes for strings: `"theme"`, `"data-theme"`
 - No semicolons required but included for consistency
 
@@ -172,6 +178,7 @@ if (window.matchMedia) {
 │       ├── js/
 │       │   └── theme.js    # Theme toggle functionality
 │       └── img/
+│           ├── favicon.png
 │           ├── localbyte_logo.png
 │           └── localbyte_logo_full.png
 ├── Makefile            # Development commands
@@ -194,12 +201,13 @@ if (window.matchMedia) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 </head>
 <body>
   <header><!-- Navigation --></header>
   <main class="container"><!-- Content --></main>
   <footer><!-- Footer --></footer>
-  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/theme.js?v=2"></script>
 </body>
 </html>
 ```
@@ -211,8 +219,9 @@ if (window.matchMedia) {
 3. **Test responsiveness** - all changes should work on mobile, tablet, and desktop
 4. **Keep it simple** - no build tools or frameworks; maintain vanilla approach
 5. **Use existing utilities** - reuse classes like `.container`, `.button`, `.card`, `.badge`
-6. **Maintain dark mode** - ensure all new styles work in both light and dark themes
-7. **Performance** - keep file sizes small, optimize images, minimize requests
+6. **Prefer CSS over inline styles** - inline styles exist sparingly; if a pattern repeats, move it into `assets/css/style.css`
+7. **Maintain dark mode** - ensure all new styles work in both light and dark themes
+8. **Performance** - keep file sizes small, optimize images, minimize requests
 
 ## Contact
 
