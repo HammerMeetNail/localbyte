@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LocalByte | Web Design for Local Growth</title>
   <meta name="description" content="LocalByte builds and supports websites and web apps for local businesses with clear strategy and reliable delivery." />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        if (stored) {
+          document.documentElement.setAttribute("data-theme", stored);
+        }
+      } catch (e) {
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
