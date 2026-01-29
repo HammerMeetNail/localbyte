@@ -1,17 +1,38 @@
 (function () {
   var root = document.documentElement;
-  var stored = localStorage.getItem("theme");
-  if (stored) {
-    root.setAttribute("data-theme", stored);
+
+  function safeGet(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch (e) {
+      return null;
+    }
   }
+
+  function safeSet(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {
+    }
+  }
+
+  function safeRemove(key) {
+    try {
+      localStorage.removeItem(key);
+    } catch (e) {
+    }
+  }
+
+  var stored = safeGet("theme");
+  if (stored) root.setAttribute("data-theme", stored);
 
   function setTheme(next) {
     if (next) {
       root.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
+      safeSet("theme", next);
     } else {
       root.removeAttribute("data-theme");
-      localStorage.removeItem("theme");
+      safeRemove("theme");
     }
   }
 

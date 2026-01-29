@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Contact workspace illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10213a" />
+      <stop offset="100%" stop-color="#0d5c54" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)" />
+  <rect x="90" y="90" width="1020" height="620" rx="36" fill="#ffffff" opacity="0.95" />
+
+  <rect x="160" y="190" width="520" height="320" rx="26" fill="#10213a" opacity="0.08" />
+  <rect x="740" y="190" width="300" height="320" rx="26" fill="#f5c543" opacity="0.18" />
+
+  <rect x="210" y="240" width="420" height="38" rx="19" fill="#0d5c54" />
+  <rect x="210" y="300" width="360" height="16" rx="8" fill="#233753" opacity="0.2" />
+  <rect x="210" y="330" width="320" height="16" rx="8" fill="#233753" opacity="0.2" />
+  <rect x="210" y="360" width="280" height="16" rx="8" fill="#233753" opacity="0.2" />
+
+  <rect x="780" y="250" width="220" height="50" rx="14" fill="#ff7a59" />
+  <rect x="780" y="320" width="220" height="14" rx="7" fill="#233753" opacity="0.2" />
+  <rect x="780" y="345" width="180" height="14" rx="7" fill="#233753" opacity="0.2" />
+
+  <rect x="210" y="450" width="180" height="46" rx="12" fill="#f5c543" />
+  <circle cx="880" cy="520" r="64" fill="#0d5c54" opacity="0.9" />
+
+  <text x="200" y="660" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#10213a">Let’s map the next step together.</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Local community illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d5c54" />
+      <stop offset="100%" stop-color="#19726a" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)" />
+  <rect x="90" y="90" width="1020" height="620" rx="36" fill="#ffffff" opacity="0.94" />
+
+  <rect x="150" y="180" width="360" height="300" rx="28" fill="#0d5c54" opacity="0.12" />
+  <rect x="540" y="180" width="510" height="300" rx="28" fill="#ff7a59" opacity="0.12" />
+
+  <rect x="200" y="230" width="260" height="26" rx="13" fill="#0d5c54" />
+  <rect x="200" y="270" width="220" height="14" rx="7" fill="#233753" opacity="0.2" />
+  <rect x="200" y="295" width="200" height="14" rx="7" fill="#233753" opacity="0.2" />
+  <rect x="200" y="320" width="180" height="14" rx="7" fill="#233753" opacity="0.2" />
+
+  <rect x="590" y="230" width="320" height="26" rx="13" fill="#ff7a59" />
+  <rect x="590" y="270" width="260" height="14" rx="7" fill="#233753" opacity="0.2" />
+  <rect x="590" y="295" width="280" height="14" rx="7" fill="#233753" opacity="0.2" />
+  <rect x="590" y="320" width="240" height="14" rx="7" fill="#233753" opacity="0.2" />
+
+  <g opacity="0.92">
+    <circle cx="280" cy="560" r="70" fill="#f5c543" />
+    <rect x="380" y="510" width="160" height="120" rx="18" fill="#ff7a59" />
+    <rect x="570" y="510" width="160" height="120" rx="18" fill="#0d5c54" />
+    <rect x="760" y="510" width="160" height="120" rx="18" fill="#10213a" />
+  </g>
+
+  <text x="180" y="690" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#10213a">Local roots. Clear partnership.</text>
+</svg>
