@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cooking Mode | ByteBites</title>
+  <meta name="description" content="ByteBites — cooking mode demo by LocalByte LLC. Step-by-step recipe view." />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        if (stored) document.documentElement.setAttribute("data-theme", stored);
+      } catch (e) {
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+</head>
+<body data-page="cook">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ByteBites recipe book">
+        <img src="assets/img/logo.svg" alt="ByteBites logo" width="36" height="36" />
+        <span class="brand-name">ByteBites</span>
+      </a>
+
+      <nav class="nav-links" id="nav-menu" aria-label="Primary">
+        <a href="index.html">Recipes</a>
+        <a href="../../portfolio.html">LocalByte Portfolio</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-pressed="false" title="Toggle theme">
+          <span class="theme-toggle-label">Theme</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" title="Menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main cook-main" id="main">
+    <section class="section cook-shell">
+      <div class="container">
+        <div class="cook-head">
+          <div>
+            <p class="kicker" data-cook-kicker>Cooking mode</p>
+            <h1 class="cook-title" data-cook-title>Loading…</h1>
+          </div>
+          <div class="cook-head-actions">
+            <a class="button subtle" data-exit href="index.html">Exit</a>
+          </div>
+        </div>
+
+        <div class="card cook-card" data-cook-card hidden>
+          <div class="cook-progress">
+            <span class="badge" data-cook-step-badge>Step 1 of 1</span>
+            <button class="button subtle" type="button" data-open-jump>Jump to step</button>
+          </div>
+
+          <p class="cook-step" data-cook-step>…</p>
+
+          <div class="cook-controls" aria-label="Step controls">
+            <button class="button secondary" type="button" data-prev>Previous</button>
+            <button class="button primary" type="button" data-next>Next</button>
+          </div>
+
+          <details class="cook-jump" data-jump hidden>
+            <summary class="button subtle">Jump to step list</summary>
+            <ol class="cook-step-list" data-step-list></ol>
+          </details>
+        </div>
+
+        <div class="card empty-state" data-error hidden>
+          <span class="badge">Invalid link</span>
+          <h2>We couldn’t load that recipe.</h2>
+          <p class="muted">Try opening cooking mode from a recipe page.</p>
+          <div class="cta-row">
+            <a class="button primary" href="index.html">Back to recipes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="small muted">Keyboard: ←/→ to navigate steps, Esc to exit.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js?v=1"></script>
+  <script src="assets/js/core.js?v=1"></script>
+  <script src="assets/js/storage.js?v=1"></script>
+  <script src="assets/js/app.js?v=1"></script>
+  <script src="assets/js/cook.js?v=1"></script>
+</body>
+</html>
+

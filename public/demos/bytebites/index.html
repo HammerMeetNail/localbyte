@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ByteBites — Recipe Book (Demo)</title>
+  <meta name="description" content="ByteBites — recipe book demo by LocalByte LLC. Instant search, filtering, favorites, print-friendly recipes, and step-by-step cooking mode." />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        if (stored) document.documentElement.setAttribute("data-theme", stored);
+      } catch (e) {
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+</head>
+<body data-page="index">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ByteBites recipe book">
+        <img src="assets/img/logo.svg" alt="ByteBites logo" width="36" height="36" />
+        <span class="brand-name">ByteBites</span>
+      </a>
+
+      <nav class="nav-links" id="nav-menu" aria-label="Primary">
+        <a class="active" href="index.html">Recipes</a>
+        <a href="../../portfolio.html">LocalByte Portfolio</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-pressed="false" title="Toggle theme">
+          <span class="theme-toggle-label">Theme</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" title="Menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="banner" role="status" data-storage-banner hidden>
+    <div class="container banner-inner">
+      <strong>Storage unavailable.</strong>
+      <span>Favorites and filters won’t persist in this browser session.</span>
+    </div>
+  </div>
+
+  <main class="main" id="main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="badge">Fictional demo</span>
+          <h1>A cookbook-quality recipe library.</h1>
+          <p class="muted">Instant search, smart filters, favorites, ingredient scaling, print styles, and a step-by-step cooking mode. Built with vanilla HTML/CSS/JS.</p>
+          <div class="cta-row">
+            <a class="button secondary" href="../../portfolio.html">Back to portfolio</a>
+          </div>
+        </div>
+        <aside class="hero-side" aria-label="Demo highlights">
+          <div class="hero-pills">
+            <span class="pill">Search + filters</span>
+            <span class="pill">Favorites</span>
+            <span class="pill">Scaling + print</span>
+            <span class="pill">Cooking mode</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="layout">
+          <aside class="filters" aria-label="Search and filters">
+            <h2 class="h3">Find a recipe</h2>
+
+            <div class="field">
+              <label for="search">Search</label>
+              <input id="search" name="search" type="search" autocomplete="off" placeholder="Try: chicken, garlic, vegan…" data-search />
+              <p class="help small">Search matches title, tags, cuisine, and ingredient names.</p>
+            </div>
+
+            <div class="filter-actions">
+              <button class="button subtle" type="button" data-clear-all>Clear all</button>
+              <label class="toggle">
+                <input type="checkbox" data-favorites-only />
+                <span>Favorites only</span>
+              </label>
+            </div>
+
+            <fieldset class="fieldset">
+              <legend>Cuisine</legend>
+              <div class="chip-row" data-cuisine-chips></div>
+            </fieldset>
+
+            <fieldset class="fieldset">
+              <legend>Diet</legend>
+              <div class="checklist" data-diet-options></div>
+            </fieldset>
+
+            <fieldset class="fieldset">
+              <legend>Difficulty</legend>
+              <div class="chip-row" data-difficulty-chips></div>
+            </fieldset>
+
+            <div class="field">
+              <label for="max-minutes">Max total time</label>
+              <select id="max-minutes" name="maxMinutes" data-max-minutes>
+                <option value="">Any</option>
+                <option value="20">20 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="60">60 minutes</option>
+              </select>
+            </div>
+
+            <div class="active-filters" aria-label="Active filters">
+              <p class="small muted">Active:</p>
+              <div class="active-filter-list" data-active-filters></div>
+            </div>
+          </aside>
+
+          <section class="results" aria-label="Recipe results">
+            <div class="results-head">
+              <h2 class="h3">Recipes</h2>
+              <p class="small muted">
+                <span data-results-count>0</span> results
+                <span class="sr-only" role="status" aria-live="polite" data-results-live></span>
+              </p>
+            </div>
+
+            <div class="grid cards" data-cards></div>
+
+            <div class="card empty-state" data-empty hidden>
+              <h3>No recipes found.</h3>
+              <p class="muted">Try clearing filters or searching for a broader term.</p>
+              <button class="button secondary" type="button" data-clear-all-empty>Clear all filters</button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="small muted">ByteBites is a fictional demo by LocalByte LLC. Favorites and filters are stored locally in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js?v=1"></script>
+  <script src="assets/js/core.js?v=1"></script>
+  <script src="assets/js/storage.js?v=1"></script>
+  <script src="assets/js/app.js?v=1"></script>
+  <script src="assets/js/index.js?v=1"></script>
+</body>
+</html>
+

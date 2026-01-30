@@ -1,0 +1,41 @@
+{
+  "posts": [
+    {
+      "image": "assets/img/feed/seasonal.svg",
+      "alt": "A seasonal drink illustration",
+      "caption": "Seasonal pour",
+      "href": "menu.html?category=seasonal"
+    },
+    {
+      "image": "assets/img/feed/latte.svg",
+      "alt": "A latte illustration",
+      "caption": "Latte art",
+      "href": "menu.html?category=coffee"
+    },
+    {
+      "image": "assets/img/feed/pastry.svg",
+      "alt": "A pastry illustration",
+      "caption": "Bakery partner",
+      "href": "menu.html?category=pastries"
+    },
+    {
+      "image": "assets/img/feed/pourover.svg",
+      "alt": "A pour-over illustration",
+      "caption": "Pour-over",
+      "href": "menu.html?category=coffee"
+    },
+    {
+      "image": "assets/img/feed/community.svg",
+      "alt": "An event poster illustration",
+      "caption": "Community night",
+      "href": "visit.html"
+    },
+    {
+      "image": "assets/img/feed/beans.svg",
+      "alt": "Coffee beans illustration",
+      "caption": "Fresh roast",
+      "href": "menu.html?category=coffee"
+    }
+  ]
+}
+

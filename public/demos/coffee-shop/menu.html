@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu | Cedar &amp; Steam Coffee</title>
+  <meta name="description" content="Explore the Cedar &amp; Steam Coffee menu. Filter by category and build an order inquiry." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Cedar &amp; Steam Coffee home">
+        <img src="assets/img/logo.svg" alt="Cedar &amp; Steam Coffee logo" width="36" height="36" />
+        <span class="brand-name">Cedar &amp; Steam</span>
+      </a>
+
+      <nav class="nav-links" id="nav-menu" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a class="active" href="menu.html">Menu</a>
+        <a href="visit.html">Visit</a>
+        <a class="nav-cta" href="order.html">Order/Reserve</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" title="Menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="badge">Menu</span>
+        <h1>Find your favorite.</h1>
+        <p class="muted">Filter by category, then add items to an order inquiry (demo).</p>
+        <div class="filter-group" role="group" aria-label="Filter menu by category" data-menu-filters>
+          <button class="filter-button" type="button" data-category="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-category="coffee" aria-pressed="false">Coffee</button>
+          <button class="filter-button" type="button" data-category="tea" aria-pressed="false">Tea</button>
+          <button class="filter-button" type="button" data-category="pastries" aria-pressed="false">Pastries</button>
+          <button class="filter-button" type="button" data-category="seasonal" aria-pressed="false">Seasonal</button>
+        </div>
+        <div class="toast" role="status" aria-live="polite" hidden data-toast></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="menu-grid" data-menu-items>
+          <article class="menu-item" data-category="coffee" data-item-id="oat-latte">
+            <div class="menu-item-head">
+              <h2 class="menu-item-name">Oat Latte</h2>
+              <span class="price">$4.75</span>
+            </div>
+            <p class="muted">Velvety espresso with toasted-oat sweetness.</p>
+            <ul class="tags" aria-label="Dietary tags">
+              <li class="tag">Dairy-free</li>
+            </ul>
+            <button class="button small add-item" type="button" data-add-item="oat-latte" hidden>Add to order inquiry</button>
+          </article>
+
+          <article class="menu-item" data-category="coffee" data-item-id="cortado">
+            <div class="menu-item-head">
+              <h2 class="menu-item-name">Cortado</h2>
+              <span class="price">$3.75</span>
+            </div>
+            <p class="muted">Equal parts espresso and steamed milk — smooth and focused.</p>
+            <ul class="tags" aria-label="Dietary tags">
+              <li class="tag">GF</li>
+            </ul>
+            <button class="button small add-item" type="button" data-add-item="cortado" hidden>Add to order inquiry</button>
+          </article>
+
+          <article class="menu-item" data-category="coffee" data-item-id="pourover">
+            <div class="menu-item-head">
+              <h2 class="menu-item-name">Single-Origin Pour-Over</h2>
+              <span class="price">$5.00</span>
+            </div>
+            <p class="muted">Bright, clean cup — brewed to order.</p>
+            <ul class="tags" aria-label="Dietary tags">
+              <li class="tag">Vegan</li>
+              <li class="tag">GF</li>
+            </ul>
+            <button class="button small add-item" type="button" data-add-item="pourover" hidden>Add to order inquiry</button>
+          </article>
+
+          <article class="menu-item" data-category="tea" data-item-id="chai-citrus">
+            <div class="menu-item-head">
+              <h2 class="menu-item-name">Chai + Citrus</h2>
+              <span class="price">$4.50</span>
+            </div>
+            <p class="muted">Warm spice with a bright orange lift.</p>
+            <ul class="tags" aria-label="Dietary tags">
+              <li class="tag">GF</li>
+            </ul>
+            <button class="button small add-item" type="button" data-add-item="chai-citrus" hidden>Add to order inquiry</button>
+          </article>
+
+          <article class="menu-item" data-category="tea" data-item-id="matcha-latte">
+            <div class="menu-item-head">
+              <h2 class="menu-item-name">Matcha Latte</h2>
+              <span class="price">$5.25</span>
+            </div>
+            <p class="muted">Stone-ground matcha with a mellow, creamy finish.</p>
+            <ul class="tags" aria-label="Dietary tags">
+              <li class="tag">GF</li>
+            </ul>
+            <button class="button small add-item" type="button" data-add-item="matcha-latte" hidden>Add to order inquiry</button>
+          </article>
+
+          <article class="menu-item" data-category="pastries" data-item-id="almond-croissant">
+            <div class="menu-item-head">
+              <h2 class="menu-item-name">Almond Croissant</h2>
+              <span class="price">$4.25</span>
+            </div>
+            <p class="muted">Buttery layers, toasted almonds, soft center.</p>
+            <ul class="tags" aria-label="Dietary tags">
+              <li class="tag">Vegetarian</li>
+            </ul>
+            <button class="button small add-item" type="button" data-add-item="almond-croissant" hidden>Add to order inquiry</button>
+          </article>
+
+          <article class="menu-item" data-category="pastries" data-item-id="berry-scone">
+            <div class="menu-item-head">
+              <h2 class="menu-item-name">Berry Scone</h2>
+              <span class="price">$3.75</span>
+            </div>
+            <p class="muted">Crisp edges, tender middle, packed with berries.</p>
+            <ul class="tags" aria-label="Dietary tags">
+              <li class="tag">Vegetarian</li>
+            </ul>
+            <button class="button small add-item" type="button" data-add-item="berry-scone" hidden>Add to order inquiry</button>
+          </article>
+
+          <article class="menu-item" data-category="seasonal" data-item-id="maple-cold-brew">
+            <div class="menu-item-head">
+              <h2 class="menu-item-name">Maple Cold Brew</h2>
+              <span class="price">$5.25</span>
+            </div>
+            <p class="muted">Cold brew with maple, a pinch of salt, and vanilla cream.</p>
+            <ul class="tags" aria-label="Dietary tags">
+              <li class="tag">Seasonal</li>
+            </ul>
+            <button class="button small add-item" type="button" data-add-item="maple-cold-brew" hidden>Add to order inquiry</button>
+          </article>
+
+          <article class="menu-item" data-category="seasonal" data-item-id="citrus-tonic">
+            <div class="menu-item-head">
+              <h2 class="menu-item-name">Espresso Citrus Tonic</h2>
+              <span class="price">$5.75</span>
+            </div>
+            <p class="muted">Sparkling tonic with espresso and a twist of citrus.</p>
+            <ul class="tags" aria-label="Dietary tags">
+              <li class="tag">Seasonal</li>
+              <li class="tag">Vegan</li>
+            </ul>
+            <button class="button small add-item" type="button" data-add-item="citrus-tonic" hidden>Add to order inquiry</button>
+          </article>
+        </div>
+
+        <div class="note note-inline">
+          <h2 class="note-title">Want pickup?</h2>
+          <p class="muted">Build an inquiry from the menu, then send it through the order form (demo confirmation).</p>
+          <p><a class="button primary" href="order.html">Order/Reserve</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo logo-footer">
+          <img src="assets/img/logo.svg" alt="Cedar &amp; Steam Coffee logo" width="28" height="28" />
+          <span class="brand-name">Cedar &amp; Steam</span>
+        </div>
+        <p class="small muted">Fictional demo site crafted by LocalByte LLC.</p>
+      </div>
+      <div>
+        <strong>Links</strong>
+        <p class="small">
+          <a class="text-link" href="visit.html">Visit</a><br />
+          <a class="text-link" href="order.html">Order/Reserve</a>
+        </p>
+      </div>
+      <div>
+        <strong>Demo data</strong>
+        <p class="small muted"><a class="text-link" href="assets/data/menu.json">menu.json</a></p>
+      </div>
+      <div>
+        <strong>Contact</strong>
+        <p class="small"><a class="text-link" href="mailto:hello@cedarandsteam.example">hello@cedarandsteam.example</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js?v=1"></script>
+  <script src="assets/js/menu.js?v=1"></script>
+</body>
+</html>
+

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LaunchClock — Countdown Landing Page Generator (Demo)</title>
+  <meta name="description" content="LaunchClock is a demo countdown landing page generator by LocalByte LLC. Configure an event, pick a template + palette, and copy a shareable link." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="LaunchClock generator">
+        <img src="assets/img/logo.svg" alt="LaunchClock logo" width="36" height="36" />
+        <span class="brand-name">LaunchClock</span>
+      </a>
+
+      <nav class="nav-links" id="nav-menu" aria-label="Primary">
+        <a class="active" href="index.html">Generator</a>
+        <a href="countdown.html" aria-label="Countdown page (requires configuration)">Countdown</a>
+        <a href="../../portfolio.html">LocalByte Portfolio</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-pressed="false" title="Toggle theme">
+          <span class="theme-toggle-label">Theme</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" title="Menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="badge">Fictional demo</span>
+          <h1>Create a countdown landing page in minutes.</h1>
+          <p class="muted">Fill out the event details, pick a template + palette, and copy a shareable link. Config lives in the URL.</p>
+          <div class="cta-row">
+            <a class="button secondary" href="../../portfolio.html">Back to portfolio</a>
+          </div>
+        </div>
+        <div class="hero-side" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-title">Shareable links</div>
+            <div class="hero-card-sub">No accounts. No backend.</div>
+            <div class="hero-card-metric">
+              <span class="metric-num" data-hero-metric>07</span>
+              <span class="metric-label">days to launch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="generator-grid">
+          <section class="panel" aria-labelledby="generator-title">
+            <h2 id="generator-title">Generator</h2>
+            <p class="muted small">Required fields: event name and date/time. Optional: description and a call-to-action button.</p>
+
+            <div class="error-summary" data-error-summary role="alert" tabindex="-1" hidden></div>
+
+            <form class="form" data-generator-form novalidate>
+              <div class="field">
+                <label for="event-name">Event name</label>
+                <input id="event-name" name="name" type="text" maxlength="60" required autocomplete="off" />
+                <p class="help small" id="event-name-help">Keep it short and clear (max 60 characters).</p>
+              </div>
+
+              <div class="field">
+                <label for="event-datetime">Event date/time</label>
+                <input id="event-datetime" name="datetime" type="datetime-local" required />
+                <p class="help small" id="event-datetime-help">Uses your current timezone when creating the link.</p>
+              </div>
+
+              <div class="field">
+                <label for="event-desc">Description (optional)</label>
+                <textarea id="event-desc" name="desc" maxlength="180" rows="3"></textarea>
+                <p class="help small" id="event-desc-help">Max 180 characters.</p>
+              </div>
+
+              <fieldset class="fieldset">
+                <legend>Template</legend>
+                <div class="option-grid" data-template-options>
+                  <label class="option-card">
+                    <input type="radio" name="tpl" value="minimal" />
+                    <span class="option-title">Minimal</span>
+                    <span class="option-meta small muted">Clean + centered</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="tpl" value="bold" />
+                    <span class="option-title">Bold</span>
+                    <span class="option-meta small muted">Hero-first</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="tpl" value="elegant" />
+                    <span class="option-title">Elegant</span>
+                    <span class="option-meta small muted">Serif + detail</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="fieldset">
+                <legend>Palette</legend>
+                <div class="option-grid palettes" data-palette-options>
+                  <label class="option-card">
+                    <input type="radio" name="pal" value="teal" />
+                    <span class="swatch" data-swatch="teal" aria-hidden="true"></span>
+                    <span class="option-title">Teal</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="pal" value="plum" />
+                    <span class="swatch" data-swatch="plum" aria-hidden="true"></span>
+                    <span class="option-title">Plum</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="pal" value="sunset" />
+                    <span class="swatch" data-swatch="sunset" aria-hidden="true"></span>
+                    <span class="option-title">Sunset</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="pal" value="slate" />
+                    <span class="swatch" data-swatch="slate" aria-hidden="true"></span>
+                    <span class="option-title">Slate</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="split">
+                <div class="field">
+                  <label for="cta-label">Button label (optional)</label>
+                  <input id="cta-label" name="ctaLabel" type="text" maxlength="24" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label for="cta-url">Button URL (optional)</label>
+                  <input id="cta-url" name="ctaUrl" type="url" inputmode="url" placeholder="https://example.com" autocomplete="off" />
+                  <p class="help small" id="cta-url-help">Must be an absolute URL starting with <code>https://</code>.</p>
+                </div>
+              </div>
+
+              <section class="share-panel" aria-labelledby="share-title">
+                <h3 id="share-title">Share link</h3>
+                <p class="muted small">Copy this URL to open the countdown page in a new tab.</p>
+                <div class="share-row">
+                  <label class="sr-only" for="share-url">Share URL</label>
+                  <input id="share-url" class="share-url" type="text" readonly inputmode="url" aria-describedby="share-status" />
+                  <button class="button primary" type="button" data-copy-link>Copy link</button>
+                  <a class="button secondary" href="countdown.html" target="_blank" rel="noreferrer" data-open-link>Open</a>
+                </div>
+                <p class="small muted" id="share-status" role="status" aria-live="polite" data-share-status></p>
+              </section>
+            </form>
+          </section>
+
+          <section class="panel preview-panel" aria-labelledby="preview-title">
+            <div class="preview-head">
+              <h2 id="preview-title">Live preview</h2>
+              <p class="muted small">This preview uses the same renderer as the shareable countdown page.</p>
+            </div>
+            <div class="preview-surface" data-preview-root></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="small muted">LaunchClock is a fictional demo by LocalByte LLC. Config is stored in the URL; no data leaves your browser.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/url.js?v=1"></script>
+  <script src="assets/js/time.js?v=1"></script>
+  <script src="assets/js/templates.js?v=1"></script>
+  <script src="assets/js/app.js?v=1"></script>
+  <script src="assets/js/generator.js?v=1"></script>
+</body>
+</html>
+

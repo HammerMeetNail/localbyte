@@ -1,0 +1,16 @@
+{
+  "name": "localbyte-site",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "axe-core": "^4.8.4"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:coffee-shop": "playwright test tests/coffee-shop",
+    "test:bytebites": "playwright test tests/bytebites",
+    "test:finance-dashboard": "playwright test tests/finance-dashboard",
+    "test:launchclock": "playwright test tests/launchclock",
+    "test:unit": "node --test tests/unit/*.test.js"
+  }
+}

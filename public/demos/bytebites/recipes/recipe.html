@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recipe | ByteBites</title>
+  <meta name="description" content="ByteBites — recipe detail demo by LocalByte LLC. Print-friendly recipe pages with ingredient scaling." />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        if (stored) document.documentElement.setAttribute("data-theme", stored);
+      } catch (e) {
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+</head>
+<body data-page="recipe">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html" aria-label="ByteBites recipe book">
+        <img src="../assets/img/logo.svg" alt="ByteBites logo" width="36" height="36" />
+        <span class="brand-name">ByteBites</span>
+      </a>
+
+      <nav class="nav-links" id="nav-menu" aria-label="Primary">
+        <a href="../index.html">Recipes</a>
+        <a href="../../../portfolio.html">LocalByte Portfolio</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-pressed="false" title="Toggle theme">
+          <span class="theme-toggle-label">Theme</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" title="Menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="banner" role="status" data-storage-banner hidden>
+    <div class="container banner-inner">
+      <strong>Storage unavailable.</strong>
+      <span>Favorites won’t persist in this browser session.</span>
+    </div>
+  </div>
+
+  <main class="main" id="main">
+    <section class="section">
+      <div class="container">
+        <div class="recipe-shell" data-recipe-shell hidden>
+          <div class="recipe-top">
+            <div class="recipe-top-copy">
+              <p class="kicker" data-recipe-kicker>Recipe</p>
+              <h1 data-recipe-title>Loading…</h1>
+              <p class="muted" data-recipe-desc></p>
+
+              <dl class="meta-row" aria-label="Recipe details">
+                <div class="meta">
+                  <dt>Total</dt>
+                  <dd data-recipe-total>—</dd>
+                </div>
+                <div class="meta">
+                  <dt>Difficulty</dt>
+                  <dd data-recipe-difficulty>—</dd>
+                </div>
+                <div class="meta">
+                  <dt>Cuisine</dt>
+                  <dd data-recipe-cuisine>—</dd>
+                </div>
+              </dl>
+
+              <div class="recipe-actions">
+                <button class="button secondary" type="button" data-favorite aria-pressed="false">Save</button>
+                <a class="button primary" data-cook href="../cook.html">Start cooking mode</a>
+                <button class="button subtle" type="button" data-print>Print recipe</button>
+              </div>
+            </div>
+
+            <figure class="recipe-hero">
+              <img data-recipe-img src="" alt="" width="960" height="640" />
+              <figcaption class="small muted">Fictional photo/illustration. Demo content only.</figcaption>
+            </figure>
+          </div>
+
+          <div class="recipe-grid">
+            <section class="card">
+              <div class="card-head">
+                <h2 class="h3">Ingredients</h2>
+                <div class="servings">
+                  <label class="small" for="servings">Servings</label>
+                  <input id="servings" type="number" min="1" max="20" step="1" inputmode="numeric" data-servings />
+                </div>
+              </div>
+              <ul class="ingredients" data-ingredients></ul>
+            </section>
+
+            <section class="card">
+              <h2 class="h3">Steps</h2>
+              <ol class="steps" data-steps></ol>
+            </section>
+          </div>
+        </div>
+
+        <div class="card empty-state" data-error hidden>
+          <span class="badge">Invalid link</span>
+          <h1>We couldn’t find that recipe.</h1>
+          <p class="muted">Try selecting a recipe from the list page.</p>
+          <div class="cta-row">
+            <a class="button primary" href="../index.html">Back to recipes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="small muted">Print styles included. ByteBites is a fictional demo by LocalByte LLC.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/data.js?v=1"></script>
+  <script src="../assets/js/core.js?v=1"></script>
+  <script src="../assets/js/storage.js?v=1"></script>
+  <script src="../assets/js/app.js?v=1"></script>
+  <script src="../assets/js/recipe.js?v=1"></script>
+</body>
+</html>
+

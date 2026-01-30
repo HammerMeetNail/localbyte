@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-label="Stir fry illustration">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#7ce0c6" stop-opacity="0.65"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="640" fill="#0f1319"/>
+  <rect x="64" y="64" width="832" height="512" rx="48" fill="url(#g)" opacity="0.18"/>
+  <path d="M240 420c60-140 160-210 240-210s180 70 240 210" fill="#121826" stroke="#e9eef8" stroke-opacity="0.18" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="380" cy="350" r="22" fill="#f7c65a" opacity="0.85"/>
+  <circle cx="460" cy="320" r="18" fill="#7ce0c6" opacity="0.85"/>
+  <circle cx="560" cy="360" r="24" fill="#38bdf8" opacity="0.85"/>
+</svg>
+

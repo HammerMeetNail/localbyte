@@ -1,0 +1,78 @@
+{
+  "currency": "USD",
+  "items": [
+    {
+      "id": "oat-latte",
+      "name": "Oat Latte",
+      "category": "coffee",
+      "price": "$4.75",
+      "tags": ["Dairy-free"],
+      "description": "Velvety espresso with toasted-oat sweetness."
+    },
+    {
+      "id": "cortado",
+      "name": "Cortado",
+      "category": "coffee",
+      "price": "$3.75",
+      "tags": ["GF"],
+      "description": "Equal parts espresso and steamed milk — smooth and focused."
+    },
+    {
+      "id": "pourover",
+      "name": "Single-Origin Pour-Over",
+      "category": "coffee",
+      "price": "$5.00",
+      "tags": ["Vegan", "GF"],
+      "description": "Bright, clean cup — brewed to order."
+    },
+    {
+      "id": "chai-citrus",
+      "name": "Chai + Citrus",
+      "category": "tea",
+      "price": "$4.50",
+      "tags": ["GF"],
+      "description": "Warm spice with a bright orange lift."
+    },
+    {
+      "id": "matcha-latte",
+      "name": "Matcha Latte",
+      "category": "tea",
+      "price": "$5.25",
+      "tags": ["GF"],
+      "description": "Stone-ground matcha with a mellow, creamy finish."
+    },
+    {
+      "id": "almond-croissant",
+      "name": "Almond Croissant",
+      "category": "pastries",
+      "price": "$4.25",
+      "tags": ["Vegetarian"],
+      "description": "Buttery layers, toasted almonds, soft center."
+    },
+    {
+      "id": "berry-scone",
+      "name": "Berry Scone",
+      "category": "pastries",
+      "price": "$3.75",
+      "tags": ["Vegetarian"],
+      "description": "Crisp edges, tender middle, packed with berries."
+    },
+    {
+      "id": "maple-cold-brew",
+      "name": "Maple Cold Brew",
+      "category": "seasonal",
+      "price": "$5.25",
+      "tags": ["Seasonal"],
+      "description": "Cold brew with maple, a pinch of salt, and vanilla cream."
+    },
+    {
+      "id": "citrus-tonic",
+      "name": "Espresso Citrus Tonic",
+      "category": "seasonal",
+      "price": "$5.75",
+      "tags": ["Seasonal", "Vegan"],
+      "description": "Sparkling tonic with espresso and a twist of citrus."
+    }
+  ]
+}
+
