@@ -457,24 +457,81 @@
           }
         }
 
+        function normalizeMailto(value) {
+          const trimmed = (value || "").trim();
+          if (!trimmed) {
+            return "";
+          }
+          if (/^mailto:/i.test(trimmed)) {
+            return "mailto:" + trimmed.slice(7);
+          }
+          return "mailto:" + trimmed.replace(/^:+/, "");
+        }
+
+        function copyViaExecCommand(text) {
+          const fallback = document.createElement("textarea");
+          fallback.value = text;
+          fallback.setAttribute("readonly", "readonly");
+          fallback.style.position = "fixed";
+          fallback.style.top = "-9999px";
+          fallback.style.left = "-9999px";
+          fallback.style.opacity = "0";
+          document.body.appendChild(fallback);
+          fallback.focus();
+          fallback.select();
+          fallback.setSelectionRange(0, fallback.value.length);
+          let copied = false;
+          try {
+            copied = document.execCommand("copy");
+          } catch (error) {
+            copied = false;
+          }
+          fallback.remove();
+          return copied;
+        }
+
+        function isIOS() {
+          return (
+            /iPad|iPhone|iPod/.test(window.navigator.userAgent) ||
+            (window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1)
+          );
+        }
+
+        async function copyText(text) {
+          if (isIOS() && copyViaExecCommand(text)) {
+            return true;
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            try {
+              await navigator.clipboard.writeText(text);
+              return true;
+            } catch (error) {
+            }
+          }
+          return copyViaExecCommand(text);
+        }
+
         form.addEventListener("submit", function (event) {
           event.preventDefault();
           generate();
         });
 
         copyLinkBtn.addEventListener("click", async function () {
-          const value = output.value;
+          const value = normalizeMailto(output.value);
           if (!value) {
             setStatus("Generate a link first.", "error");
             return;
           }
-          try {
-            await navigator.clipboard.writeText(value);
+          output.value = value;
+          openLink.href = value;
+          const copied = await copyText(value);
+          if (copied) {
             setStatus("Link copied to clipboard.", "ok");
-          } catch (error) {
+          } else {
             output.focus();
             output.select();
-            setStatus("Clipboard access blocked. Press Ctrl/Cmd+C manually.", "error");
+            output.setSelectionRange(0, output.value.length);
+            setStatus("Clipboard blocked. Copy the full value shown above.", "error");
           }
         });
 
