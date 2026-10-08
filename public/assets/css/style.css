@@ -411,8 +411,11 @@ img {
   gap: 4rem;
   padding-block: 5rem 4rem;
 }
-.hero h1 em {
-  font-weight: 400;
+.hero h1 {
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+.hero-accent {
   color: var(--accent);
 }
 .hero .lead {

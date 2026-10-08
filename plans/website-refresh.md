@@ -15,11 +15,15 @@ business needs, real examples, and the next step ahead of technical details.
 ## Design direction
 
 The visual idea is a welcoming neighborhood studio: warm paper, forest green,
-terracotta, editorial serif headings, and generous space. A custom inline SVG
+terracotta, a clear upright homepage headline, and generous space. Secondary
+headings retain the quieter serif treatment. A custom inline SVG
 illustrates two neighborhood storefronts. It is decorative inspiration, not a
 client claim. Dark mode uses warm green charcoal, cream text, and softer accents.
 
 - Keep the existing LocalByte mark and add a quieter typographic wordmark.
+- Treat the brief's business examples as a standard for ease of use, rather than
+  claims of industry expertise. Describe LocalByte's design and development work
+  directly. Use upright DM Sans for the main headline, with color for emphasis.
 - Use a consistent navigation: Services, Pricing, Our work, About, and Let's talk.
 - Give website design the first position; explain apps and care through everyday
   problems rather than implementation terms.
@@ -58,7 +62,8 @@ simulated actions are explained before the links.
 The site remains plain HTML, CSS, and JavaScript. There is no build step, component
 framework, or new production dependency. Shared navigation and footer markup is
 present directly in every page. The original privacy and terms body copy is
-unchanged. Styles and script references use `v=5` for cache invalidation.
+unchanged. Shared styles use `v=6` and script references use `v=5` for cache
+invalidation.
 
 Review locally with `make local`, then open http://127.0.0.1:9000. Review all pages
 in light and dark mode, with particular attention to mobile Menu navigation,
