@@ -360,3 +360,40 @@ test("clears a submitted draft after Skip to content and preserves later drafts"
   await page.getByRole("link", { name: "Contact", exact: true }).click();
   await expect(page.locator('[name="message"]')).toHaveValue("New unsent draft after success");
 });
+
+test("clears the submitted draft from the hosted clean contact path after Skip to content", async function ({ page }) {
+  var contactHtml = fs.readFileSync(path.join(__dirname, "../../public/contact.html"), "utf8");
+  var thanksHtml = fs.readFileSync(path.join(__dirname, "../../public/thanks.html"), "utf8");
+  var postUrls = [];
+  await page.route("**/*", function (route) {
+    var request = route.request();
+    var pathname = new URL(request.url()).pathname;
+    if (request.method() === "POST") {
+      // Intercept every POST, including an unexpected action destination.
+      postUrls.push(request.url());
+      if (pathname !== "/thanks.html") return route.abort();
+      return route.fulfill({ status: 200, contentType: "text/html", body: thanksHtml });
+    }
+    if (pathname === "/contact") {
+      return route.fulfill({ status: 200, contentType: "text/html", body: contactHtml });
+    }
+    return route.continue();
+  });
+  await page.goto("/contact?service=website-care");
+  await expect(page.locator('select[name="service"]')).toHaveValue("Website Care");
+  var skipLink = page.getByRole("link", { name: "Skip to content" });
+  await skipLink.focus();
+  await skipLink.press("Enter");
+  await expect(page).toHaveURL(/\/contact\?service=website-care#main$/);
+  await fillContact(page);
+  expect(await page.evaluate(function (key) { return sessionStorage.getItem(key); }, draftKey)).not.toBeNull();
+  await page.getByRole("button", { name: "Send your message" }).click();
+  await expect(page.getByRole("heading", { name: "Thanks for saying hello." })).toBeVisible();
+  expect(postUrls.length).toBe(1);
+  expect(new URL(postUrls[0]).pathname).toBe("/thanks.html");
+  expect(await page.evaluate(function () { return new URL(document.referrer).pathname; })).toBe("/contact");
+  await expect.poll(function () {
+    return page.evaluate(function (key) { return sessionStorage.getItem(key); }, draftKey);
+  }).toBeNull();
+  expect(await page.evaluate(function (key) { return sessionStorage.getItem(key + "-submitted"); }, draftKey)).toBeNull();
+});

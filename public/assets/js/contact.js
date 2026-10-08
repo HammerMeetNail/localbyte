@@ -17,7 +17,8 @@
       var referrer = new URL(document.referrer);
       if (submitted && submitted.version === 1 &&
           referrer.origin === window.location.origin &&
-          referrer.pathname === "/contact.html" && submitted.source === referrer.href &&
+          (referrer.pathname === "/contact" || referrer.pathname === "/contact.html") &&
+          submitted.source === referrer.href &&
           typeof submitted.draft === "string" &&
           submitted.draft === sessionStorage.getItem(draftKey)) {
         sessionStorage.removeItem(draftKey);
