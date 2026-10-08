@@ -61,7 +61,7 @@ simulated actions are explained before the links.
 The site remains plain HTML, CSS, and JavaScript. There is no build step, component
 framework, or new production dependency. Shared navigation and footer markup is
 present directly in every page. The original privacy and terms body copy is
-unchanged. Shared styles use `v=7` and script references use `v=5` for cache
+unchanged. Shared styles use `v=8` and script references use `v=5` for cache
 invalidation.
 
 Review locally with `make local`, then open http://127.0.0.1:9000. Review all pages
