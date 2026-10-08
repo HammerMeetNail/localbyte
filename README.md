@@ -29,6 +29,7 @@ The stack is intentionally simple:
 │   ├── *.html               # Main brochure pages
 │   └── site.webmanifest
 ├── tests/                   # Playwright and unit tests
+├── docs/agents/             # Task-specific agent guidance
 ├── plans/                   # Internal planning notes and implementation ideas
 ├── Makefile                 # Convenience command for local dev
 ├── playwright.config.js     # E2E test configuration
@@ -90,4 +91,5 @@ npm run test:launchclock
 
 ## Standards
 
-Repo-specific editing conventions and implementation guidance live in [AGENTS.md](./AGENTS.md).
+Start with [AGENTS.md](./AGENTS.md), then follow its task-specific links for design,
+implementation, and validation guidance.
