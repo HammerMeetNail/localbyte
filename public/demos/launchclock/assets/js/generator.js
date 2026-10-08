@@ -212,10 +212,11 @@
       landing.descEl.hidden = !config.desc;
       landing.descEl.textContent = config.desc || "";
 
-      if (config.ctaLabel && config.ctaUrl) {
+      var ctaCheck = window.LaunchClock.validateHttpsUrl(config.ctaUrl);
+      if (config.ctaLabel && config.ctaUrl && ctaCheck.ok) {
         landing.ctaWrapEl.hidden = false;
         landing.ctaEl.textContent = config.ctaLabel;
-        landing.ctaEl.href = config.ctaUrl;
+        landing.ctaEl.href = ctaCheck.value;
       } else {
         landing.ctaWrapEl.hidden = true;
         landing.ctaEl.textContent = "";

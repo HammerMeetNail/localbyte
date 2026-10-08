@@ -20,6 +20,8 @@
         --accent-strong: #1057c8;
         --danger: #aa2f2f;
         --ok: #2f7f45;
+        --placeholder-bg: #f5f9ff;
+        --placeholder-line: #bdd0ee;
         --radius: 14px;
       }
 
@@ -47,6 +49,7 @@
       }
 
       .card {
+        min-width: 0;
         background: color-mix(in srgb, var(--panel) 88%, white);
         border: 1px solid color-mix(in srgb, var(--line) 90%, white);
         border-radius: var(--radius);
@@ -70,6 +73,16 @@
         margin: 0 0 0.2rem;
         font-size: clamp(1.35rem, 2.3vw, 1.8rem);
         letter-spacing: 0.01em;
+      }
+
+      .demo-context {
+        margin: 0 0 0.8rem;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .demo-context a {
+        color: var(--accent-strong);
       }
 
       .sub {
@@ -165,6 +178,12 @@
         opacity: 0.92;
       }
 
+      button:disabled,
+      .button-link[aria-disabled="true"] {
+        opacity: 0.5;
+        cursor: default;
+      }
+
       .output {
         margin-top: 0.8rem;
       }
@@ -191,8 +210,8 @@
       .qr-shell {
         width: 100%;
         border-radius: 12px;
-        background: linear-gradient(180deg, #ffffff, #f5f9ff);
-        border: 1px dashed #bdd0ee;
+        background: var(--placeholder-bg);
+        border: 1px dashed var(--placeholder-line);
         min-height: 290px;
         display: grid;
         place-items: center;
@@ -207,10 +226,19 @@
       }
 
       #qrContainer {
-        width: 280px;
-        height: 280px;
+        width: min(280px, 100%);
+        aspect-ratio: 1;
+        min-width: 0;
         display: grid;
         place-items: center;
+      }
+
+      .qr-placeholder {
+        margin: 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
       }
 
       .note {
@@ -247,6 +275,7 @@
   <body>
     <main class="wrap">
       <section class="card card-main">
+        <p class="demo-context">LocalByte demo · <a href="../../portfolio.html">Back to portfolio</a></p>
         <h1>Easy Email Link Builder</h1>
         <p class="sub">
           Build a shareable link or QR code that opens a pre-filled email draft in the
@@ -271,14 +300,14 @@
 
           <div class="actions">
             <button class="primary" type="submit">Generate Link + QR</button>
-            <a id="openLink" class="button-link ghost" href="#" rel="noopener">Open Email App</a>
-            <button id="copyLinkBtn" class="ghost" type="button">Copy Link</button>
+            <a id="openLink" class="button-link ghost" role="link" aria-disabled="true" tabindex="-1" rel="noopener">Open Email App</a>
+            <button id="copyLinkBtn" class="ghost" type="button" disabled>Copy Link</button>
           </div>
 
           <div class="output">
             <label for="mailtoOutput">Generated mailto link</label>
             <textarea id="mailtoOutput" readonly placeholder="Your generated mailto link will appear here."></textarea>
-            <div id="status" class="status" aria-live="polite"></div>
+            <div id="status" class="status" aria-live="polite" aria-atomic="true">Enter an email address to get started.</div>
           </div>
         </form>
 
@@ -290,40 +319,42 @@
 
       <aside class="card card-side">
         <div class="qr-shell">
-          <div id="qrContainer" aria-label="Generated QR code"></div>
+          <div id="qrContainer"><p class="qr-placeholder">Your QR code will appear here after you generate a link.</p></div>
         </div>
         <div class="actions">
-          <button id="downloadQrBtn" class="ghost" type="button">Download QR PNG</button>
+          <button id="downloadQrBtn" class="ghost" type="button" disabled>Download QR PNG</button>
         </div>
         <p class="note">
-          Large email bodies can create very long URLs. If scanning or opening fails, shorten the body text.
+          QR codes support links up to 2,300 characters. Long links can also fail in some email apps; shorten the body if needed.
         </p>
       </aside>
     </main>
 
     <script>
       (function () {
-        const form = document.getElementById("builderForm");
-        const toInput = document.getElementById("to");
-        const subjectInput = document.getElementById("subject");
-        const bodyInput = document.getElementById("body");
-        const output = document.getElementById("mailtoOutput");
-        const status = document.getElementById("status");
-        const openLink = document.getElementById("openLink");
-        const copyLinkBtn = document.getElementById("copyLinkBtn");
-        const downloadQrBtn = document.getElementById("downloadQrBtn");
-        const qrContainer = document.getElementById("qrContainer");
-        const qrLibrarySources = [
+        var form = document.getElementById("builderForm");
+        var toInput = document.getElementById("to");
+        var subjectInput = document.getElementById("subject");
+        var bodyInput = document.getElementById("body");
+        var output = document.getElementById("mailtoOutput");
+        var status = document.getElementById("status");
+        var openLink = document.getElementById("openLink");
+        var copyLinkBtn = document.getElementById("copyLinkBtn");
+        var downloadQrBtn = document.getElementById("downloadQrBtn");
+        var qrContainer = document.getElementById("qrContainer");
+        var qrLibrarySources = [
           "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js",
           "https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js",
-          "https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js",
+          "https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"
         ];
-        let qrLoaderPromise = null;
-        let qrCodeInstance = null;
+        var qrLoaderPromise = null;
+        var generationId = 0;
+        var currentFields = null;
+        var qrDataUrl = "";
 
         function buildMailto(to, subject, body) {
-          const recipient = encodeURIComponent(to.trim());
-          const params = [];
+          var recipient = encodeURIComponent(to.trim());
+          var params = [];
           if (subject.trim()) {
             params.push("subject=" + encodeURIComponent(subject.trim()));
           }
@@ -338,20 +369,53 @@
           status.className = "status" + (kind ? " " + kind : "");
         }
 
-        function validateTo(value) {
-          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+        function readFields() {
+          return [toInput.value, subjectInput.value, bodyInput.value];
         }
 
-        function hasQrLibrary() {
-          return typeof window.QRCode === "function";
+        function fieldsMatch(fields) {
+          var latest = readFields();
+          return fields && fields.every(function (value, index) {
+            return value === latest[index];
+          });
+        }
+
+        function clearQr(message) {
+          qrDataUrl = "";
+          downloadQrBtn.disabled = true;
+          qrContainer.removeAttribute("aria-busy");
+          qrContainer.innerHTML = "";
+          var placeholder = document.createElement("p");
+          placeholder.className = "qr-placeholder";
+          placeholder.textContent = message || "Your QR code will appear here after you generate a link.";
+          qrContainer.appendChild(placeholder);
+        }
+
+        function invalidate(message, kind) {
+          // Pending library loads may finish, but their generations no longer own the UI.
+          generationId += 1;
+          currentFields = null;
+          output.value = "";
+          openLink.removeAttribute("href");
+          openLink.setAttribute("aria-disabled", "true");
+          openLink.setAttribute("tabindex", "-1");
+          copyLinkBtn.disabled = true;
+          clearQr();
+          setStatus(message, kind);
+        }
+
+        function ownsGeneration(id, fields) {
+          if (id !== generationId) return false;
+          if (!fieldsMatch(fields)) {
+            invalidate("Details changed. Generate a new link and QR code.");
+            return false;
+          }
+          return true;
         }
 
         function isQrLibraryReady() {
-          return (
-            hasQrLibrary() &&
-            window.QRCode.CorrectLevel &&
-            typeof window.QRCode.CorrectLevel.M !== "undefined"
-          );
+          return typeof window.QRCode === "function" && window.QRCode.CorrectLevel &&
+            typeof window.QRCode.CorrectLevel.M !== "undefined";
         }
 
         function tryLoadQrScript(index, resolve, reject) {
@@ -360,136 +424,168 @@
             return;
           }
 
-          const script = document.createElement("script");
-          script.src = qrLibrarySources[index];
-          script.async = true;
-          script.onload = function () {
-            if (isQrLibraryReady()) {
+          var script = document.createElement("script");
+          var settled = false;
+          var timeout = window.setTimeout(function () { finish(false); }, 8000);
+          function finish(loaded) {
+            if (settled) return;
+            settled = true;
+            window.clearTimeout(timeout);
+            script.onload = null;
+            script.onerror = null;
+            script.remove();
+            if (loaded && isQrLibraryReady()) {
               resolve();
             } else {
               tryLoadQrScript(index + 1, resolve, reject);
             }
-          };
-          script.onerror = function () {
-            tryLoadQrScript(index + 1, resolve, reject);
-          };
+          }
+          script.src = qrLibrarySources[index];
+          script.async = true;
+          script.onload = function () { finish(true); };
+          script.onerror = function () { finish(false); };
           document.head.appendChild(script);
         }
 
         function loadQrLibrary() {
-          if (isQrLibraryReady()) {
-            return Promise.resolve();
-          }
-          if (qrLoaderPromise) {
-            return qrLoaderPromise;
-          }
-
+          if (isQrLibraryReady()) return Promise.resolve();
+          if (qrLoaderPromise) return qrLoaderPromise;
           qrLoaderPromise = new Promise(function (resolve, reject) {
             tryLoadQrScript(0, resolve, reject);
+          }).then(function () {
+            qrLoaderPromise = null;
+          }, function (error) {
+            // A failed attempt must not poison later retries after the network recovers.
+            qrLoaderPromise = null;
+            throw error;
           });
           return qrLoaderPromise;
         }
 
-        function clearQr() {
-          qrContainer.innerHTML = "";
-          qrCodeInstance = null;
+        function renderQr(text) {
+          // Encoded mailto links are ASCII. Stay below QR version 40's medium-
+          // correction capacity rather than relying on the library's overflow error.
+          if (text.length > 2300) throw new Error("QR text is too long");
+          // The library can asynchronously convert canvas to an image. Keep all of
+          // its nodes detached and publish an immutable PNG from this generation.
+          var staging = document.createElement("div");
+          new window.QRCode(staging, {
+            text: text,
+            width: 280,
+            height: 280,
+            colorDark: "#1d2430",
+            colorLight: "#ffffff",
+            correctLevel: window.QRCode.CorrectLevel.M
+          });
+          var canvas = staging.querySelector("canvas");
+          if (!canvas) throw new Error("QR canvas is unavailable");
+          return canvas.toDataURL("image/png");
         }
 
-        async function renderQr(text) {
-          await loadQrLibrary();
-          if (!qrCodeInstance) {
-            qrCodeInstance = new QRCode(qrContainer, {
-              text: "",
-              width: 280,
-              height: 280,
-              colorDark: "#1d2430",
-              colorLight: "#ffffff",
-              correctLevel: QRCode.CorrectLevel.M,
-            });
-          }
-          qrCodeInstance.makeCode(text);
-        }
-
-        function getRenderedQrDataUrl() {
-          const img = qrContainer.querySelector("img");
-          if (img && img.src) {
-            return img.src;
-          }
-          const canvas = qrContainer.querySelector("canvas");
-          if (canvas && typeof canvas.toDataURL === "function") {
-            return canvas.toDataURL("image/png");
-          }
-          return "";
-        }
-
-        async function generate() {
-          const to = toInput.value;
-          const subject = subjectInput.value;
-          const body = bodyInput.value;
-
-          if (!validateTo(to)) {
-            clearQr();
+        function generate() {
+          invalidate("Generating QR code…");
+          var id = generationId;
+          var fields = readFields();
+          if (!toInput.validity.valid || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields[0].trim())) {
             setStatus("Enter a valid destination email address.", "error");
             return;
           }
 
-          const mailto = buildMailto(to, subject, body);
-          output.value = mailto;
-          openLink.href = mailto;
-
+          var mailto;
           try {
-            await renderQr(mailto);
+            mailto = buildMailto(fields[0], fields[1], fields[2]);
           } catch (error) {
-            setStatus(
-              "Could not generate QR code. Check network/CDN access, then retry.",
-              "error"
-            );
+            setStatus("Some text could not be encoded. Check the email details and try again.", "error");
             return;
           }
+          currentFields = fields;
+          output.value = mailto;
+          openLink.href = mailto;
+          openLink.setAttribute("aria-disabled", "false");
+          openLink.removeAttribute("tabindex");
+          copyLinkBtn.disabled = false;
+          clearQr("Generating your QR code…");
+          qrContainer.setAttribute("aria-busy", "true");
 
-          if (mailto.length > 1800) {
-            setStatus(
-              "Generated link is long and may fail in some apps. Consider shortening the body.",
-              "error"
-            );
-          } else {
-            setStatus("Link and QR code are ready.", "ok");
-          }
+          loadQrLibrary().then(function () {
+            if (!ownsGeneration(id, fields)) return;
+            var dataUrl = renderQr(mailto);
+            if (!ownsGeneration(id, fields)) return;
+            var image = document.createElement("img");
+            image.src = dataUrl;
+            image.alt = "QR code for the generated email link";
+            image.width = 280;
+            image.height = 280;
+            qrContainer.innerHTML = "";
+            qrContainer.appendChild(image);
+            qrContainer.removeAttribute("aria-busy");
+            qrDataUrl = dataUrl;
+            downloadQrBtn.disabled = false;
+            if (mailto.length > 1800) {
+              setStatus("Link and QR code are ready. This long link may fail in some apps; consider shortening the body.");
+            } else {
+              setStatus("Link and QR code are ready.", "ok");
+            }
+          }).catch(function (error) {
+            if (!ownsGeneration(id, fields)) return;
+            clearQr("QR code unavailable. Shorten the text or retry generation.");
+            if (/too long|overflow/i.test(error.message)) {
+              setStatus("Link is ready, but the text is too long for a QR code. Shorten the body and generate again.", "error");
+            } else {
+              setStatus("Link is ready, but the QR code could not be generated. Check network/CDN access, then generate again.", "error");
+            }
+          });
         }
 
+        [toInput, subjectInput, bodyInput].forEach(function (input) {
+          input.addEventListener("input", function () {
+            invalidate("Details changed. Generate a new link and QR code.");
+          });
+          input.addEventListener("change", function () {
+            // Enter can submit before blur commits change for the same values.
+            if (!fieldsMatch(currentFields)) {
+              invalidate("Details changed. Generate a new link and QR code.");
+            }
+          });
+        });
+
+        // Native validation prevents submit, so invalid events must also clear results.
+        form.addEventListener("invalid", function () {
+          invalidate("Enter a valid destination email address.", "error");
+        }, true);
         form.addEventListener("submit", function (event) {
           event.preventDefault();
           generate();
         });
 
-        copyLinkBtn.addEventListener("click", async function () {
-          const value = output.value;
-          if (!value) {
-            setStatus("Generate a link first.", "error");
-            return;
-          }
-          try {
-            await navigator.clipboard.writeText(value);
-            setStatus("Link copied to clipboard.", "ok");
-          } catch (error) {
+        copyLinkBtn.addEventListener("click", function () {
+          if (!output.value || !ownsGeneration(generationId, currentFields)) return;
+          var value = output.value;
+          var id = generationId;
+          var fields = currentFields;
+          function manualCopy() {
+            if (!ownsGeneration(id, fields)) return;
             output.focus();
             output.select();
             setStatus("Clipboard access blocked. Press Ctrl/Cmd+C manually.", "error");
           }
+          if (!navigator.clipboard || typeof navigator.clipboard.writeText !== "function") {
+            manualCopy();
+            return;
+          }
+          try {
+            navigator.clipboard.writeText(value).then(function () {
+              if (ownsGeneration(id, fields)) setStatus("Link copied to clipboard.", "ok");
+            }).catch(manualCopy);
+          } catch (error) {
+            manualCopy();
+          }
         });
 
         downloadQrBtn.addEventListener("click", function () {
-          if (!output.value) {
-            setStatus("Generate a link first.", "error");
-            return;
-          }
-          const dataUrl = getRenderedQrDataUrl();
-          if (!dataUrl) {
-            setStatus("QR image is not ready yet. Generate again.", "error");
-            return;
-          }
-          const link = document.createElement("a");
-          link.href = dataUrl;
+          if (!qrDataUrl || !ownsGeneration(generationId, currentFields)) return;
+          var link = document.createElement("a");
+          link.href = qrDataUrl;
           link.download = "email-link-qr.png";
           document.body.appendChild(link);
           link.click();
@@ -498,9 +594,8 @@
         });
 
         openLink.addEventListener("click", function (event) {
-          if (!output.value) {
+          if (!output.value || !ownsGeneration(generationId, currentFields)) {
             event.preventDefault();
-            setStatus("Generate a link first.", "error");
           }
         });
       })();

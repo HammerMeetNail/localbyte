@@ -90,8 +90,11 @@
     });
 
     document.addEventListener("keydown", function (e) {
-      if (e.key !== "Escape") return;
+      if (e.key !== "Escape" || e.defaultPrevented) return;
       if (!isOpen()) return;
+      // Cooking mode dismisses its open step list before another overlay.
+      if (qs("[data-jump][open]")) return;
+      e.preventDefault();
       close();
       toggle.focus();
     });

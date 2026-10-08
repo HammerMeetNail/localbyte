@@ -13,6 +13,7 @@
 
   --lc-primary: #19726a;
   --lc-primary-2: #0ea5a0;
+  --lc-button-bg: #19726a;
   --lc-accent: #f4b400;
   --lc-accent-2: #ffe29a;
 
@@ -43,6 +44,8 @@ body {
     radial-gradient(1200px 700px at 20% -10%, rgba(25, 114, 106, 0.12), transparent 55%),
     radial-gradient(900px 600px at 110% 30%, rgba(244, 180, 0, 0.1), transparent 50%),
     var(--lc-bg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   line-height: 1.5;
 }
 
@@ -207,12 +210,13 @@ textarea:focus-visible {
 
 .generator-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
 
 .panel {
+  min-width: 0;
   border: 1px solid var(--lc-border);
   border-radius: var(--lc-radius);
   background: var(--lc-card);
@@ -229,13 +233,23 @@ textarea:focus-visible {
 .help { margin: 0.35rem 0 0; }
 .field input,
 .field textarea,
-.share-url {
+.share-url,
+.signup-form input {
   width: 100%;
+  min-width: 0;
   padding: 0.75rem 0.85rem;
   border-radius: 12px;
   border: 1px solid var(--lc-border);
   background: var(--lc-card-2);
   color: var(--lc-ink);
+}
+
+.field input::placeholder,
+.field textarea::placeholder,
+.share-url::placeholder,
+.signup-form input::placeholder {
+  color: var(--lc-muted);
+  opacity: 1;
 }
 
 .split {
@@ -245,6 +259,7 @@ textarea:focus-visible {
 }
 
 .fieldset {
+  min-width: 0;
   border: 1px solid var(--lc-border);
   border-radius: 14px;
   padding: 0.85rem;
@@ -299,7 +314,7 @@ textarea:focus-visible {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .button.primary {
-  background: linear-gradient(135deg, var(--lc-primary), var(--lc-primary-2));
+  background: var(--lc-button-bg, var(--lc-primary));
   border-color: transparent;
   color: #fff;
 }
@@ -347,24 +362,28 @@ textarea:focus-visible {
 .lc-root[data-pal="teal"] {
   --lc-primary: #19726a;
   --lc-primary-2: #0ea5a0;
+  --lc-button-bg: #19726a;
   --lc-accent: #f4b400;
   --lc-accent-2: #ffe29a;
 }
 .lc-root[data-pal="plum"] {
   --lc-primary: #6a33b8;
   --lc-primary-2: #9a6df0;
+  --lc-button-bg: #6a33b8;
   --lc-accent: #ffb3d9;
   --lc-accent-2: #ffe0f0;
 }
 .lc-root[data-pal="sunset"] {
   --lc-primary: #ff5c3a;
   --lc-primary-2: #ff8d4c;
+  --lc-button-bg: #b9361b;
   --lc-accent: #ffd36b;
   --lc-accent-2: #fff0c2;
 }
 .lc-root[data-pal="slate"] {
   --lc-primary: #2552d8;
   --lc-primary-2: #5f86ff;
+  --lc-button-bg: #2552d8;
   --lc-accent: #9fb6ff;
   --lc-accent-2: #dbe4ff;
 }
@@ -488,6 +507,7 @@ textarea:focus-visible {
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.06);
+  color: var(--lc-ink);
   text-decoration: none;
   font-weight: 700;
 }
