@@ -1,6 +1,6 @@
 # Goodform concept
 
-Goodform is a fictional independent bookkeeping consultant concept for the LocalByte Starter Website tier. The one-page site has five sections: introduction, services, working approach, about, and inquiry. Its navy, sky, and cream editorial identity uses an original CSS ledger illustration and system fonts.
+Goodform is a fictional independent bookkeeping consultant concept for the LocalByte Starter Website tier. The one-page site has five sections: introduction, services, approach, about, and inquiry. Its white, near-black, and cobalt identity uses large sans-serif typography, monospace labels, and a ruled report-style sample graphic.
 
 ## Route
 

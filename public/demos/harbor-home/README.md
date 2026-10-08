@@ -1,21 +1,15 @@
 # Harbor Home — Business Website example
 
-A fictional home-maintenance business concept showing the scope and finish of a multi-page Business Website. Harbor Home uses a warm cream, ink, and copper palette, with practical service explanations, an illustrative service-area map, and a clear inquiry path.
+Harbor Home is a fictional home-maintenance service concept. The visual direction is a practical service desk: compact navigation, task labels, a browsable service directory, work-order steps, service limits, and a short request form.
 
 ## Pages
 
-- `index.html` — overview, service summary, process, and illustrative service area
-- `services.html` — seasonal checks, small repairs, task-list planning, and service boundaries
-- `about.html` — fictional business approach, values, and example service-area notes
-- `faq.html` — answers about fit, scope, coverage, and the inquiry process
-- `contact.html` — required-field inquiry form with local preview only
+- `index.html` — task choices, work-order sequence, and example coverage note
+- `services.html` — detailed task directory with scope boundaries
+- `about.html` — working standards and fictional coverage register
+- `faq.html` — task, coverage, and request answers
+- `contact.html` — native-validated local inquiry preview
 
-## Scope shown
+The five pages use responsive HTML, CSS, and vanilla JavaScript. The only form response is rendered in the current browser page; the demo does not submit, store, or send entered details. With JavaScript disabled, the request button remains disabled and the explanatory note stays visible. Main navigation remains available without JavaScript.
 
-The concept demonstrates five responsive pages, basic content planning, lightly edited sample copy, a linked inquiry flow, search-friendly page titles and descriptions, and native HTML/CSS/JavaScript. The service neighborhoods, company, and business details are fictional. No testimonials, address, license, rating, availability, or results are claimed.
-
-The form uses browser validation and then renders a preview in the current page. It does not submit, contact anyone, open an email app, or store the entered details. Without JavaScript, the submit button stays disabled and an explanation remains visible. The navigation and site content remain available without JavaScript.
-
-## Local preview
-
-From the repository root, use the already configured local static preview and open `/demos/harbor-home/index.html`. There are no dependencies or build steps.
+All business details and neighborhood names are fictional. The website makes no claims about real availability, addresses, credentials, ratings, results, or customers. Use `/demos/harbor-home/index.html` in the repository's existing preview server; no dependencies or build step are required.

@@ -1,6 +1,6 @@
 # Juniper Yard concept
 
-Juniper Yard is a fictional neighborhood garden and yard-care concept for the LocalByte Starter Website tier. The single-page site has five sections: introduction, care offerings, gardening approach, story, and inquiry. It uses an original inline garden illustration and local system fonts.
+Juniper Yard is a fictional neighborhood garden and yard-care concept for the LocalByte Starter Website tier. The one-page site has five sections: poster introduction, care offerings, seasonal rhythm, working approach, and inquiry. Its identity uses sunny poster color, chunky rounded system type, and small original seed-packet and leaf illustrations.
 
 ## Route
 

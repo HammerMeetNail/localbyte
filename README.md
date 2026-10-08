@@ -91,7 +91,9 @@ The Pricing and Our Work pages connect each website tier to two full concept sit
 All six businesses are fictional. Demo forms validate and render locally; they do
 not send or save inquiries. Each demo README documents routes and interactions.
 Package amounts stay in central pricing. Portfolio thumbnails are actual browser
-captures of these sites, and each demo keeps its own design and assets.
+captures of these sites, and each demo keeps its own design and assets. The
+[design directions and image provenance](docs/design/website-examples.md) explain
+the six customer journeys and the fictional concept photography.
 
 Nabu is the live installable PWA example; Year of Bingo is the live browser-app
 example. Both are independent LocalByte products whose complete feature sets are

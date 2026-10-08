@@ -1,37 +1,161 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Northline Studio | Northline Studio — Business Website example</title>
-  <meta name="description" content="Share a first thought about your interior project through the Northline Studio local-only inquiry preview." />
-  <meta name="theme-color" content="#f2f0eb" />
-  <link rel="stylesheet" href="assets/css/site.css" />
-</head>
-<body class="northline">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="Northline Studio, home"><span class="brand-mark" aria-hidden="true">N / S</span><span>Northline Studio<small>INTERIORS · OBJECTS · SPACE</small></span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-lines" aria-hidden="true"><i></i><i></i></span><span class="menu-label">Menu</span></button>
-      <nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="work.html">Work</a>
-<a href="about.html">About</a>
-<a href="contact.html" aria-current="page">Contact</a><a class="nav-contact" href="contact.html">Start a conversation <span aria-hidden="true">↗</span></a></nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Contact Northline Studio about an interiors project | Northline Studio —
+      Business Website example
+    </title>
+    <meta
+      name="description"
+      content="Send a first project thought through Northline Studio’s local-only inquiry preview."
+    />
+    <meta name="theme-color" content="#f1f0ec" />
+    <link rel="stylesheet" href="assets/css/site.css?v=3" />
+  </head>
+  <body class="northline">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site-layout">
+      <header class="site-header">
+        <div class="rail-top">
+          <a
+            class="brand"
+            href="index.html"
+            aria-label="Northline Studio, overview"
+            ><span class="brand-mark" aria-hidden="true">N<span>/</span>S</span
+            ><span class="brand-name"
+              >Northline<small>INTERIORS STUDIO</small></span
+            ></a
+          ><button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+          >
+            <span class="menu-lines" aria-hidden="true"><i></i><i></i></span
+            ><span class="menu-label">Menu</span>
+          </button>
+        </div>
+        <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+          <a href="index.html"><span>01</span>Overview</a
+          ><a href="services.html"><span>02</span>Services</a
+          ><a href="work.html"><span>03</span>Selected study</a
+          ><a href="about.html"><span>04</span>Studio</a
+          ><a href="contact.html" aria-current="page"
+            ><span aria-hidden="true"></span>Contact</a
+          >
+        </nav>
+        <div class="rail-bottom">
+          <a href="../../pricing.html#business-website"
+            >Business Website example <span aria-hidden="true">↗</span></a
+          ><small
+            >Fictional interiors studio<br />Concept website by LocalByte</small
+          >
+        </div>
+      </header>
+      <div class="main-shell">
+        <main id="main">
+          <section class="inner-page north-contact">
+            <header class="page-top">
+              <span class="eyebrow">A FIRST NOTE</span
+              ><span class="page-count">05 — 05</span>
+            </header>
+            <h1>Tell us about<br /><em>your space.</em></h1>
+            <p class="page-lead">
+              A room, a layout question, or an early idea is plenty to begin.
+              This concept form previews locally and does not send or save your
+              details.
+            </p>
+            <div class="contact-columns">
+              <aside>
+                <span class="eyebrow">A FEW STARTING POINTS</span>
+                <ol>
+                  <li>Which space are you thinking about?</li>
+                  <li>What would you like it to do differently?</li>
+                  <li>What detail feels most important?</li>
+                </ol>
+                <small
+                  >Northline Studio is fictional and has no real contact address
+                  or availability.</small
+                >
+              </aside>
+              <div class="form-frame">
+                <form class="inquiry-form" data-preview-form>
+                  <label for="name"
+                    >Name <span aria-hidden="true">*</span
+                    ><input
+                      id="name"
+                      name="name"
+                      autocomplete="name"
+                      required
+                      maxlength="80" /></label
+                  ><label for="email"
+                    >Email <span aria-hidden="true">*</span
+                    ><input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      required
+                      maxlength="120" /></label
+                  ><label for="project"
+                    >Project focus <span class="optional">Optional</span
+                    ><select id="project" name="project">
+                      <option value="">Choose if helpful</option>
+                      <option>One room</option>
+                      <option>Spatial planning</option>
+                      <option>Materials and color</option>
+                      <option>Whole home</option>
+                      <option>Still exploring</option>
+                    </select></label
+                  ><label for="message"
+                    >A first thought about your space
+                    <span aria-hidden="true">*</span
+                    ><textarea
+                      id="message"
+                      name="message"
+                      rows="6"
+                      required
+                      maxlength="1200"
+                      placeholder="What would you like to rethink?"
+                    ></textarea>
+                  </label>
+                  <p class="form-help">
+                    Your browser checks the required fields. Please leave out
+                    sensitive information.
+                  </p>
+                  <button class="button button-ink" type="submit" disabled>
+                    Preview inquiry <span aria-hidden="true">↗</span>
+                  </button>
+                  <p class="no-script">
+                    JavaScript is off, so this demo form is unavailable. Your
+                    details are not sent.
+                  </p>
+                  <div
+                    class="preview-box"
+                    data-preview
+                    aria-live="polite"
+                    hidden
+                  ></div>
+                </form>
+              </div>
+            </div>
+          </section>
+        </main>
+        <footer class="site-footer">
+          <span>NORTHLINE STUDIO / FICTIONAL PRACTICE</span>
+          <nav aria-label="Footer navigation">
+            <a href="index.html">Overview</a><a href="services.html">Services</a
+            ><a href="work.html">Selected study</a
+            ><a href="about.html">Studio</a><a href="contact.html">Contact</a>
+          </nav>
+          <a href="../../contact.html?service=business-website"
+            >Discuss a site like this <span aria-hidden="true">↗</span></a
+          >
+        </footer>
+      </div>
     </div>
-    <div class="demo-strip"><span>Fictional studio · concept website by LocalByte</span><a href="../../pricing.html#business-website">Business Website example <span aria-hidden="true">↗</span></a></div>
-  </header>
-  <main id="main"><section class="north-page-intro north-contact-intro"><p class="eyebrow">04 / CONTACT</p><h1>A good place to<br />begin is <em>here.</em></h1><p class="intro">Share what you are thinking about and what your space needs to do. This is a local form preview; nothing is sent or saved.</p></section>
-<section class="north-contact-grid"><aside class="contact-aside"><span class="aside-index">FIRST BRIEF / 01</span><h2>Tell us about<br />the room.</h2><p>It might be one room, a layout question, or a larger idea. Start wherever it feels easiest.</p><div class="prompt-list"><span><i>01</i> What space are you thinking about?</span><span><i>02</i> What would you like to change?</span><span><i>03</i> What matters most to you?</span></div><small>Northline is a fictional studio. No contact details or appointment availability are represented.</small></aside><div class="north-form-wrap"><form class="inquiry-form" data-preview-form><label for="name">Name <span aria-hidden="true">*</span><input id="name" name="name" autocomplete="name" required maxlength="80" /></label><label for="email">Email <span aria-hidden="true">*</span><input id="email" name="email" type="email" autocomplete="email" required maxlength="120" /></label><label for="project">Project type <span class="optional">Optional</span><select id="project" name="project"><option value="">Choose if helpful</option><option>One room</option><option>Whole home</option><option>Space planning</option><option>Materials and color</option><option>Still exploring</option></select></label><label for="message">What are you imagining? <span aria-hidden="true">*</span><textarea id="message" name="message" rows="6" required maxlength="1200" placeholder="A few first thoughts are plenty."></textarea></label><p class="form-help">Please do not include private or sensitive information.</p><button class="button button-indigo" type="submit" disabled>Preview inquiry <span aria-hidden="true">↗</span></button><p class="no-script">JavaScript is off, so this demo form is unavailable. Your details are not sent.</p><div class="preview-box" data-preview aria-live="polite" hidden></div></form><p class="simulation-note">LOCAL PREVIEW ONLY <span>— No send, storage, or email link is involved.</span></p></div></section></main>
-  <footer class="site-footer">
-    <div class="footer-main"><div><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">N / S</span><span>Northline Studio<small>INTERIORS · OBJECTS · SPACE</small></span></a><p>A fictional interiors studio concept, built to show how a multi-page business website can give a small practice room to explain its approach and work.</p></div><nav aria-label="Footer navigation"><a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="work.html">Work</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a></nav><div class="footer-cta"><span>Have a business website in mind?</span><a href="../../contact.html?service=business-website">Discuss a site like this <span aria-hidden="true">↗</span></a></div></div>
-    <div class="footer-bottom"><span>Concept website by LocalByte · all business details shown here are fictional.</span><a href="../../pricing.html#business-website">See the Business Website package</a></div>
-  </footer>
-  <script src="assets/js/site.js" defer></script>
-</body>
+    <script src="assets/js/site.js?v=2" defer></script>
+  </body>
 </html>
