@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Try a guided, local inquiry review. This demonstration does not send a message or make a booking. Gatherwell is a fictional Business Website Plus concept."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <title>Gatherwell — Inquire</title>
+    <link rel="stylesheet" href="assets/site.css?v=1" />
+    <script src="assets/site.js?v=1" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="example-bar">
+      <span>Fictional business / Concept website</span
+      ><a href="../../pricing.html#business-plus"
+        >Business Website Plus example <span aria-hidden="true">↗</span></a
+      >
+    </div>
+    <header class="site-header">
+      <a class="brand" href="index.html"
+        ><span class="brand-mark" aria-hidden="true">g.</span
+        ><span>Gatherwell<small>A place to gather</small></span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a><a href="spaces.html">Spaces</a
+        ><a href="gatherings.html">Gatherings</a
+        ><a href="gallery.html">Gallery</a><a href="planning.html">Planning</a
+        ><a href="faq.html">FAQ</a><a href="about.html">About</a
+        ><a href="inquiry.html" aria-current="page">Inquire</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero inner-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">08 / Inquire</p>
+          <h1>Tell us what brings you together.</h1>
+          <p class="hero-description">
+            Try a guided, local inquiry review. This demonstration does not send
+            a message or make a booking.
+          </p>
+        </div>
+        <div class="hero-art">
+          <img
+            src="assets/hall.svg"
+            alt="Original architectural venue illustration"
+            width="800"
+            height="560"
+          /><span class="art-label"
+            >An imagined setting / Original illustration</span
+          >
+        </div>
+      </section>
+      <div class="page-content">
+        <section class="section inquiry-layout">
+          <div class="inquiry-intro">
+            <p class="eyebrow">A guided first step</p>
+            <h2>A useful starting point.</h2>
+            <p>
+              Tell the story of your occasion, then review a sample inquiry.
+            </p>
+            <p>
+              Choose a request type to see relevant questions. You can add a
+              preferred next step, then review everything locally.
+            </p>
+            <div class="sample-note">
+              <strong>Sample inquiry only</strong>
+              <p>Use fictional details. Nothing is sent, saved, or booked.</p>
+            </div>
+            <p class="small">
+              A real website would use the agreed business process for receiving
+              inquiries. This concept shows the journey.
+            </p>
+          </div>
+          <div>
+            <form id="inquiry-form" data-demo="gatherwell">
+              <fieldset>
+                <legend>01 / Your starting point</legend>
+                <label for="request-type">What are you planning?</label
+                ><select id="request-type" name="request-type" required>
+                  <option value="">Choose a request type</option>
+                  <option value="celebration">Celebration</option>
+                  <option value="meeting">Meeting or workshop</option>
+                  <option value="visit">Venue visit</option>
+                </select>
+                <div class="two-fields">
+                  <div>
+                    <label for="name">Sample name</label
+                    ><input
+                      id="name"
+                      name="name"
+                      autocomplete="off"
+                      required
+                      maxlength="100"
+                      placeholder="Alex Example"
+                    />
+                  </div>
+                  <div>
+                    <label for="email">Sample email</label
+                    ><input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="off"
+                      required
+                      maxlength="254"
+                      placeholder="alex@example.com"
+                    />
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset
+                class="conditional-fields"
+                data-request="celebration"
+                disabled
+              >
+                <legend>Celebration details</legend>
+                <label for="occasion">What is the occasion?</label
+                ><select id="occasion" name="occasion" data-required>
+                  <option value="">Choose an occasion</option>
+                  <option>A milestone or anniversary</option>
+                  <option>A family gathering</option>
+                  <option>A shared meal</option>
+                  <option>Another celebration</option></select
+                ><label for="guests"
+                  >Approximate guest count <span>(optional)</span></label
+                ><input
+                  id="guests"
+                  name="guests"
+                  type="number"
+                  min="1"
+                  max="10000"
+                  step="1"
+                  placeholder="For planning context only"
+                />
+              </fieldset>
+              <fieldset
+                class="conditional-fields"
+                data-request="meeting"
+                disabled
+              >
+                <legend>Meeting details</legend>
+                <label for="meeting-format"
+                  >What format do you have in mind?</label
+                ><select
+                  id="meeting-format"
+                  name="meeting-format"
+                  data-required
+                >
+                  <option value="">Choose a format</option>
+                  <option>Team conversation</option>
+                  <option>Workshop or learning day</option>
+                  <option>Talk or community gathering</option></select
+                ><label for="equipment"
+                  >Equipment needs <span>(optional)</span></label
+                ><input
+                  id="equipment"
+                  name="equipment"
+                  maxlength="160"
+                  placeholder="For example, a display or writing space"
+                />
+              </fieldset>
+              <fieldset
+                class="conditional-fields"
+                data-request="visit"
+                disabled
+              >
+                <legend>Visit details</legend>
+                <label for="visit-focus">What would you like to explore?</label
+                ><select id="visit-focus" name="visit-focus" data-required>
+                  <option value="">Choose a focus</option>
+                  <option>Spaces for a celebration</option>
+                  <option>Spaces for a meeting</option>
+                  <option>General venue suitability</option>
+                </select>
+              </fieldset>
+              <fieldset>
+                <legend>02 / A little context</legend>
+                <label for="period"
+                  >Preferred period
+                  <span>(optional; no availability check)</span></label
+                ><input
+                  id="period"
+                  name="period"
+                  maxlength="100"
+                  placeholder="For example, next autumn"
+                /><label for="context"
+                  >Tell us about the gathering <span>(optional)</span></label
+                ><textarea
+                  id="context"
+                  name="context"
+                  rows="4"
+                  maxlength="1200"
+                  placeholder="What would make the occasion feel right?"
+                ></textarea>
+              </fieldset>
+              <fieldset>
+                <legend>03 / Your next step</legend>
+                <label class="check-label"
+                  ><input
+                    type="checkbox"
+                    id="add-next-step"
+                    name="add-next-step"
+                  />
+                  Add a preferred next step <span>(optional)</span></label
+                >
+                <div id="next-step-fields" hidden>
+                  <label for="next-step">How would you like to begin?</label
+                  ><select id="next-step" name="next-step" disabled>
+                    <option>A conversation first</option>
+                    <option>A visit, if suitable</option>
+                    <option>Written information first</option>
+                  </select>
+                </div>
+                <p class="small">
+                  This is a preference for the sample review. It does not
+                  arrange an appointment.
+                </p>
+              </fieldset>
+              <div class="form-actions">
+                <button
+                  class="button"
+                  id="review-button"
+                  type="submit"
+                  disabled
+                >
+                  Review sample inquiry</button
+                ><button class="quiet-button" type="reset">Clear form</button>
+              </div>
+              <noscript
+                ><p class="sample-note">
+                  JavaScript is needed for this local demonstration. Explore the
+                  other pages or use the LocalByte discussion link below.
+                </p></noscript
+              >
+              <p
+                id="form-status"
+                class="small"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </form>
+            <section
+              id="inquiry-review"
+              class="review-panel"
+              hidden
+              aria-labelledby="review-heading"
+            >
+              <p class="eyebrow">Local review / Nothing sent</p>
+              <h2 id="review-heading" tabindex="-1">Your sample inquiry.</h2>
+              <p>
+                Check the details below. This is a preview of a first
+                conversation, not a submitted inquiry.
+              </p>
+              <dl id="review-summary"></dl>
+              <div class="sample-handoff">
+                <span class="eyebrow">Sample existing-tool handoff</span>
+                <h3>Venue conversation</h3>
+                <p>
+                  A real venue could share its existing scheduling link after
+                  reviewing an inquiry. One provider would be configured by
+                  agreement, with the venue managing availability.
+                </p>
+                <p class="small">
+                  Preview only: no provider is connected, no booking link is
+                  active, and no availability is shown.
+                </p>
+                <span class="handoff-preview"
+                  >An agreed provider link would appear here
+                  <span aria-hidden="true">↗</span></span
+                >
+              </div>
+              <button class="quiet-button" id="edit-inquiry" type="button">
+                Back to edit
+              </button>
+            </section>
+          </div>
+        </section>
+        <section class="closing-panel">
+          <p class="eyebrow">Your next gathering</p>
+          <h2>Give your idea a place to begin.</h2>
+          <p>Share the occasion and explore a thoughtful first step.</p>
+          <a class="button" href="inquiry.html">Try the sample inquiry</a>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div>
+        <a class="footer-brand" href="index.html">Gatherwell</a>
+        <p>Come together. Stay a little longer.</p>
+      </div>
+      <div class="footer-note">
+        <p>
+          Fictional concept. All spaces, garden studies, and business details
+          are samples. No inquiry is sent or booking made.
+        </p>
+        <a href="../../contact.html?service=business-plus"
+          >Discuss a site like this <span aria-hidden="true">↗</span></a
+        >
+      </div>
+      <p class="footer-line">
+        Eight connected pages · Guided inquiry · Sample existing-tool handoff
+      </p>
+    </footer>
+  </body>
+</html>

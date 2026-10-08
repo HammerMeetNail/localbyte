@@ -78,6 +78,25 @@ npm run test:finance-dashboard
 npm run test:launchclock
 ```
 
+## Website package examples
+
+The Pricing and Our Work pages connect each website tier to two full concept sites:
+
+| Package | Examples | Demonstrated scope |
+| --- | --- | --- |
+| Starter Website | [Juniper Yard](public/demos/juniper-yard/README.md), [Goodform](public/demos/goodform/README.md) | One page, five sections, simple inquiry preview |
+| Business Website | [Harbor Home](public/demos/harbor-home/README.md), [Northline Studio](public/demos/northline/README.md) | Five pages, navigation, service/story content, simple inquiry preview |
+| Business Website Plus | [Fieldwork](public/demos/fieldwork/README.md), [Gatherwell](public/demos/gatherwell/README.md) | Eight pages, conditional inquiry/review, static example of an existing-tool handoff |
+
+All six businesses are fictional. Demo forms validate and render locally; they do
+not send or save inquiries. Each demo README documents routes and interactions.
+Package amounts stay in central pricing. Portfolio thumbnails are actual browser
+captures of these sites, and each demo keeps its own design and assets.
+
+Nabu is the live installable PWA example; Year of Bingo is the live browser-app
+example. Both are independent LocalByte products whose complete feature sets are
+beyond the starting scope of a focused application project.
+
 ## Deployment Notes
 
 - The site is fully static and can be deployed to any standard static host.

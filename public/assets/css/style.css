@@ -623,12 +623,22 @@ a.work-visual:hover img {
   text-transform: uppercase;
   margin-bottom: 0.55rem;
 }
-.work-copy h3 {
+.work-copy h3,
+.work-copy h4 {
   margin-bottom: 0.65rem;
 }
 .work-copy > p {
   max-width: 35rem;
   font-size: 0.95rem;
+}
+.work-copy h4 {
+  font-size: 1.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.work-copy .example-takeaway {
+  margin-top: 0.9rem;
+  font-size: 0.88rem;
 }
 .work-copy .text-link {
   margin-top: 0.5rem;
@@ -832,6 +842,54 @@ a.work-visual:hover img {
 .portfolio-page .invitation {
   margin-block: 0;
 }
+/* Package-linked examples share the portfolio's existing rhythm and grids. */
+.website-example-group {
+  border-top: 1px solid var(--border);
+  padding-top: var(--content-gap);
+  margin-top: var(--section-gap);
+}
+.website-example-group:first-of-type {
+  margin-top: 0;
+}
+.example-group-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem 2rem;
+  flex-wrap: wrap;
+  margin-bottom: var(--content-gap);
+}
+.example-group-heading > div {
+  flex: 1 1 30rem;
+}
+.example-group-heading h3 {
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
+}
+.example-group-heading p {
+  max-width: 45rem;
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+}
+.example-group-heading > .text-link {
+  flex: 0 1 auto;
+  font-size: 0.9rem;
+}
+.website-preview {
+  aspect-ratio: 1280 / 900;
+}
+.example-scope {
+  margin-top: var(--content-gap);
+}
+.website-example-group,
+#website-examples,
+#web-app-examples,
+#nabu,
+#year-of-bingo {
+  scroll-margin-top: 7rem;
+}
+.service-example-note {
+  margin-block: 0 var(--content-gap);
+}
 .service-detail {
   display: grid;
   grid-template-columns: 0.8fr 1.25fr 1fr;
@@ -975,6 +1033,26 @@ a.work-visual:hover img {
 }
 .package-details p {
   margin-top: 0.75rem;
+}
+.package-examples {
+  display: grid;
+  gap: 0.55rem;
+  padding-top: 1rem;
+  margin-bottom: 1.4rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+.package-examples strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.package-examples a {
+  width: fit-content;
+  text-underline-offset: 0.2em;
+}
+.package-examples p {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
 }
 .price-card .button {
   font-size: 0.85rem;

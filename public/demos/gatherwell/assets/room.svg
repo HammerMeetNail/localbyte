@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
+  <rect width="800" height="560" fill="#aa787a" />
+  <path d="M0 0h800v55H0zM0 339h800v221H0z" fill="#55364c" />
+  <path d="M0 560 245 340h310l245 220" fill="#edd7c8" />
+  <path d="M70 340V174a58 58 0 0 1 116 0v166Z" fill="#55364c" />
+  <path d="M82 340V174a46 46 0 0 1 92 0v166Z" fill="#edd7c8" />
+  <path d="M128 128v212M82 224h92" stroke="#aa787a" stroke-width="5" />
+  <path d="M245 340V174a58 58 0 0 1 116 0v166Z" fill="#55364c" />
+  <path d="M257 340V174a46 46 0 0 1 92 0v166Z" fill="#edd7c8" />
+  <path d="M303 128v212M257 224h92" stroke="#aa787a" stroke-width="5" />
+  <path d="M420 340V174a58 58 0 0 1 116 0v166Z" fill="#55364c" />
+  <path d="M432 340V174a46 46 0 0 1 92 0v166Z" fill="#edd7c8" />
+  <path d="M478 128v212M432 224h92" stroke="#aa787a" stroke-width="5" />
+  <path d="M595 340V174a58 58 0 0 1 116 0v166Z" fill="#55364c" />
+  <path d="M607 340V174a46 46 0 0 1 92 0v166Z" fill="#edd7c8" />
+  <path d="M653 128v212M607 224h92" stroke="#aa787a" stroke-width="5" />
+  <path
+    d="M0 560h800M80 495h640M160 430h480"
+    stroke="#aa787a"
+    stroke-width="2"
+  />
+  <path
+    d="M136 0v69m0 0-27 36h54zM485 0v69m0 0-27 36h54zM660 0v69m0 0-27 36h54z"
+    fill="#c76857"
+    stroke="#6b435e"
+    stroke-width="2"
+  />
+  <ellipse cx="176" cy="418" rx="79" ry="25" fill="#f5e8d9" />
+  <path d="M109 418v45M243 418v45" stroke="#55364c" stroke-width="7" />
+  <ellipse cx="176" cy="414" rx="67" ry="13" fill="#d29e83" />
+  <path d="M176 413v-26" stroke="#55364c" stroke-width="2" />
+  <circle cx="176" cy="386" r="9" fill="#c76857" />
+  <ellipse cx="441" cy="425" rx="98" ry="25" fill="#f5e8d9" />
+  <path d="M355 425v45M527 425v45" stroke="#55364c" stroke-width="7" />
+  <ellipse cx="441" cy="421" rx="86" ry="13" fill="#d29e83" />
+  <path d="M441 420v-26" stroke="#55364c" stroke-width="2" />
+  <circle cx="441" cy="393" r="9" fill="#c76857" />
+  <ellipse cx="655" cy="461" rx="68" ry="25" fill="#f5e8d9" />
+  <path d="M599 461v45M711 461v45" stroke="#55364c" stroke-width="7" />
+  <ellipse cx="655" cy="457" rx="56" ry="13" fill="#d29e83" />
+  <path d="M655 456v-26" stroke="#55364c" stroke-width="2" />
+  <circle cx="655" cy="429" r="9" fill="#c76857" />
+  <path d="M0 338h800" stroke="#55364c" stroke-width="7" />
+  <text
+    x="35"
+    y="535"
+    font-family="sans-serif"
+    font-size="11"
+    letter-spacing="3"
+    fill="#55364c"
+  >
+    GATHERWELL / SPATIAL STUDY
+  </text>
+</svg>
