@@ -1,105 +1,176 @@
 (function () {
   var root = document.documentElement;
+  var storage = null;
+  var themeMedia = getMedia("(prefers-color-scheme: dark)");
+  var preference = null;
 
-  function safeGet(key) {
+  function getMedia(query) {
     try {
-      return localStorage.getItem(key);
+      return window.matchMedia ? window.matchMedia(query) : null;
     } catch (e) {
       return null;
     }
   }
 
-  function safeSet(key, value) {
-    try {
-      localStorage.setItem(key, value);
-    } catch (e) {
-    }
+  function validTheme(value) {
+    return value === "light" || value === "dark" ? value : null;
   }
 
-  function safeRemove(key) {
-    try {
-      localStorage.removeItem(key);
-    } catch (e) {
-    }
+  try {
+    storage = window.localStorage;
+    preference = validTheme(storage.getItem("theme"));
+  } catch (e) {
   }
 
-  var stored = safeGet("theme");
-  if (stored) root.setAttribute("data-theme", stored);
+  function prefersDark() {
+    return preference === "dark" || (!preference && themeMedia && themeMedia.matches);
+  }
 
-  function setTheme(next) {
-    if (next) {
-      root.setAttribute("data-theme", next);
-      safeSet("theme", next);
+  function applyTheme() {
+    if (preference) {
+      root.setAttribute("data-theme", preference);
     } else {
       root.removeAttribute("data-theme");
-      safeRemove("theme");
     }
   }
+
+  function observeMedia(media, listener) {
+    if (!media) return false;
+    if (media.addEventListener) {
+      media.addEventListener("change", listener);
+      return true;
+    }
+    if (media.addListener) {
+      media.addListener(listener);
+      return true;
+    }
+    return false;
+  }
+
+  applyTheme();
 
   function init() {
-    var toggle = document.querySelector(".theme-toggle");
+    var themeToggle = document.querySelector(".theme-toggle");
+    var themeLabel = themeToggle && themeToggle.querySelector(".theme-label");
     var menuToggle = document.querySelector(".menu-toggle");
+    var menuLabel = menuToggle && menuToggle.querySelector(".menu-label");
     var navMenu = document.querySelector(".nav-links");
+    var menuMedia = getMedia("(max-width: 800px)");
 
-    // Theme toggle functionality
-    if (toggle) {
-      function syncState() {
-        var mode = root.getAttribute("data-theme");
-        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var isDark = mode === "dark" || (!mode && prefersDark);
-        toggle.setAttribute("aria-pressed", isDark ? "true" : "false");
-      }
-
-      function toggleTheme() {
-        var mode = root.getAttribute("data-theme");
-        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var isDark = mode === "dark" || (!mode && prefersDark);
-        setTheme(isDark ? "light" : "dark");
-      }
-
-      toggle.addEventListener("click", function (e) {
-        e.stopPropagation(); // Don't close mobile menu when toggling theme
-        toggleTheme();
-        syncState();
-      });
-      syncState();
+    function syncTheme() {
+      applyTheme();
+      if (!themeToggle) return;
+      var isDark = prefersDark();
+      themeToggle.setAttribute("aria-label", "Dark mode");
+      themeToggle.setAttribute("aria-pressed", isDark ? "true" : "false");
+      themeToggle.setAttribute("title", isDark ? "Switch to light mode" : "Switch to dark mode");
+      if (themeLabel) themeLabel.textContent = "Dark mode";
     }
 
-    // Mobile hamburger menu functionality
-    if (menuToggle && navMenu) {
-      menuToggle.addEventListener("click", function () {
-        var isOpen = navMenu.classList.contains("open");
-        navMenu.classList.toggle("open", !isOpen);
-        menuToggle.setAttribute("aria-expanded", isOpen ? "false" : "true");
-      });
-
-      // Close menu when clicking outside
-      document.addEventListener("click", function (event) {
-        if (navMenu.classList.contains("open") && !event.target.closest(".nav-links") && !event.target.closest(".menu-toggle")) {
-          navMenu.classList.remove("open");
-          menuToggle.setAttribute("aria-expanded", "false");
+    if (themeToggle) {
+      themeToggle.addEventListener("click", function () {
+        preference = prefersDark() ? "light" : "dark";
+        try {
+          if (storage) storage.setItem("theme", preference);
+        } catch (e) {
         }
+        syncTheme();
       });
+    }
 
-      // Close menu when clicking a link (but not theme toggle)
-      navMenu.addEventListener("click", function (event) {
-        if (event.target.tagName === "A") {
-          navMenu.classList.remove("open");
-          menuToggle.setAttribute("aria-expanded", "false");
+    observeMedia(themeMedia, syncTheme);
+    window.addEventListener("storage", function (event) {
+      if (event.key !== "theme" && event.key !== null) return;
+      if (storage && event.storageArea && event.storageArea !== storage) return;
+      preference = event.key === null ? null : validTheme(event.newValue);
+      syncTheme();
+    });
+    syncTheme();
+
+    if (!menuToggle || !navMenu) return;
+
+    function isMobile() {
+      return menuMedia ? menuMedia.matches : (window.innerWidth || root.clientWidth) <= 800;
+    }
+
+    function setMenu(open) {
+      if (open) {
+        navMenu.classList.add("open");
+      } else {
+        navMenu.classList.remove("open");
+      }
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (menuLabel) menuLabel.textContent = open ? "Close" : "Menu";
+    }
+
+    function closeMenu(returnFocus) {
+      if (isMobile() && (returnFocus || navMenu.contains(document.activeElement))) {
+        menuToggle.focus();
+      }
+      setMenu(false);
+    }
+
+    function syncViewport() {
+      if (isMobile()) {
+        // Preserve access to the focused link when desktop navigation collapses.
+        setMenu(navMenu.contains(document.activeElement));
+      } else {
+        setMenu(false);
+        if (document.activeElement === menuToggle) {
+          var firstLink = navMenu.querySelector("a[href]");
+          if (firstLink) firstLink.focus();
         }
-      });
+      }
+    }
 
-      // Close menu on Escape key
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && navMenu.classList.contains("open")) {
-          navMenu.classList.remove("open");
-          menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.addEventListener("click", function () {
+      if (!isMobile()) return;
+      if (navMenu.classList.contains("open")) {
+        closeMenu(true);
+      } else {
+        setMenu(true);
+        var firstLink = navMenu.querySelector("a[href]");
+        if (firstLink) firstLink.focus();
+      }
+    });
+
+    document.addEventListener("click", function (event) {
+      if (navMenu.classList.contains("open") && !navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+        closeMenu(false);
+      }
+    });
+
+    navMenu.addEventListener("click", function (event) {
+      var target = event.target;
+      while (target && target !== navMenu) {
+        if (target.nodeType === 1 && target.tagName.toLowerCase() === "a") {
+          closeMenu(false);
+          return;
+        }
+        target = target.parentNode;
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if ((event.key === "Escape" || event.keyCode === 27) && navMenu.classList.contains("open")) {
+        event.preventDefault();
+        closeMenu(true);
+      }
+    });
+
+    if (!observeMedia(menuMedia, syncViewport)) {
+      var wasMobile = isMobile();
+      window.addEventListener("resize", function () {
+        var mobile = isMobile();
+        if (mobile !== wasMobile) {
+          wasMobile = mobile;
+          syncViewport();
         }
       });
     }
+    syncViewport();
   }
 
-  // Run init when DOM is ready, or immediately if already loaded
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
   } else {

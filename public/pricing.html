@@ -1,202 +1,282 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pricing | LocalByte LLC</title>
-  <meta name="description" content="Clear pricing packages for websites, web applications, and ongoing management from LocalByte LLC." />
-  <script>
-    (function () {
-      try {
-        var stored = localStorage.getItem("theme");
-        if (stored) {
-          document.documentElement.setAttribute("data-theme", stored);
-        }
-      } catch (e) {
-      }
-    })();
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png" />
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png" />
-  <link rel="manifest" href="site.webmanifest" />
-</head>
-<body>
-  <header>
-    <div class="container nav">
-      <a class="logo" href="index.html">
-        <img src="assets/img/localbyte_logo.png" alt="LocalByte LLC logo" />
-        <span class="brand">LocalByte</span>
-      </a>
-      <nav class="nav-links" id="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a class="active" href="pricing.html">Pricing</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="about.html">About</a>
-        <a class="nav-cta" href="contact.html">Contact</a>
-        <button class="theme-toggle" type="button" aria-pressed="false">
-          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-          <span class="theme-label">Dark mode</span>
-        </button>
-      </nav>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" title="Menu">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-      </button>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="page-hero">
-      <span class="badge">Pricing</span>
-      <h1>Pricing that stays predictable.</h1>
-      <p>Start with a package.</p>
-      <ul class="list">
-        <li>Fixed scope before build</li>
-        <li>Monthly support options</li>
-        <li>Clear next steps</li>
-        <li>Local business focus</li>
-      </ul>
-      <div class="cta-group">
-        <a class="button primary" href="contact.html">Contact us</a>
-        <a class="button secondary" href="services.html">See services</a>
-      </div>
-    </section>
-    <section class="section">
-      <div class="pricing-grid">
-        <article class="price-card">
-          <div class="price-head">
-            <h2>Website Essentials</h2>
-            <p class="small">Core website plus ongoing care.</p>
-          </div>
-          <div class="price">
-            <span class="price-range">$1,500–$3,500</span>
-            <span class="price-note">one-time build</span>
-          </div>
-          <div class="price">
-            <span class="price-range">$99–$249</span>
-            <span class="price-note">per month care</span>
-          </div>
-          <ul class="list">
-            <li>Design and build</li>
-            <li>Local SEO setup</li>
-            <li>Analytics and SSL</li>
-            <li>Monthly updates</li>
-          </ul>
-          <a class="button primary" href="contact.html">Discuss Website Essentials</a>
-        </article>
-
-        <article class="price-card recommended">
-          <div class="price-tag badge">Most common</div>
-          <div class="price-head">
-            <h2>Web App Starter</h2>
-            <p class="small">Portals, booking, dashboards, automation.</p>
-          </div>
-          <div class="price">
-            <span class="price-range">$5,000–$12,000</span>
-            <span class="price-note">project build</span>
-          </div>
-          <div class="price">
-            <span class="price-range">$199–$499</span>
-            <span class="price-note">per month care</span>
-          </div>
-          <ul class="list">
-            <li>Discovery and roadmap</li>
-            <li>Auth, roles, admin</li>
-            <li>Integrations and payments</li>
-            <li>Monitoring and support</li>
-          </ul>
-          <a class="button primary" href="contact.html">Discuss Web App Starter</a>
-        </article>
-
-        <article class="price-card">
-          <div class="price-head">
-            <h2>Custom Build</h2>
-            <p class="small">Complex workflows with integrations.</p>
-          </div>
-          <div class="price">
-            <span class="price-range">$12,000–$35,000+</span>
-            <span class="price-note">project build</span>
-          </div>
-          <div class="price">
-            <span class="price-range">$399–$1,200</span>
-            <span class="price-note">per month care</span>
-          </div>
-          <ul class="list">
-            <li>Discovery and technical planning</li>
-            <li>Scalable architecture</li>
-            <li>Performance and security</li>
-            <li>Milestone delivery</li>
-          </ul>
-          <a class="button primary" href="contact.html">Discuss a Custom Build</a>
-        </article>
-      </div>
-
-      <div class="note note-spaced">
-        <h3>How pricing works</h3>
-        <p>Final pricing depends on scope, pages, integrations, and timeline.</p>
-        <p class="small">For a fast estimate, send 1-2 example links.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <div class="logo">
-          <img src="assets/img/localbyte_logo.png" alt="LocalByte LLC logo" />
-          <span class="brand">LocalByte</span>
-        </div>
-        <p class="small">Web design, web applications, and digital strategy for local growth.</p>
-      </div>
-      <div>
-        <strong>Pages</strong>
-        <div class="small">
-          <a href="services.html">Services</a><br />
-          <a href="pricing.html">Pricing</a><br />
-          <a href="portfolio.html">Portfolio</a><br />
-          <a href="about.html">About</a><br />
-          <a href="contact.html">Contact</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website & App Pricing | LocalByte LLC</title>
+    <meta
+      name="description"
+      content="Website builds from $1,500, custom app projects from $5,000, and ongoing care plans. Understand the costs before starting your project."
+    />
+    <script>
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var stored = localStorage.getItem("theme");
+          if (stored === "light" || stored === "dark") {
+            document.documentElement.setAttribute("data-theme", stored);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css?v=5" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="index.html" aria-label="LocalByte home"
+          ><img src="assets/img/localbyte_logo.png" alt="" width="38" height="38" /><span
+            class="brand"
+            >LocalByte<span class="brand-dot">.</span></span
+          ></a
+        >
+        <nav class="nav-links" id="nav-menu" aria-label="Main navigation">
+          <a href="services.html">Services</a>
+          <a href="pricing.html" aria-current="page">Pricing</a>
+          <a href="portfolio.html">Our work</a>
+          <a href="about.html">About</a>
+          <a class="nav-cta" href="contact.html">Let’s talk</a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Dark mode"
+            aria-pressed="false"
+            title="Switch to dark mode"
+          >
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z" />
+            </svg>
+            <svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+              />
+            </svg>
+          </button>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M3 6h14M3 10h14M3 14h14" />
+            </svg>
+            <span class="menu-label">Menu</span>
+          </button>
         </div>
       </div>
-      <div>
-        <strong>Legal</strong>
-        <div class="small">
-          <a href="privacy.html">Privacy Policy</a><br />
-          <a href="terms.html">Terms of Service</a>
+    </header>
+    <main id="main">
+      <div class="container">
+        <section class="page-hero">
+          <span class="eyebrow">Let’s talk numbers</span>
+          <h1>Clear prices.<br />A sensible place to start.</h1>
+          <p class="lead">
+            These ranges help you plan. Your written quote will spell out the work, the price, and
+            the timeline before we begin.
+          </p>
+        </section>
+        <section class="section" aria-label="Project pricing">
+          <div class="price-grid">
+            <article class="price-card">
+              <span class="eyebrow">For your local business</span>
+              <h2>Website essentials</h2>
+              <p class="price-intro">
+                A thoughtful home for your business, built to help customers find their way.
+              </p>
+              <p class="price">$1,500–$3,500</p>
+              <p class="price-caption">One-time website build</p>
+              <ul class="list">
+                <li>Website design and build</li>
+                <li>Layouts for phones and larger screens</li>
+                <li>Local search basics</li>
+                <li>Analytics and HTTPS setup</li>
+              </ul>
+              <p class="care">Ongoing care: <strong>$99–$249/month</strong></p>
+              <a class="button primary" href="contact.html"
+                >Talk about a website <span class="arrow" aria-hidden="true">→</span></a
+              >
+            </article>
+            <article class="price-card" id="app-pricing">
+              <span class="eyebrow">For a simpler workday</span>
+              <h2>App starter</h2>
+              <p class="price-intro">
+                A focused tool for bookings, customer information, or a daily business task.
+              </p>
+              <p class="price">$5,000–$12,000</p>
+              <p class="price-caption">Project build</p>
+              <ul class="list">
+                <li>Planning and a clear roadmap</li>
+                <li>Sign-in and staff access as needed</li>
+                <li>Admin tools and useful connections</li>
+                <li>Payment integration if in scope</li>
+              </ul>
+              <p class="care">Ongoing care: <strong>$199–$499/month</strong></p>
+              <a class="button secondary" href="contact.html"
+                >Talk about an app <span class="arrow" aria-hidden="true">→</span></a
+              >
+            </article>
+            <article class="price-card">
+              <span class="eyebrow">For something more involved</span>
+              <h2>Custom build</h2>
+              <p class="price-intro">
+                A larger project with multiple workflows or more involved integrations.
+              </p>
+              <p class="price">$12,000–$35,000+</p>
+              <p class="price-caption">Project build</p>
+              <ul class="list">
+                <li>Discovery and technical planning</li>
+                <li>Design around complex workflows</li>
+                <li>Performance and security planning</li>
+                <li>Delivery in agreed milestones</li>
+              </ul>
+              <p class="care">Ongoing care: <strong>$399–$1,200/month</strong></p>
+              <a class="button secondary" href="contact.html"
+                >Discuss your idea <span class="arrow" aria-hidden="true">→</span></a
+              >
+            </article>
+          </div>
+          <p class="pricing-note">
+            Final pricing depends on the pages, features, integrations, and timeline. We’ll identify
+            any domain, hosting, or third-party service costs in your proposal so you can see the
+            whole picture.
+          </p>
+        </section>
+        <section class="section split" id="care-plans">
+          <div class="split-heading">
+            <span class="eyebrow">Before you decide</span>
+            <h2>A few things<br />you might be wondering.</h2>
+            <p>
+              Have a different question? <a href="mailto:info@localbytellc.com">Email us</a> and
+              we’ll talk it through.
+            </p>
+          </div>
+          <div class="faq">
+            <details open>
+              <summary>What does a care plan cover?</summary>
+              <p>
+                Care plans cover agreed updates, fixes, and monitoring after launch. The scope and
+                monthly cost are set out in your proposal. We’ll explain the options so you can
+                choose the support that fits.
+              </p>
+            </details>
+            <details>
+              <summary>Do I need all my content ready?</summary>
+              <p>
+                No. Start with what you have: your current site, a menu, some photos, or just an
+                idea. We’ll work out what’s needed and who will provide it as part of the plan.
+              </p>
+            </details>
+            <details>
+              <summary>How long will my project take?</summary>
+              <p>
+                It depends on the size of the project and how quickly content and feedback are
+                ready. We’ll agree on a realistic timeline with you before work starts.
+              </p>
+            </details>
+            <details>
+              <summary>Can you work on my existing website?</summary>
+              <p>
+                Send us the link and tell us what you’d like to change. We’ll look at how it was
+                built and discuss whether a refresh or a new build makes more sense.
+              </p>
+            </details>
+            <details>
+              <summary>What happens if I need something extra?</summary>
+              <p>
+                We’ll discuss the extra work and any effect on price or timing with you before
+                adding it to the project.
+              </p>
+            </details>
+          </div>
+        </section>
+      </div>
+      <section class="container invitation" aria-label="Start a conversation">
+        <div>
+          <span class="eyebrow">Let’s make something useful</span>
+          <h2>Let’s find the right fit.</h2>
+          <p>
+            A short description of your business is enough to begin. We’ll help you understand the
+            options and what they’re likely to cost.
+          </p>
+        </div>
+        <div class="invitation-actions">
+          <a class="button" href="contact.html"
+            >Tell us what you have in mind <span class="arrow" aria-hidden="true">→</span></a
+          >
+          <p>No polished brief needed. No pressure.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <a class="logo" href="index.html" aria-label="LocalByte home"
+              ><img src="assets/img/localbyte_logo.png" alt="" width="38" height="38" /><span
+                class="brand"
+                >LocalByte<span class="brand-dot">.</span></span
+              ></a
+            >
+            <p>Thoughtful websites. Useful apps.<br />A little more human.</p>
+          </div>
+          <div>
+            <strong>Take a look around</strong>
+            <nav class="footer-links" aria-label="Footer navigation">
+              <a href="services.html">Services</a><a href="pricing.html">Pricing</a
+              ><a href="portfolio.html">Our work</a><a href="about.html">About</a
+              ><a href="contact.html">Contact</a>
+            </nav>
+          </div>
+          <div class="footer-contact">
+            <strong>Every project starts with hello.</strong
+            ><a class="footer-email" href="mailto:info@localbytellc.com">info@localbytellc.com</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 LocalByte LLC</span
+          ><span class="footer-legal"
+            ><a href="privacy.html">Privacy policy</a
+            ><a href="terms.html">Terms of service</a></span
+          ><span>Made with care. Built to be useful.</span>
         </div>
       </div>
-      <div>
-        <strong>Contact</strong>
-        <p class="small"><a href="mailto:info@localbytellc.com">info@localbytellc.com</a></p>
-      </div>
-    </div>
-  </footer>
-  <script src="assets/js/theme.js?v=4"></script>
-</body>
+    </footer>
+    <script src="assets/js/theme.js?v=5"></script>
+  </body>
 </html>
