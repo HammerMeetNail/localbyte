@@ -6,8 +6,9 @@
     <title>Let’s Talk About Your Business | LocalByte LLC</title>
     <meta
       name="description"
-      content="Tell LocalByte about your website or app idea. A few words are enough to start. We reply by email within two business days."
+      content="Tell LocalByte’s founder about your website or app idea. A few words are enough to start."
     />
+    <link rel="canonical" href="https://localbytellc.com/contact.html" />
     <script>
       (function () {
         document.documentElement.classList.add("js");
@@ -25,7 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/style.css?v=11" />
+    <link rel="stylesheet" href="assets/css/style.css?v=13" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
@@ -113,7 +114,7 @@
       <div class="contact-layout">
         <section class="contact-form" aria-labelledby="form-heading">
           <h2 id="form-heading">What can we help with?</h2>
-          <p>Just your name, email, and a few words to get started.</p>
+          <p>Just your name, email, and a few words to get started. You don’t need to choose a package.</p>
           <form
             name="contact"
             method="post"
@@ -142,9 +143,20 @@
               ><select name="service">
                 <option value="Not sure">I’m not sure yet</option>
                 <option value="Website">A new website</option>
+                <option value="Single-page website">Single-Page Website</option>
+                <option value="Business website">Business Website</option>
+                <option value="Business Plus">Business Website Plus</option>
                 <option value="Refresh">Improving my current website</option>
                 <option value="Web App">A web app or business tool</option>
                 <option value="Mobile App">A mobile app</option>
+                <option value="Automation">Automation or integrations</option>
+                <option value="Discovery">Application Discovery</option>
+                <option value="Hosting">Managed Hosting</option>
+                <option value="Website Care">Website Care</option>
+                <option value="Care Plus">Website Care Plus</option>
+                <option value="Application Care">Application Care</option>
+                <option value="Payment plan">Business Website Payment Plan</option>
+                <option value="Website assessment">Website assessment</option>
                 <option value="Support">Website or app updates and support</option>
               </select></label
             >
@@ -162,19 +174,23 @@
               We’ll use these details to respond to your inquiry.
               <a href="privacy.html">Read our privacy policy.</a>
             </p>
+            <p class="form-privacy" id="contact-draft-note" hidden>
+              Your draft is kept in this browser tab while you browse. It is cleared after a
+              successful submission.
+            </p>
           </form>
         </section>
         <aside class="contact-aside">
-          <span class="eyebrow">You’re talking to LocalByte</span>
+          <span class="eyebrow">Talk directly to LocalByte’s founder</span>
           <h2>Prefer a simple email?</h2>
-          <p>That works, too.</p>
+          <p>Your message goes directly to LocalByte’s founder.</p>
           <a class="email-link" href="mailto:info@localbytellc.com">info@localbytellc.com</a>
           <h2>Here’s what happens next.</h2>
           <ol class="steps">
             <li>
               <div>
                 <h3>We read your note.</h3>
-                <p>We reply by email within two business days.</p>
+                <p>LocalByte’s founder will read your message and follow up by email.</p>
               </div>
             </li>
             <li>
@@ -193,7 +209,7 @@
           <div class="aside-note">
             <p>
               Still working out your budget?<br /><a href="pricing.html"
-                >See our starting prices.</a
+                >See our packages and pricing.</a
               >
             </p>
           </div>
@@ -235,5 +251,6 @@
       </div>
     </footer>
     <script src="assets/js/theme.js?v=5"></script>
+    <script src="assets/js/contact.js?v=1"></script>
   </body>
 </html>
