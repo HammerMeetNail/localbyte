@@ -1,0 +1,19 @@
+{
+  "starter": 995,
+  "business": 1995,
+  "businessPlus": 3495,
+  "webApp": 4995,
+  "discovery": 750,
+  "hosting": 29,
+  "websiteCare": 99,
+  "carePlus": 199,
+  "applicationCare": 299,
+  "additionalPage": 250,
+  "integrationMin": 750,
+  "integrationMax": 1500,
+  "developmentHourly": 150,
+  "assessment": 300,
+  "planInitial": 495,
+  "planBuildMonthly": 130,
+  "planMonths": 12
+}

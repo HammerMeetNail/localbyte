@@ -9,7 +9,7 @@ This repository contains:
 - The main LocalByte brochure site under `public/`
 - Several interactive concept demos under `public/demos/`
 - Playwright end-to-end tests under `tests/`
-- Small Node-based unit tests for demo utilities under `tests/unit/`
+- Small Node-based unit tests for site and demo utilities under `tests/unit/`
 
 The stack is intentionally simple:
 
@@ -29,6 +29,8 @@ The stack is intentionally simple:
 │   ├── *.html               # Main brochure pages
 │   └── site.webmanifest
 ├── tests/                   # Playwright and unit tests
+├── config/pricing.json      # Main-site pricing amounts and payment duration
+├── scripts/sync-pricing.js  # Maintenance-time static pricing sync/check
 ├── docs/agents/             # Task-specific agent guidance
 ├── plans/                   # Internal planning notes and implementation ideas
 ├── Makefile                 # Convenience command for local dev
@@ -88,6 +90,43 @@ npm run test:launchclock
 - Shared brochure-site behavior lives in `public/assets/js/theme.js`.
 - Demo apps are intentionally self-contained so they can be shown independently from the main site.
 - The `plans/` directory is internal working material, not customer-facing content.
+
+### Pricing maintenance
+
+All main-site price amounts stay on the Pricing page; other pages link there.
+Edit `config/pricing.json`, then run:
+
+```bash
+npm run pricing:sync
+npm run pricing:check
+```
+
+The dependency-free Node script updates only marked text in `public/pricing.html`.
+The complete HTML remains deployable and readable with JavaScript disabled; there
+is no production fetch, build step, or runtime dependency. Commit the config and
+its synchronized HTML together when publishing an authorized pricing change.
+
+Price spans use exactly `<span data-price="KEY">...</span>` and include the full
+formatted dollar amount. Every source amount key must appear at least once:
+`starter`, `business`, `businessPlus`, `webApp`, `discovery`, `hosting`,
+`websiteCare`, `carePlus`, `applicationCare`, `additionalPage`, `integrationMin`,
+`integrationMax`, `developmentHourly`, `assessment`, `planInitial`, and
+`planBuildMonthly`. Repeat marked spans wherever an amount is repeated. Integration
+ranges use two price spans with an en dash between them, each with its own dollar sign.
+
+The required derived keys are `planMonthly` (build installment plus Website Care),
+`planBuildTotal` (initial payment plus build installments over `planMonths`), and
+`planTotal` (initial payment plus combined monthly payments over `planMonths`).
+Every payment duration uses `<span data-pricing-months>...</span>`; at least one
+duration marker is required. Amounts are nonnegative safe integer USD values and
+`planMonths` is a positive safe integer.
+
+`pricing:check` is read-only and exits nonzero for stale amounts or payment durations,
+unknown keys, invalid config values, or missing required markers. Check the full
+pricing copy when changing a duration or package scope; the script owns marked
+values, not surrounding prose. Run `node --test tests/unit/pricing.test.js` for the
+focused arithmetic and synchronization checks. The regular `npm run test:unit`
+suite also checks the committed pricing HTML against the config.
 
 ## Standards
 
