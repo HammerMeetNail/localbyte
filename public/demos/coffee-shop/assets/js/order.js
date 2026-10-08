@@ -1,5 +1,6 @@
 (function () {
   var STORAGE_KEY = "cedarsteam.orderItems";
+  var lastGeneratedItems = null;
 
   function qs(selector, root) {
     return (root || document).querySelector(selector);
@@ -88,12 +89,24 @@
       var item = menuIndex[id];
       var name = item && item.name ? item.name : id;
       var li = document.createElement("li");
-      li.innerHTML = ""
-        + "<div>"
-        + "<div class=\"selected-item-name\">" + name + "</div>"
-        + (item && item.price ? "<div class=\"small muted\">" + item.price + "</div>" : "")
-        + "</div>"
-        + "<button class=\"button small secondary\" type=\"button\" data-remove-item=\"" + id + "\">Remove</button>";
+      var details = document.createElement("div");
+      var nameLabel = document.createElement("div");
+      nameLabel.className = "selected-item-name";
+      nameLabel.textContent = name;
+      details.appendChild(nameLabel);
+      if (item && item.price) {
+        var priceLabel = document.createElement("div");
+        priceLabel.className = "small muted";
+        priceLabel.textContent = item.price;
+        details.appendChild(priceLabel);
+      }
+      var removeBtn = document.createElement("button");
+      removeBtn.className = "button small secondary";
+      removeBtn.type = "button";
+      removeBtn.setAttribute("data-remove-item", id);
+      removeBtn.textContent = "Remove";
+      li.appendChild(details);
+      li.appendChild(removeBtn);
       list.appendChild(li);
     }
   }
@@ -103,14 +116,16 @@
     if (!textarea) return;
 
     var ids = parseIds(safeGet(STORAGE_KEY));
-    if (!ids.length) return;
-
     var lines = [];
     for (var i = 0; i < ids.length; i++) {
       var item = menuIndex[ids[i]];
       lines.push("1x " + (item && item.name ? item.name : ids[i]));
     }
-    if (!textarea.value.trim()) textarea.value = lines.join("\n");
+    // Only replace text still owned by the selection, preserving custom requests.
+    if (!textarea.value.trim() || textarea.value === lastGeneratedItems) {
+      lastGeneratedItems = lines.join("\n");
+      textarea.value = lastGeneratedItems;
+    }
   }
 
   function setError(input, message) {
@@ -229,9 +244,9 @@
       var party = qs("#party-size", form);
       if (party && party.value) {
         var n = Number(party.value);
-        if (!isFinite(n) || n < 1 || n > 12) {
-          errors.push({ id: "party-size", message: "Party size must be between 1 and 12." });
-          setError(party, "Party size must be between 1 and 12.");
+        if (!isFinite(n) || Math.floor(n) !== n || n < 1 || n > 12) {
+          errors.push({ id: "party-size", message: "Party size must be a whole number between 1 and 12." });
+          setError(party, "Party size must be a whole number between 1 and 12.");
         }
       }
     }
@@ -289,8 +304,7 @@
       clearBtn.addEventListener("click", function () {
         safeRemove(STORAGE_KEY);
         renderSelectedItems(menuIndex);
-        var textarea = qs("#order-items");
-        if (textarea) textarea.value = "";
+        syncItemsTextarea(menuIndex);
       });
     }
 

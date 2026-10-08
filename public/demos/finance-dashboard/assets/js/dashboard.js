@@ -92,7 +92,7 @@
         + "<strong>" + charts.escapeHtml(label) + "</strong>"
         + "<span class=\"small muted\">" + charts.escapeHtml(state.formatCents(currency, progress.spentCents)) + " of " + charts.escapeHtml(state.formatCents(currency, progress.limitCents)) + "</span>"
         + "</div>"
-        + "<div class=\"progress-bar\" aria-label=\"" + charts.escapeHtml(label) + " budget progress\">"
+        + "<div class=\"progress-bar\" role=\"meter\" aria-label=\"" + charts.escapeHtml(label) + " budget progress\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"" + pct + "\" aria-valuetext=\"" + charts.escapeHtml(state.formatCents(currency, progress.spentCents) + " of " + state.formatCents(currency, progress.limitCents)) + "\">"
         + "<div class=\"progress-fill" + (progress.isOverspent ? " overspent" : "") + "\" style=\"width: " + pct + "%\"></div>"
         + "</div>"
         + "</div>";

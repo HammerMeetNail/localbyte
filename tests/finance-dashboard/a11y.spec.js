@@ -16,6 +16,7 @@ async function runAxe(page) {
 test.describe("Finance dashboard demo - basic accessibility checks", function () {
   test("dashboard has no serious or critical axe violations", async function ({ page }) {
     await page.goto("/demos/finance-dashboard/index.html");
+    await expect(page.getByRole("meter", { name: "Overall budget progress" })).toBeVisible();
     var results = await runAxe(page);
     var violations = results.violations.filter(function (v) {
       return v.impact === "critical" || v.impact === "serious";

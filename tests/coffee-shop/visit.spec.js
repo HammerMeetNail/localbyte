@@ -8,7 +8,6 @@ test.describe("Coffee shop demo - visit page", function () {
     await expect(page.locator("iframe[title]")).toHaveCount(1);
 
     var directions = page.getByRole("link", { name: "Get directions" });
-    await expect(directions).toHaveAttribute("href", /https:\\/\\/www\\.google\\.com\\/maps\\?q=/);
+    await expect(directions).toHaveAttribute("href", /^https:\/\/www\.google\.com\/maps\?q=/);
   });
 });
-

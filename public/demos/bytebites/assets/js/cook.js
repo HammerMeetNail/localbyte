@@ -24,10 +24,9 @@
   function parseStepFromHash() {
     var raw = (window.location.hash || "").replace("#", "").trim();
     if (!raw) return null;
-    var m = raw.match(/(\d+)/);
-    if (!m) return null;
-    var n = Number(m[1]);
-    if (!n || n < 1) return null;
+    if (!/^\d+$/.test(raw)) return null;
+    var n = Number(raw);
+    if (!isFinite(n) || n < 1) return null;
     return n - 1;
   }
 
@@ -76,6 +75,14 @@
     if (index === null) index = 0;
 
     var total = recipe.steps.length;
+    index = Math.min(Math.max(index, 0), total - 1);
+    var jumpSummary = jump ? qs("summary", jump) : null;
+    var jumpReturnFocus = openJump || jumpSummary;
+
+    function closeJump() {
+      if (jump) jump.open = false;
+      if (jumpReturnFocus) jumpReturnFocus.focus();
+    }
 
     function renderStepList(activeIndex) {
       if (!stepList) return;
@@ -134,32 +141,54 @@
         var btn = /** @type {HTMLButtonElement} */ (target);
         var raw = btn.getAttribute("data-step") || "";
         var n = Number(raw);
-        if (!isFinite(n)) return;
+        if (!isFinite(n) || Math.floor(n) !== n) return;
         if (n < 0 || n >= total) return;
         index = n;
         render();
-        if (jump) jump.open = false;
+        closeJump();
       });
     }
 
     if (openJump) {
       openJump.addEventListener("click", function () {
         if (!jump) return;
+        jumpReturnFocus = openJump;
         jump.open = true;
         var behavior = "smooth";
         if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) behavior = "auto";
         jump.scrollIntoView({ block: "start", behavior: behavior });
+        var activeStep = stepList ? qs("[aria-current='step']", stepList) : null;
+        if (activeStep) activeStep.focus();
+      });
+    }
+
+    if (jumpSummary) {
+      jumpSummary.addEventListener("click", function () {
+        jumpReturnFocus = jumpSummary;
       });
     }
 
     document.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowRight") {
-        next();
-      } else if (e.key === "ArrowLeft") {
-        prev();
-      } else if (e.key === "Escape") {
-        exitToRecipe();
+      if (e.defaultPrevented) return;
+      if (e.key === "Escape") {
+        if (jump && jump.open) {
+          e.preventDefault();
+          closeJump();
+        } else {
+          e.preventDefault();
+          exitToRecipe();
+        }
+        return;
       }
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      var target = e.target;
+      if (target && target.closest && target.closest(
+        "input, textarea, select, button, a, summary, nav, [contenteditable], [role='textbox'], [role='button'], [role='link']"
+      )) return;
+      e.preventDefault();
+      if (e.key === "ArrowRight") next();
+      else prev();
     });
 
     render();

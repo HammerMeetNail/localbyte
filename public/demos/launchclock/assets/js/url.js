@@ -13,7 +13,7 @@
     var str = String(value).trim();
     if (!/^\d+$/.test(str)) return null;
     var num = Number(str);
-    if (!isFinite(num)) return null;
+    if (!isFinite(num) || Math.floor(num) !== num) return null;
     return num;
   }
 
@@ -37,7 +37,9 @@
     var params = new URLSearchParams(search && search[0] === "?" ? search.slice(1) : (search || ""));
 
     var name = clampString(params.get("name"), 60);
-    var ts = parseIntStrict(params.get("ts"));
+    var tsRaw = params.get("ts");
+    var ts = parseIntStrict(tsRaw);
+    if (ts != null && !isFinite(new Date(ts).getTime())) ts = null;
     var desc = clampString(params.get("desc"), 180);
     var tpl = clampString(params.get("tpl"), 16) || "minimal";
     var pal = clampString(params.get("pal"), 16) || "teal";
@@ -51,7 +53,14 @@
 
     if (!name) errors.push({ field: "name", message: "Event name is required." });
     if (name && name.length > 60) errors.push({ field: "name", message: "Event name must be 60 characters or less." });
-    if (ts == null) errors.push({ field: "ts", message: "Event time is required." });
+    if (ts == null) {
+      errors.push({
+        field: "ts",
+        message: tsRaw == null || !String(tsRaw).trim()
+          ? "Event time is required."
+          : "Event time must be a valid integer timestamp within the supported date range."
+      });
+    }
 
     if (desc && desc.length > 180) errors.push({ field: "desc", message: "Description must be 180 characters or less." });
 
