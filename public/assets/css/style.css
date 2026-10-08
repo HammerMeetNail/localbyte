@@ -810,8 +810,31 @@ a.work-visual:hover img {
 .page-hero + .section {
   padding-top: 0;
 }
-.portfolio-page .section + .section {
-  padding-top: 0;
+.portfolio-page {
+  --portfolio-section-gap: clamp(3rem, 5vw, 4rem);
+  --portfolio-content-gap: 2rem;
+  display: grid;
+  gap: var(--portfolio-section-gap);
+  padding-block: var(--portfolio-section-gap);
+}
+.portfolio-sections {
+  display: grid;
+  gap: var(--portfolio-section-gap);
+}
+.portfolio-page .page-hero,
+.portfolio-page .section {
+  padding-block: 0;
+}
+.portfolio-page .section-heading {
+  margin-bottom: var(--portfolio-content-gap);
+}
+.portfolio-page .work-grid,
+.portfolio-page .app-grid,
+.portfolio-page .demo-grid {
+  row-gap: var(--portfolio-content-gap);
+}
+.portfolio-page .invitation {
+  margin-block: 0;
 }
 .service-detail {
   display: grid;
