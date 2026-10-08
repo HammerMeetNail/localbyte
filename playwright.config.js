@@ -4,6 +4,7 @@ var path = require("path");
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 var config = {
   testDir: path.join(__dirname, "tests"),
+  testMatch: "**/*.spec.js",
   timeout: 30 * 1000,
   expect: {
     timeout: 10 * 1000
@@ -28,4 +29,3 @@ var config = {
 };
 
 module.exports = config;
-
