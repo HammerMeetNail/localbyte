@@ -347,7 +347,6 @@ textarea:focus-visible {
   overflow: hidden;
   border: 1px solid var(--lc-border);
   background: var(--lc-bg);
-  min-height: 520px;
 }
 
 .landing-frame { min-height: 70vh; }
@@ -358,6 +357,7 @@ textarea:focus-visible {
   padding: clamp(1.25rem, 2.2vw, 2.25rem);
   color: var(--lc-ink);
 }
+.lc-root[data-context="preview"] { min-height: 0; }
 
 .lc-root[data-pal="teal"] {
   --lc-primary: #19726a;
@@ -573,7 +573,6 @@ textarea:focus-visible {
   .nav-links.open { display: flex; }
   .nav-links a { padding: 0.7rem 0.85rem; }
   .share-row { grid-template-columns: 1fr; }
-  .preview-surface { min-height: 440px; }
   .lc-time-grid { grid-template-columns: 1fr 1fr; }
   .signup-form { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; align-items: flex-start; }

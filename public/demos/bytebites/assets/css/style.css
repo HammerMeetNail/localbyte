@@ -623,6 +623,7 @@ select {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 1.2rem;
+  align-items: start;
 }
 
 .card-head {

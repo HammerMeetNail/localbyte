@@ -31,8 +31,10 @@ client claim. Dark mode uses warm green charcoal, cream text, and softer accents
   costs. Remove unsubstantiated popularity and generic rapid-launch claims.
 - Use actual site screenshots and existing app assets. Label live projects,
   development work, and concept demos separately.
-- Use one responsive gap between the portfolio introduction, project sections,
-  contact panel, and footer, with consistent spacing within the project grids.
+- Use one responsive gap between page introductions, content sections,
+  contact panels, and footers across the site, with consistent spacing within project grids.
+- Let the Easy Email QR card, ByteBites recipe cards, and LaunchClock preview fit
+  their content instead of retaining unused height.
 - Make contact approachable: only name, email, and message are required. Include
   “I'm not sure yet,” a direct email alternative, and an explanation of next steps.
 - Preserve a real native form POST; add a simple success destination instead of
@@ -63,7 +65,7 @@ simulated actions are explained before the links.
 The site remains plain HTML, CSS, and JavaScript. There is no build step, component
 framework, or new production dependency. Shared navigation and footer markup is
 present directly in every page. The original privacy and terms body copy is
-unchanged. Shared styles use `v=9` and script references use `v=5` for cache
+unchanged. Shared styles use `v=10` and script references use `v=5` for cache
 invalidation.
 
 Review locally with `make local`, then open http://127.0.0.1:9000. Review all pages

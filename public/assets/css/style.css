@@ -28,6 +28,8 @@
   --art-glass: #c9d7c3;
   --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Fraunces", Georgia, serif;
+  --section-gap: clamp(3rem, 5vw, 4rem);
+  --content-gap: 2rem;
 }
 
 :root[data-theme="dark"] {
@@ -185,7 +187,8 @@ img {
   margin-inline: auto;
 }
 .section {
-  padding-block: 5.5rem;
+  /* Adjacent sections each contribute half of the shared content gap. */
+  padding-block: calc(var(--section-gap) / 2);
 }
 .small {
   font-size: 0.875rem;
@@ -409,7 +412,7 @@ img {
   grid-template-columns: 1.02fr 1fr;
   align-items: center;
   gap: 4rem;
-  padding-block: 5rem 4rem;
+  padding-block: var(--section-gap);
 }
 .hero h1 {
   font-family: var(--font-body);
@@ -525,6 +528,9 @@ img {
   height: 18px;
   color: var(--brand);
 }
+.promise-strip + .section {
+  padding-top: var(--section-gap);
+}
 
 /* Clear services and spacious editorial sections */
 .section-heading {
@@ -532,7 +538,7 @@ img {
   align-items: flex-end;
   justify-content: space-between;
   gap: 3rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--content-gap);
 }
 .section-heading h2 {
   max-width: 35rem;
@@ -577,7 +583,7 @@ img {
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 3rem 2rem;
+  gap: var(--content-gap);
 }
 .work-card {
   min-width: 0;
@@ -756,7 +762,7 @@ a.work-visual:hover img {
   font-size: 0.95rem;
 }
 .invitation {
-  margin-bottom: 5rem;
+  margin-block: calc(var(--section-gap) / 2) var(--section-gap);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -788,9 +794,6 @@ a.work-visual:hover img {
 .invitation-actions {
   flex-shrink: 0;
 }
-.invitation.after-band {
-  margin-top: clamp(3.5rem, 6vw, 5.5rem);
-}
 .invitation-actions p {
   font-size: 0.75rem;
   text-align: center;
@@ -798,7 +801,7 @@ a.work-visual:hover img {
 
 /* Interior pages */
 .page-hero {
-  padding-block: 4.5rem 3.5rem;
+  padding-block: var(--section-gap);
   max-width: 50rem;
 }
 .page-hero h1 {
@@ -811,8 +814,8 @@ a.work-visual:hover img {
   padding-top: 0;
 }
 .portfolio-page {
-  --portfolio-section-gap: clamp(3rem, 5vw, 4rem);
-  --portfolio-content-gap: 2rem;
+  --portfolio-section-gap: var(--section-gap);
+  --portfolio-content-gap: var(--content-gap);
   display: grid;
   gap: var(--portfolio-section-gap);
   padding-block: var(--portfolio-section-gap);
@@ -842,7 +845,7 @@ a.work-visual:hover img {
   gap: 2.5rem;
   align-items: start;
   border-top: 1px solid var(--border);
-  padding-block: 2.5rem;
+  padding-block: var(--content-gap);
   scroll-margin-top: 7rem;
 }
 .service-detail .eyebrow {
@@ -1015,7 +1018,7 @@ a.work-visual:hover img {
   grid-template-columns: 1.2fr 0.8fr;
   align-items: start;
   gap: 5rem;
-  padding-bottom: 5rem;
+  padding-bottom: var(--section-gap);
 }
 .contact-form {
   padding: 2.5rem;
@@ -1121,7 +1124,7 @@ textarea::placeholder {
 }
 .legal {
   max-width: 48rem;
-  padding-bottom: 5rem;
+  padding-bottom: var(--section-gap);
 }
 .legal .card {
   display: grid;
@@ -1131,12 +1134,14 @@ textarea::placeholder {
   font-size: 1.7rem;
   margin-top: 1rem;
 }
+.legal h2:first-child {
+  margin-top: 0;
+}
 .legal p + p {
   margin: 0;
 }
 .success-page {
-  min-height: 55vh;
-  padding-block: 5rem;
+  padding-block: var(--section-gap);
   max-width: 46rem;
 }
 .success-page p {
@@ -1304,7 +1309,6 @@ textarea::placeholder {
   .hero {
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-    padding-block: 3.5rem;
   }
   .hero h1 {
     font-size: 3rem;
@@ -1321,9 +1325,6 @@ textarea::placeholder {
   }
   .art-caption span:last-child {
     display: none;
-  }
-  .section {
-    padding-block: 4rem;
   }
   .section-heading {
     gap: 1.5rem;
@@ -1367,7 +1368,6 @@ textarea::placeholder {
     align-items: flex-start;
     gap: 1.5rem;
     padding: 2.5rem;
-    margin-bottom: 4rem;
   }
   .invitation-actions p {
     text-align: left;
@@ -1444,7 +1444,6 @@ textarea::placeholder {
   }
   .hero {
     grid-template-columns: 1fr;
-    padding-block: 3rem 2rem;
     gap: 2.5rem;
   }
   .hero h1 {
@@ -1494,12 +1493,8 @@ textarea::placeholder {
   .promise-strip span {
     flex-basis: 100%;
   }
-  .section {
-    padding-block: 3.5rem;
-  }
   .section-heading {
     display: block;
-    margin-bottom: 2rem;
   }
   .section-heading > p {
     margin-top: 1.2rem;
@@ -1538,9 +1533,6 @@ textarea::placeholder {
   .service-card .text-link {
     font-size: 0.9rem;
   }
-  .work-grid {
-    gap: 2.4rem;
-  }
   .nabu-visual {
     padding: 1.5rem 1.3rem 0;
   }
@@ -1568,7 +1560,6 @@ textarea::placeholder {
   }
   .invitation {
     padding: 2rem 1.6rem;
-    margin-bottom: 3rem;
   }
   .invitation h2 {
     font-size: 2.15rem;
@@ -1576,16 +1567,12 @@ textarea::placeholder {
   .invitation .button {
     white-space: normal;
   }
-  .page-hero {
-    padding-block: 3rem 2.5rem;
-  }
   .page-hero .lead {
     font-size: 1.03rem;
   }
   .service-detail {
     grid-template-columns: 1fr;
     gap: 1.2rem;
-    padding-block: 2rem;
   }
   .service-detail .list {
     margin-top: 0;
@@ -1607,9 +1594,6 @@ textarea::placeholder {
   }
   .faq details p {
     padding-right: 0;
-  }
-  .contact-layout {
-    padding-bottom: 3.5rem;
   }
   .contact-form {
     padding: 1.5rem;
