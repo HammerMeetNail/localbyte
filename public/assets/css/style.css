@@ -27,7 +27,7 @@
   --art-line: #264b3a;
   --art-glass: #c9d7c3;
   --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: var(--font-body);
   --section-gap: clamp(3rem, 5vw, 4rem);
   --content-gap: 2rem;
 }
@@ -117,7 +117,7 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 600;
   text-wrap: balance;
 }
 h1 {
@@ -414,10 +414,6 @@ img {
   gap: 4rem;
   padding-block: var(--section-gap);
 }
-.hero h1 {
-  font-family: var(--font-body);
-  font-weight: 600;
-}
 .hero-accent {
   color: var(--accent);
 }
@@ -503,9 +499,6 @@ img {
   border-top: 1px solid var(--border);
   font-size: 0.72rem;
   color: var(--ink-2);
-}
-.art-caption span:last-child {
-  font-style: italic;
 }
 .promise-strip {
   border-top: 1px solid var(--border);
@@ -998,7 +991,7 @@ a.work-visual:hover img {
 }
 .about-note .signature {
   color: var(--accent);
-  font: italic 1.6rem var(--font-display);
+  font: 500 1.6rem var(--font-display);
   margin-top: 1.6rem;
 }
 .principles {
