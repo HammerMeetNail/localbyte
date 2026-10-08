@@ -601,6 +601,15 @@ img {
 a.work-visual:hover img {
   transform: scale(1.025);
 }
+.bingo-visual {
+  border: 0.65rem solid var(--art-paper);
+  background: var(--art-paper);
+}
+.bingo-visual img {
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
 .work-copy {
   padding-top: 1.2rem;
 }

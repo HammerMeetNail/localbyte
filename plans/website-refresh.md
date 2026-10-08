@@ -4,7 +4,7 @@ Design proposed and implemented for PR review, October 2026.
 
 ## Who the site should help
 
-A busy local business owner should be able to understand what LocalByte does,
+A busy local business owner or someone with an app idea should understand what LocalByte does,
 find a realistic starting price, see actual work, and send a short inquiry.
 They should not need a technical vocabulary or a prepared project brief.
 
@@ -25,8 +25,8 @@ client claim. Dark mode uses warm green charcoal, cream text, and softer accents
   claims of industry expertise. Describe LocalByte's design and development work
   directly. Use upright DM Sans for the main headline, with color for emphasis.
 - Use a consistent navigation: Services, Pricing, Our work, About, and Let's talk.
-- Give website design the first position; explain apps and care through everyday
-  problems rather than implementation terms.
+- Present website design and app development as core services, from business
+  websites to web and mobile products. Explain care through everyday needs.
 - Keep existing price ranges visible, with an explanation of scope and outside
   costs. Remove unsubstantiated popularity and generic rapid-launch claims.
 - Use actual site screenshots and existing app assets. Label live projects,
@@ -42,8 +42,7 @@ Checked against the sibling repositories and public pages during the refresh:
 
 | Project | What the site says | Evidence and asset source |
 | --- | --- | --- |
-| Joe Denning | Live author website | Existing portfolio entry; current screenshot from https://joedenning.com/ |
-| Year of Bingo | Live goal-tracking web app | Existing portfolio entry; current screenshot from https://yearofbingo.com/ |
+| Year of Bingo | Live goal-tracking web app | Current 1280×800 PNG screenshot from https://yearofbingo.com/; eager loading and a light frame make the preview visible in both themes |
 | Nabu | Live shared household routine app | https://nabu-app.com/ and `../nabu/README.md`; `../nabu/web/static/images/screenshot-home.webp` is already used on its public landing page |
 | Tinsel | Audiobook player for iPhone, in development | `../tinsel/README.md`, project overview, and release acceptance documents; existing app icon |
 | Tap | Writing app for Mac, iPhone, and iPad, in development | `../tap/README.md` and roadmap; existing app icon |
@@ -62,7 +61,7 @@ simulated actions are explained before the links.
 The site remains plain HTML, CSS, and JavaScript. There is no build step, component
 framework, or new production dependency. Shared navigation and footer markup is
 present directly in every page. The original privacy and terms body copy is
-unchanged. Shared styles use `v=6` and script references use `v=5` for cache
+unchanged. Shared styles use `v=7` and script references use `v=5` for cache
 invalidation.
 
 Review locally with `make local`, then open http://127.0.0.1:9000. Review all pages
