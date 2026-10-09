@@ -4,3 +4,6 @@ test-results/
 coverage/
 .DS_Store
 npm-debug.log*
+
+# Local acquisition proposal
+/plans/local-customer-acquisition.local.md

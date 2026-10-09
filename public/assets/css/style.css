@@ -817,6 +817,12 @@ a.work-visual:hover img {
 .page-hero-visual .lead {
   margin: 0;
 }
+.page-hero .founder-title {
+  font-size: clamp(2.5rem, 4.6vw, 4.25rem);
+}
+.founder-name {
+  white-space: nowrap;
+}
 .founder-portrait {
   width: min(100%, 27rem);
   margin: 0 auto;
