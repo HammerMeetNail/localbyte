@@ -69,4 +69,12 @@ consuming pages, and this guidance together so an exception does not become drif
   change them only within the requested scope.
 - Use authentic, current screenshots for existing products and demos. Preserve
   aspect ratios, provide dimensions/alt text, and inspect cropping and legibility
-  in both themes. Do not commit troubleshooting screenshots as portfolio assets.
+  in both themes. Marketing preview cards use matching `-light.webp` and
+  `-dark.webp` screenshots at 1280 × 900, selected by the shared theme CSS from
+  the first render, including OS fallback without JavaScript. Update both variants
+  together, keeping the same capture framing and one named accessible preview.
+  If a product only supports one theme, use its authentic screenshot
+  in the same frame. Year of Bingo is dark-only and Easy Email is light-only, so
+  their previews stay authentic while the surrounding padded card follows the
+  main site’s theme. Logos and app icons are separate assets. Do not commit
+  troubleshooting screenshots as portfolio assets.

@@ -28,6 +28,15 @@ The earlier saturated poster treatments have been removed. Heading scale, spacin
 
 No demo accepts real inquiries, bookings, or payments. Plus handoffs show where one agreed existing provider could fit; they do not implement a custom scheduling or booking system. Central pricing remains the source for amounts and scope.
 
+## Portfolio preview captures
+
+Refreshed October 8, 2026, from the actual public pages at a consistent 1280 × 900 viewport. Each frame shows the complete viewport without stretching or cropping. Captures wait for fonts and visible images, use reduced motion, and omit browser scrollbars. Project copies are encoded to WebP at quality 88.
+
+- `public/assets/img/portfolio/{slug}-light.webp` and `{slug}-dark.webp` cover Nabu and the ten theme-capable local demos: Juniper Yard, Goodform, Harbor Home, Northline, Fieldwork, Gatherwell, Cedar & Steam (`coffee-shop`), ClearLedger (`finance-dashboard`), LaunchClock, and ByteBites.
+- Nabu captures come from [its public homepage](https://nabu-app.com/). Both marketing-page themes are native; the product screenshots embedded within that page remain as the product publishes them.
+- `year-of-bingo.webp` captures [Year of Bingo's public homepage](https://yearofbingo.com/), which has a fixed dark design. `easy-email.webp` captures the local Easy Email demo, which has a fixed light design. Both preserve their authentic appearance inside the same theme-aware frame as the other previews.
+- Local demo captures use `/demos/{slug}/index.html`, the actual light/dark styles, and their existing sample data. These are browser screenshots, not generated UI mockups or color-filter approximations. Capture both variants together when a demo changes.
+
 ## Concept photography
 
 Generated with the built-in Image Generation tool on October 8, 2026. These are imagined spaces, not photographs of real LocalByte clients or completed commissions. Captions and demo documentation identify them as AI-generated concepts. Original PNG outputs are preserved; project copies are encoded to WebP at quality 84 without composition edits. Each image is 1536 × 1024.
