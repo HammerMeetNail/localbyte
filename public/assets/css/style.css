@@ -780,17 +780,55 @@ a.work-visual:hover img {
 
 /* Interior pages */
 .page-hero {
+  display: grid;
+  gap: 1.4rem;
   padding-block: var(--section-gap);
-  max-width: 50rem;
 }
 .page-hero h1 {
   font-size: clamp(2.7rem, 4.6vw, 4.25rem);
 }
+.page-hero-heading,
+.page-hero-copy {
+  min-width: 0;
+}
+.page-hero-copy {
+  display: grid;
+  gap: 1.25rem;
+  align-content: center;
+  max-width: 40rem;
+}
+.page-hero-copy > p + p,
+.page-hero-copy > .cta-group {
+  margin-top: 0;
+}
 .page-hero .lead {
-  margin-top: 1.4rem;
+  max-width: 38rem;
+  margin-top: 0;
+}
+.page-hero .pricing-nav {
+  margin-top: 0;
 }
 .page-hero + .section {
   padding-top: 0;
+}
+@media (min-width: 960px) {
+  .page-hero {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    column-gap: clamp(2rem, 5vw, 5rem);
+    row-gap: 1.75rem;
+    align-items: center;
+  }
+  .page-hero-heading {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .page-hero-copy {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .page-hero .pricing-nav {
+    grid-column: 1 / -1;
+  }
 }
 .portfolio-page {
   --portfolio-section-gap: var(--section-gap);
@@ -1007,25 +1045,72 @@ a.work-visual:hover img {
 .package-details p {
   margin-top: 0.75rem;
 }
-.package-examples {
-  display: grid;
-  gap: 0.55rem;
-  padding-top: 1rem;
-  margin-bottom: 1.4rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.85rem;
+.package-examples-visual {
+  display: block;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--brand);
+  border-radius: 0.45rem;
+  margin-block: 1rem 1.25rem;
+  background: var(--card-2);
 }
-.package-examples strong {
+.package-examples-visual h4 {
+  margin: 0 0 0.65rem;
   color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.package-example-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+.package-example-card {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+  padding: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 0.76rem;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.package-example-card .work-visual {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+.package-example-copy {
+  display: grid;
+  gap: 0.08rem;
+}
+.package-example-name {
   font-weight: 600;
 }
-.package-examples a {
-  width: fit-content;
-  text-underline-offset: 0.2em;
+.package-example-industry {
+  color: var(--muted);
 }
-.package-examples p {
-  margin-top: 0.3rem;
-  font-size: 0.85rem;
+.package-example-action {
+  margin-top: 0.18rem;
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+.package-example-card:hover .package-example-action {
+  color: var(--brand-2);
+}
+.package-example-card:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
+.package-examples-visual p {
+  margin-top: 0.65rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 .price-card .button {
   font-size: 0.85rem;
@@ -1689,7 +1774,7 @@ textarea::placeholder {
   .invitation .button {
     white-space: normal;
   }
-  .page-hero .lead {
+  .page-hero-copy .lead {
     font-size: 1.03rem;
   }
   .service-detail {
@@ -1760,6 +1845,9 @@ textarea::placeholder {
 }
 
 @media (max-width: 359px) {
+  .package-example-grid {
+    grid-template-columns: 1fr;
+  }
   .container {
     width: calc(100% - 2rem);
   }
