@@ -1,8 +1,8 @@
 var test = require("@playwright/test").test;
 var expect = require("@playwright/test").expect;
 
-var previews = ["nabu", "year-of-bingo", "juniper-yard", "goodform", "harbor-home",
-  "northline", "fieldwork", "gatherwell", "coffee-shop", "finance-dashboard",
+var previews = ["juniper-yard", "goodform", "harbor-home", "northline",
+  "fieldwork", "gatherwell", "nabu", "year-of-bingo", "coffee-shop", "finance-dashboard",
   "launchclock", "bytebites", "easy-email"];
 
 async function expectPreviews(page, theme, names, selector) {
@@ -56,7 +56,7 @@ async function changeOSTheme(page, theme) {
   }).toBe(true);
 }
 
-[{ url: "/index.html", names: previews.slice(0, 2) },
+[{ url: "/index.html", names: ["nabu", "year-of-bingo"] },
   { url: "/portfolio.html", names: previews }].forEach(function (fixture) {
   test("previews follow live OS theme and a saved keyboard choice on " + fixture.url, async function ({ page }) {
     await page.emulateMedia({ colorScheme: "light" });
