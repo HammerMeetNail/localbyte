@@ -1,5 +1,7 @@
 :root {
   color-scheme: light;
+  --preview-light-display: block;
+  --preview-dark-display: none;
   --ink: #233e33;
   --ink-2: #475b50;
   --muted: #606b61;
@@ -34,6 +36,8 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
+  --preview-light-display: none;
+  --preview-dark-display: block;
   --ink: #f0f0e5;
   --ink-2: #c8d1c5;
   --muted: #afbcae;
@@ -63,6 +67,8 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     color-scheme: dark;
+    --preview-light-display: none;
+    --preview-dark-display: block;
     --ink: #f0f0e5;
     --ink-2: #c8d1c5;
     --muted: #afbcae;
@@ -585,29 +591,34 @@ img {
   display: block;
   text-decoration: none;
   overflow: hidden;
+  padding: 0.5rem;
   border: 1px solid var(--border);
   border-radius: 0.5rem;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1280 / 900;
   background: var(--card);
 }
 .work-visual img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: top;
   transition: transform 0.4s ease;
 }
 a.work-visual:hover img {
   transform: scale(1.025);
 }
-.bingo-visual {
-  border: 0.65rem solid var(--art-paper);
-  background: var(--art-paper);
-}
-.bingo-visual img {
+/* CSS exposes one preview image using the same theme state as page colors. */
+.theme-preview {
   display: block;
-  object-fit: contain;
-  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+.theme-preview .theme-preview-light {
+  display: var(--preview-light-display);
+}
+.theme-preview .theme-preview-dark {
+  display: var(--preview-dark-display);
 }
 .work-copy {
   padding-top: 1.2rem;
@@ -643,38 +654,6 @@ a.work-visual:hover img {
 .work-copy .text-link {
   margin-top: 0.5rem;
   font-size: 0.88rem;
-}
-.nabu-visual {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 1.8rem 2rem 0;
-  gap: 1rem;
-  background: var(--art-bg);
-}
-.nabu-visual .nabu-title {
-  align-self: center;
-  color: var(--ink);
-  max-width: 12rem;
-}
-.nabu-title strong {
-  display: block;
-  font: 500 2.6rem/1 var(--font-display);
-  letter-spacing: -0.04em;
-  margin-bottom: 0.8rem;
-}
-.nabu-title span {
-  font-size: 0.9rem;
-}
-.nabu-visual img {
-  align-self: flex-start;
-  width: 42%;
-  height: auto;
-  border-radius: 1.3rem 1.3rem 0 0;
-  border: 5px solid var(--art-green);
-  border-bottom: 0;
-  object-fit: contain;
-  box-shadow: var(--shadow);
 }
 .work-note {
   margin-top: 2rem;
@@ -722,9 +701,6 @@ a.work-visual:hover img {
 }
 .demo-grid h3 {
   font-size: 1.4rem;
-}
-.demo-grid .work-visual {
-  aspect-ratio: 16 / 11;
 }
 
 /* Process and invitation */
@@ -873,9 +849,6 @@ a.work-visual:hover img {
 .example-group-heading > .text-link {
   flex: 0 1 auto;
   font-size: 0.9rem;
-}
-.website-preview {
-  aspect-ratio: 1280 / 900;
 }
 .example-scope {
   margin-top: var(--content-gap);
@@ -1520,20 +1493,6 @@ textarea::placeholder {
   .contact-layout {
     gap: 2.5rem;
   }
-  .nabu-visual {
-    padding: 1.3rem 1rem 0;
-  }
-  .nabu-title strong {
-    font-size: 2rem;
-  }
-  .nabu-title span {
-    font-size: 0.75rem;
-  }
-  .nabu-visual img {
-    width: 45%;
-    border-width: 3px;
-    border-radius: 0.75rem 0.75rem 0 0;
-  }
   .invitation {
     flex-direction: column;
     align-items: flex-start;
@@ -1704,15 +1663,6 @@ textarea::placeholder {
   }
   .service-card .text-link {
     font-size: 0.9rem;
-  }
-  .nabu-visual {
-    padding: 1.5rem 1.3rem 0;
-  }
-  .nabu-title strong {
-    font-size: 2.3rem;
-  }
-  .nabu-title span {
-    font-size: 0.85rem;
   }
   .work-copy h3 {
     font-size: 1.75rem;
