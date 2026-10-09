@@ -1,7 +1,7 @@
 :root {
   color-scheme: light;
-  --preview-light-display: block;
-  --preview-dark-display: none;
+  --theme-light-display: block;
+  --theme-dark-display: none;
   --ink: #233e33;
   --ink-2: #475b50;
   --muted: #606b61;
@@ -36,8 +36,8 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --preview-light-display: none;
-  --preview-dark-display: block;
+  --theme-light-display: none;
+  --theme-dark-display: block;
   --ink: #f0f0e5;
   --ink-2: #c8d1c5;
   --muted: #afbcae;
@@ -67,8 +67,8 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     color-scheme: dark;
-    --preview-light-display: none;
-    --preview-dark-display: block;
+    --theme-light-display: none;
+    --theme-dark-display: block;
     --ink: #f0f0e5;
     --ink-2: #c8d1c5;
     --muted: #afbcae;
@@ -360,13 +360,10 @@ img {
   height: 18px;
 }
 .theme-toggle .icon-sun {
-  display: none;
+  display: var(--theme-dark-display);
 }
-.theme-toggle[aria-pressed="true"] .icon-sun {
-  display: block;
-}
-.theme-toggle[aria-pressed="true"] .icon-moon {
-  display: none;
+.theme-toggle .icon-moon {
+  display: var(--theme-light-display);
 }
 
 /* Buttons */
@@ -597,10 +594,14 @@ img {
   height: 100%;
   object-fit: contain;
   object-position: top;
-  transition: transform 0.4s ease;
 }
-a.work-visual:hover img {
-  transform: scale(1.025);
+@media (hover: hover) and (pointer: fine) {
+  .work-visual img {
+    transition: transform 0.4s ease;
+  }
+  a.work-visual:hover img {
+    transform: scale(1.025);
+  }
 }
 /* CSS exposes one preview image using the same theme state as page colors. */
 .theme-preview {
@@ -609,10 +610,10 @@ a.work-visual:hover img {
   height: 100%;
 }
 .theme-preview .theme-preview-light {
-  display: var(--preview-light-display);
+  display: var(--theme-light-display);
 }
 .theme-preview .theme-preview-dark {
-  display: var(--preview-dark-display);
+  display: var(--theme-dark-display);
 }
 .work-copy {
   padding-top: 1.2rem;

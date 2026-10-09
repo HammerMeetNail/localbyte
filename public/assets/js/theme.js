@@ -144,6 +144,17 @@
       var target = event.target;
       while (target && target !== navMenu) {
         if (target.nodeType === 1 && target.tagName.toLowerCase() === "a") {
+          var sameDocumentHash = target.href.indexOf("#") !== -1 && target.origin === window.location.origin &&
+            target.pathname === window.location.pathname && target.search === window.location.search;
+          var linkTarget = (target.getAttribute("target") || "").toLowerCase();
+          var leavesPage = target.hasAttribute("href") &&
+            (target.protocol === "http:" || target.protocol === "https:") &&
+            (!linkTarget || linkTarget === "_self") && !target.hasAttribute("download") &&
+            !sameDocumentHash && !event.defaultPrevented && !event.ctrlKey && !event.metaKey &&
+            !event.shiftKey && !event.altKey && (!event.button || event.button === 0);
+          // Keep the outgoing document steady while a native page navigation
+          // waits for its response. Local and new-tab actions still dismiss.
+          if (leavesPage) return;
           closeMenu(false);
           return;
         }
@@ -156,6 +167,11 @@
         event.preventDefault();
         closeMenu(true);
       }
+    });
+
+    window.addEventListener("pageshow", function (event) {
+      // A cached outgoing document can retain its expanded menu and link focus.
+      if (event.persisted) closeMenu(false);
     });
 
     if (!observeMedia(menuMedia, syncViewport)) {
