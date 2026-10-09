@@ -275,7 +275,6 @@ img {
 .logo img {
   width: 38px;
   height: 38px;
-  border-radius: 50%;
 }
 .brand {
   font-family: var(--font-display);
@@ -427,11 +426,6 @@ img {
   margin-top: 1.5rem;
   font-size: 1.08rem;
   max-width: 31rem;
-}
-.hero-note {
-  margin-top: 1.2rem;
-  font-size: 0.8rem;
-  color: var(--muted);
 }
 .neighborhood-frame {
   position: relative;
@@ -778,19 +772,116 @@ a.work-visual:hover img {
   text-align: center;
 }
 
-/* Interior pages */
+/* Interior page introductions */
 .page-hero {
-  padding-block: var(--section-gap);
-  max-width: 50rem;
+  max-width: 52rem;
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 4vw, 3.5rem);
+  text-align: center;
 }
 .page-hero h1 {
   font-size: clamp(2.7rem, 4.6vw, 4.25rem);
 }
+.page-hero-copy {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  margin: 0 auto;
+}
 .page-hero .lead {
-  margin-top: 1.4rem;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+.page-hero .pricing-nav,
+.portfolio-nav {
+  justify-content: center;
+  margin-top: 1.3rem;
 }
 .page-hero + .section {
   padding-top: 0;
+}
+.page-hero-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  justify-items: start;
+  gap: 1.4rem;
+  max-width: none;
+  margin: 0;
+  text-align: left;
+}
+.page-hero-visual .page-hero-copy {
+  justify-items: start;
+  margin: 0;
+}
+.page-hero-visual .lead {
+  margin: 0;
+}
+.page-hero .founder-title {
+  font-size: clamp(2.5rem, 4.6vw, 4.25rem);
+}
+.founder-name {
+  white-space: nowrap;
+}
+.founder-portrait {
+  width: min(100%, 27rem);
+  margin: 0 auto;
+  padding: 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 0.55rem;
+  background: var(--card-2);
+}
+.founder-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.3rem;
+}
+.service-hero-example {
+  width: 100%;
+  margin: 0;
+}
+.service-hero-example figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-align: center;
+}
+.portfolio-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+.portfolio-nav a {
+  padding-block: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+@media (min-width: 960px) {
+  .page-hero-visual {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    column-gap: clamp(2rem, 6vw, 5rem);
+    row-gap: 1.1rem;
+  }
+  .page-hero-visual .page-hero-heading {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .page-hero-visual .page-hero-copy {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 34rem;
+  }
+  .page-hero-visual .founder-portrait,
+  .page-hero-visual .service-hero-example {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+  }
+  .page-hero-visual .founder-portrait {
+    width: min(100%, 27rem);
+    margin: 0;
+  }
 }
 .portfolio-page {
   --portfolio-section-gap: var(--section-gap);
@@ -802,6 +893,9 @@ a.work-visual:hover img {
 .portfolio-sections {
   display: grid;
   gap: var(--portfolio-section-gap);
+}
+.portfolio-page .page-hero + #website-examples {
+  margin-top: calc(var(--content-gap) - var(--portfolio-section-gap));
 }
 .portfolio-page .page-hero,
 .portfolio-page .section {
@@ -1007,25 +1101,72 @@ a.work-visual:hover img {
 .package-details p {
   margin-top: 0.75rem;
 }
-.package-examples {
-  display: grid;
-  gap: 0.55rem;
-  padding-top: 1rem;
-  margin-bottom: 1.4rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.85rem;
+.package-examples-visual {
+  display: block;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--brand);
+  border-radius: 0.45rem;
+  margin-block: 1rem 1.25rem;
+  background: var(--card-2);
 }
-.package-examples strong {
+.package-examples-visual h4 {
+  margin: 0 0 0.65rem;
   color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.package-example-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+.package-example-card {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+  padding: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 0.76rem;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.package-example-card .work-visual {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+.package-example-copy {
+  display: grid;
+  gap: 0.08rem;
+}
+.package-example-name {
   font-weight: 600;
 }
-.package-examples a {
-  width: fit-content;
-  text-underline-offset: 0.2em;
+.package-example-industry {
+  color: var(--muted);
 }
-.package-examples p {
-  margin-top: 0.3rem;
-  font-size: 0.85rem;
+.package-example-action {
+  margin-top: 0.18rem;
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+.package-example-card:hover .package-example-action {
+  color: var(--brand-2);
+}
+.package-example-card:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
+.package-examples-visual p {
+  margin-top: 0.65rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 .price-card .button {
   font-size: 0.85rem;
@@ -1121,29 +1262,44 @@ a.work-visual:hover img {
   padding: 0.8rem 2rem 0 0;
   font-size: 0.95rem;
 }
-.about-note {
-  padding: 3rem;
-  background: var(--card-2);
-  border-radius: 0.5rem;
+.founder-section {
+  width: min(100%, 58rem);
+  margin-inline: auto;
 }
-.about-note h2 {
-  font-size: 2.6rem;
-  margin-bottom: 1.5rem;
+.founder-bio h2 {
+  max-width: 40rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
 }
-.about-note .signature {
-  color: var(--accent);
-  font: 500 1.6rem var(--font-display);
-  margin-top: 1.6rem;
+.founder-bio p {
+  max-width: 54rem;
+}
+.founder-bio p + p {
+  margin-top: 0.8rem;
 }
 .principles {
   display: grid;
-  gap: 1.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.principles > div {
+  min-width: 0;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 0.45rem;
+  background: var(--card);
 }
 .principles h3 {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
 }
 .principles p {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+}
+.pricing-currency-note {
+  margin-block: 0.25rem 1.2rem;
+  color: var(--muted);
+  font-size: 0.82rem;
 }
 
 /* Contact */
@@ -1233,6 +1389,38 @@ textarea::placeholder {
 .contact-aside h2 {
   font-size: 1.9rem;
   margin: 0 0 1rem;
+}
+.contact-founder {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-block: 0.8rem 1.25rem;
+}
+.contact-aside > .eyebrow {
+  margin-bottom: 0;
+}
+.founder-photo-small {
+  display: block;
+  flex: 0 0 3.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 28%;
+  background: var(--card-2);
+}
+.contact-founder strong,
+.contact-founder span {
+  display: block;
+}
+.contact-founder span,
+.contact-location {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.contact-aside .contact-location {
+  margin-bottom: 1rem;
 }
 .contact-aside > p {
   font-size: 0.95rem;
@@ -1556,8 +1744,8 @@ textarea::placeholder {
     grid-template-columns: 1fr;
     gap: 0;
   }
-  .about-note {
-    padding: 2rem;
+  .principles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .footer-top {
     grid-template-columns: 1.3fr 1fr;
@@ -1595,9 +1783,6 @@ textarea::placeholder {
   }
   .hero .text-link {
     font-size: 0.9rem;
-  }
-  .hero-note {
-    font-size: 0.75rem;
   }
   .neighborhood-frame {
     max-width: 27rem;
@@ -1689,8 +1874,11 @@ textarea::placeholder {
   .invitation .button {
     white-space: normal;
   }
-  .page-hero .lead {
+  .page-hero-copy .lead {
     font-size: 1.03rem;
+  }
+  .principles {
+    grid-template-columns: 1fr;
   }
   .service-detail {
     grid-template-columns: 1fr;
@@ -1734,12 +1922,6 @@ textarea::placeholder {
   .contact-form .button {
     width: 100%;
   }
-  .about-note {
-    padding: 1.8rem;
-  }
-  .about-note h2 {
-    font-size: 2.2rem;
-  }
   .site-footer {
     padding-top: 2.5rem;
   }
@@ -1760,6 +1942,9 @@ textarea::placeholder {
 }
 
 @media (max-width: 359px) {
+  .package-example-grid {
+    grid-template-columns: 1fr;
+  }
   .container {
     width: calc(100% - 2rem);
   }

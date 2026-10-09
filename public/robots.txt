@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Demo and confirmation pages use HTML noindex; keep them crawlable.
+Sitemap: https://localbytellc.com/sitemap.xml

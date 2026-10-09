@@ -3,18 +3,18 @@
   "short_name": "LocalByte",
   "icons": [
     {
-      "src": "assets/img/android-chrome-192x192.png",
+      "src": "assets/img/android-chrome-192x192.png?v=2",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "assets/img/android-chrome-512x512.png",
+      "src": "assets/img/android-chrome-512x512.png?v=2",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#fffbf5",
-  "theme_color": "#0d5c54"
+  "background_color": "#faf8f2",
+  "theme_color": "#285b44"
 }
