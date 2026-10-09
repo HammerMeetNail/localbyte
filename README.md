@@ -105,6 +105,26 @@ beyond the starting scope of a focused application project.
 - `public/contact.html` uses Netlify Forms attributes. If you deploy elsewhere, swap that form handling to a different provider or endpoint.
 - Everything under `public/` is deployment material. The rest of the repository supports development, testing, and planning.
 
+### Contact address and form delivery
+
+`info@localbytellc.com` is the single LocalByte contact address for project
+inquiries, support, billing, privacy requests, and other questions. Use it in
+main-site email links, legal contact text, and organization metadata. Service
+buttons can link to the shared `contact.html` form.
+
+The live form submits to Netlify as `contact`. Its email recipient is configured
+outside this repository under **Forms → Submission notifications**. Configure
+the email notification for that form to send to `info@localbytellc.com`; check
+existing notifications before adding one to avoid duplicate delivery. The
+visitor's `name="email"` input supplies the reply-to address. Publishing an email
+link does not configure form notifications. See
+[Netlify's notification documentation](https://docs.netlify.com/manage/forms/notifications/).
+
+Verify delivery with an authorized test submission and receipt in the destination
+inbox. A local test or thank-you page alone does not establish email delivery.
+Fictional demo contacts and simulated forms remain separate and do not send
+inquiries to LocalByte.
+
 ## Maintenance Notes
 
 - Shared brochure-site styles live in `public/assets/css/style.css`.
