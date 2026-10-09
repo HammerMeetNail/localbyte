@@ -55,6 +55,10 @@ Read the sections relevant to code, forms, navigation, theme, or demo behavior.
 
 ## Forms and demo boundaries
 
+- Use `info@localbytellc.com` as the single LocalByte contact address across main-site
+  email links, legal contact text, and organization metadata. Live form email
+  notifications must use the same recipient in Netlify; that setting is external
+  to the repository. See [contact delivery](../../README.md#contact-address-and-form-delivery).
 - The [contact form](../../public/contact.html) uses a native POST to `thanks.html`,
   Netlify form identity `contact`, hidden `form-name`, and the `bot-field` honeypot.
   Preserve that contract and the existing required fields unless the task changes it.

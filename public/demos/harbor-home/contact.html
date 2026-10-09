@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Contact Harbor Home about a maintenance task | Harbor Home — Business
+      Website example
+    </title>
+    <meta
+      name="description"
+      content="Ask about a home repair or routine maintenance task using Harbor Home’s local inquiry preview."
+    />
+    <meta name="theme-color" content="#f6f7f7" />
+    <link rel="stylesheet" href="assets/css/site.css?v=3" />
+  </head>
+  <body class="harbor">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="notice-bar">
+      <span
+        ><b>HARBOR HOME</b><i aria-hidden="true">/</i> Fictional home
+        maintenance concept</span
+      ><a href="../../pricing.html#business-website"
+        >Business Website example <span aria-hidden="true">↗</span></a
+      >
+    </div>
+    <header class="site-header">
+      <div class="header-main">
+        <a class="brand" href="index.html" aria-label="Harbor Home, home"
+          ><span class="brand-symbol" aria-hidden="true">HH<span>+</span></span
+          ><span class="brand-name"
+            >Harbor Home<small>HOME MAINTENANCE</small></span
+          ></a
+        >
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-lines" aria-hidden="true"><i></i><i></i></span
+          ><span class="menu-label">Menu</span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a><a href="services.html">Services</a
+          ><a href="about.html">About</a><a href="faq.html">FAQ</a
+          ><a href="contact.html" aria-current="page">Contact</a
+          ><a class="nav-action" href="contact.html"
+            >Request an estimate <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-heading contact-heading">
+        <div>
+          <span class="section-kicker">Contact</span>
+          <h1>Tell us what<br /><span>needs attention.</span></h1>
+          <p>
+            Choose the closest service and share a few details about the work.
+            This form is a local preview and does not send or save your
+            information.
+          </p>
+        </div>
+      </section>
+      <section class="request-layout">
+        <aside class="request-guide">
+          <span class="section-kicker">Helpful details</span>
+          <h2>Include the details that help define the work.</h2>
+          <ol>
+            <li>Which room or area needs attention?</li>
+            <li>What is happening or not working?</li>
+            <li>Is there a preferred time frame?</li>
+          </ol>
+          <p>
+            Do not include payment details, entry codes, or other sensitive
+            information.
+          </p>
+        </aside>
+        <div class="request-card">
+          <form class="inquiry-form" data-preview-form>
+            <div class="form-row">
+              <label for="name"
+                >Your name <span aria-hidden="true">*</span
+                ><input
+                  id="name"
+                  name="name"
+                  autocomplete="name"
+                  required
+                  maxlength="80" /></label
+              ><label for="email"
+                >Email address <span aria-hidden="true">*</span
+                ><input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  maxlength="120"
+              /></label>
+            </div>
+            <label for="service"
+              >Service group <span class="optional">Optional</span
+              ><select id="service" name="service">
+                <option value="">Choose if useful</option>
+                <option>Everyday repairs</option>
+                <option>Fixtures, fittings, and assembly</option>
+                <option>Seasonal maintenance</option>
+                <option>Something else</option>
+              </select></label
+            ><label for="message"
+              >What needs attention? <span aria-hidden="true">*</span
+              ><textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                maxlength="1200"
+                placeholder="A few details about the task are plenty."
+              ></textarea>
+            </label>
+            <p class="form-help">
+              Required fields are checked by your browser. This is a local
+              concept preview only.
+            </p>
+            <button class="button button-navy" type="submit" disabled>
+              Preview inquiry <span aria-hidden="true">↗</span>
+            </button>
+            <p class="no-script">
+              JavaScript is off, so this demo form is unavailable. Your details
+              are not sent.
+            </p>
+            <div
+              class="preview-box"
+              data-preview
+              aria-live="polite"
+              hidden
+            ></div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-top">
+        <a class="brand footer-brand" href="index.html"
+          ><span class="brand-symbol" aria-hidden="true">HH<span>+</span></span
+          ><span class="brand-name"
+            >Harbor Home<small>HOME MAINTENANCE</small></span
+          ></a
+        >
+        <p>
+          Home repairs, routine maintenance, and a clear next step for the work
+          on your list.
+        </p>
+        <a
+          class="footer-discuss"
+          href="../../contact.html?service=business-website"
+          >Discuss a site like this <span aria-hidden="true">↗</span></a
+        >
+      </div>
+      <div class="footer-bottom">
+        <nav aria-label="Footer navigation">
+          <a href="index.html">Home</a><a href="services.html">Services</a
+          ><a href="about.html">About</a><a href="faq.html">FAQ</a
+          ><a href="contact.html">Contact</a>
+        </nav>
+        <span>Fictional business example · No service is offered.</span>
+      </div>
+    </footer>
+    <script src="assets/js/site.js?v=2" defer></script>
+  </body>
+</html>

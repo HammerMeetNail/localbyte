@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Try a guided, local inquiry review. This demonstration does not send
+            a message or make a booking. Fictional Business Website Plus concept."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <title>Fieldwork — Project brief</title>
+    <link rel="stylesheet" href="assets/site.css?v=4" />
+    <script src="assets/site.js?v=2" defer></script>
+  </head>
+  <body class="page-inquiry">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="example-bar">
+      <span>Fictional business / Concept website</span
+      ><a href="../../pricing.html#business-plus"
+        >Business Website Plus example ↗</a
+      >
+    </div>
+    <header class="site-header">
+      <a class="brand" href="index.html"
+        >Fieldwork<span>Garden &amp; landscape design</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a><a href="services.html">Services</a
+        ><a href="gardens.html">Garden studies</a
+        ><a href="approach.html">Approach</a
+        ><a href="resources.html">Resources</a><a href="faq.html">FAQ</a
+        ><a href="about.html">About</a
+        ><a href="inquiry.html" aria-current="page">Inquire</a>
+      </nav>
+    </header>
+    <main id="main" class="site-main">
+      <div class="guide-main">
+        <header class="page-heading">
+          <p class="eyebrow">Fieldwork / Project brief</p>
+          <h1>Tell us about your garden.</h1>
+          <p>
+            Try a guided, local inquiry review. This demonstration does not send
+            a message or make a booking.
+          </p>
+        </header>
+        <div class="page-content">
+          <section class="brief-workspace" aria-labelledby="brief-title">
+            <div class="brief-introduction">
+              <p class="eyebrow">Project brief / Local demonstration</p>
+              <h2 id="brief-title">
+                A few good questions.<br />A clearer starting point.
+              </h2>
+              <p>
+                Build a sample brief in two short steps, then review it locally.
+                Use fictional details: nothing is sent, booked, or saved.
+              </p>
+            </div>
+            <ol class="brief-progress" aria-label="Project brief progress">
+              <li data-progress="0" aria-current="step">
+                <span>01</span>Your need
+              </li>
+              <li data-progress="1"><span>02</span>Site &amp; context</li>
+              <li data-progress="2"><span>03</span>Local review</li>
+            </ol>
+            <p id="brief-status" class="small" role="status" aria-live="polite">
+              JavaScript enables this sample project brief.
+            </p>
+            <form id="inquiry-form" data-demo="fieldwork">
+              <section
+                class="brief-step"
+                data-step="0"
+                aria-labelledby="step-one-heading"
+              >
+                <div class="step-heading">
+                  <p class="eyebrow">Step 01 / Define the need</p>
+                  <h3 id="step-one-heading" tabindex="-1">
+                    Where should we begin?
+                  </h3>
+                  <p>
+                    Choose the kind of help you would like. The questions adapt
+                    to your starting point.
+                  </p>
+                </div>
+                <fieldset>
+                  <legend>Your direction</legend>
+                  <label for="request-type"
+                    >What would you like help with?</label
+                  ><select
+                    id="request-type"
+                    name="request-type"
+                    required
+                    data-required
+                  >
+                    <option value="">Choose a starting point</option>
+                    <option value="design">Garden design</option>
+                    <option value="planting">Planting design</option>
+                    <option value="review">Garden review</option>
+                  </select>
+                </fieldset>
+                <fieldset
+                  class="conditional-fields"
+                  data-request="design"
+                  disabled
+                >
+                  <legend>Garden design</legend>
+                  <label for="stage">Where are you in the process?</label
+                  ><select id="stage" name="stage" data-required>
+                    <option value="">Choose a stage</option>
+                    <option>Starting with ideas</option>
+                    <option>Ready to develop a plan</option>
+                    <option>Reworking an existing garden</option></select
+                  ><label for="area"
+                    >Which part of the garden? <span>(optional)</span></label
+                  ><input
+                    id="area"
+                    name="area"
+                    placeholder="For example, the whole garden or entrance"
+                    maxlength="160"
+                  />
+                </fieldset>
+                <fieldset
+                  class="conditional-fields"
+                  data-request="planting"
+                  disabled
+                >
+                  <legend>Planting design</legend>
+                  <label for="planting-goal"
+                    >What would you like the planting to do?</label
+                  ><select
+                    id="planting-goal"
+                    name="planting-goal"
+                    data-required
+                  >
+                    <option value="">Choose a focus</option>
+                    <option>Bring seasonal interest</option>
+                    <option>Create privacy or shelter</option>
+                    <option>Refresh an existing border</option>
+                    <option>Help me find a direction</option></select
+                  ><label for="exposure"
+                    >What do you know about the light?</label
+                  ><select id="exposure" name="exposure">
+                    <option>Not sure yet</option>
+                    <option>Mostly sunny</option>
+                    <option>Mostly shaded</option>
+                    <option>A mix of sun and shade</option>
+                  </select>
+                </fieldset>
+                <fieldset
+                  class="conditional-fields"
+                  data-request="review"
+                  disabled
+                >
+                  <legend>Garden review</legend>
+                  <label for="review-focus">What feels unresolved?</label
+                  ><select id="review-focus" name="review-focus" data-required>
+                    <option value="">Choose a focus</option>
+                    <option>Layout and movement</option>
+                    <option>Existing planting</option>
+                    <option>Care and maintenance direction</option>
+                    <option>A few different questions</option>
+                  </select>
+                </fieldset>
+              </section>
+              <section
+                class="brief-step"
+                data-step="1"
+                aria-labelledby="step-two-heading"
+              >
+                <div class="step-heading">
+                  <p class="eyebrow">Step 02 / Add context</p>
+                  <h3 id="step-two-heading" tabindex="-1">
+                    Tell us about the place.
+                  </h3>
+                  <p>
+                    A rough description is enough. Keep unknown details as
+                    questions.
+                  </p>
+                </div>
+                <fieldset disabled>
+                  <legend>Site notes</legend>
+                  <label for="site-character"
+                    >How would you describe the space?
+                    <span>(optional)</span></label
+                  ><select id="site-character" name="site-character">
+                    <option value="">Choose if useful</option>
+                    <option>A compact courtyard</option>
+                    <option>An established garden</option>
+                    <option>A new or mostly empty space</option>
+                    <option>Something else</option></select
+                  ><label for="context"
+                    >What should change? <span>(optional)</span></label
+                  ><textarea
+                    id="context"
+                    name="context"
+                    rows="5"
+                    maxlength="1200"
+                    placeholder="How do you use the garden now? What would make it more useful?"
+                  ></textarea>
+                </fieldset>
+                <fieldset disabled>
+                  <legend>Sample contact details</legend>
+                  <div class="two-fields">
+                    <div>
+                      <label for="name">Sample name</label
+                      ><input
+                        id="name"
+                        name="name"
+                        autocomplete="off"
+                        data-required
+                        maxlength="100"
+                        placeholder="Alex Example"
+                      />
+                    </div>
+                    <div>
+                      <label for="email">Sample email</label
+                      ><input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autocomplete="off"
+                        data-required
+                        maxlength="254"
+                        placeholder="alex@example.com"
+                      />
+                    </div>
+                  </div>
+                </fieldset>
+                <fieldset disabled>
+                  <legend>Preferred next step</legend>
+                  <label class="check-label"
+                    ><input
+                      type="checkbox"
+                      id="add-next-step"
+                      name="add-next-step"
+                    />
+                    Add a next-step preference <span>(optional)</span></label
+                  >
+                  <div id="next-step-fields" hidden>
+                    <label for="next-step">How would you like to begin?</label
+                    ><select id="next-step" name="next-step" disabled>
+                      <option>A conversation first</option>
+                      <option>A visit, if suitable</option>
+                      <option>Written information first</option>
+                    </select>
+                  </div>
+                  <p class="small">
+                    This is context for the sample brief. It does not arrange an
+                    appointment.
+                  </p>
+                </fieldset>
+              </section>
+              <div class="brief-controls" hidden>
+                <button id="brief-back" class="quiet-button" type="button">
+                  ← Back to your need</button
+                ><button id="brief-next" class="button" type="button" disabled>
+                  Continue to site &amp; context →</button
+                ><button
+                  id="review-button"
+                  class="button"
+                  type="submit"
+                  disabled
+                >
+                  Review sample brief →</button
+                ><button class="reset-button" type="reset">Start over</button>
+              </div>
+              <p
+                id="form-status"
+                class="small"
+                role="status"
+                aria-live="polite"
+              ></p>
+              <noscript
+                ><p class="sample-note">
+                  This local brief demonstration needs JavaScript. All field
+                  guide pages remain available. No inquiry can be sent from this
+                  demo.
+                </p></noscript
+              >
+            </form>
+            <section
+              id="inquiry-review"
+              class="review-panel"
+              hidden
+              aria-labelledby="review-heading"
+            >
+              <p class="eyebrow">Step 03 / Local review / Nothing sent</p>
+              <h2 id="review-heading" tabindex="-1">Your project brief.</h2>
+              <p>
+                A working summary of the details you entered. This is a sample,
+                not a submitted inquiry.
+              </p>
+              <dl id="review-summary"></dl>
+              <div class="sample-handoff">
+                <p class="eyebrow">Existing-tool handoff / Sample only</p>
+                <h3>From a brief to a conversation.</h3>
+                <p>
+                  A real studio could share its existing scheduling provider
+                  after reviewing the brief. One provider would be configured by
+                  agreement.
+                </p>
+                <p class="small">
+                  No provider is connected. No appointment, availability check,
+                  or message is created.
+                </p>
+                <span class="handoff-preview"
+                  >An agreed scheduling link would appear here ↗</span
+                >
+              </div>
+              <div class="review-actions">
+                <button class="button" id="edit-inquiry" type="button">
+                  Edit this brief ←</button
+                ><button class="reset-button" id="reset-review" type="button">
+                  Start over
+                </button>
+              </div>
+            </section>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div>
+        <a class="footer-brand" href="index.html">Fieldwork</a>
+        <p>Useful spaces. Purposeful planting.</p>
+      </div>
+      <div>
+        <p>
+          Fictional studio. All garden studies and business details are samples.
+          No inquiry is sent, saved, or booked.
+        </p>
+        <a href="../../contact.html?service=business-plus"
+          >Discuss a site like this ↗</a
+        >
+      </div>
+      <p class="footer-line">Garden design · Planting design · Garden review</p>
+    </footer>
+  </body>
+</html>

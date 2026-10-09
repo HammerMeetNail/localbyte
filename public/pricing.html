@@ -6,8 +6,9 @@
     <title>Website & App Pricing | LocalByte LLC</title>
     <meta
       name="description"
-      content="Website builds from $1,500, custom app projects from $5,000, and ongoing care plans. Understand the costs before starting your project."
+      content="Compare fixed-price website packages, custom application development, paid discovery, and optional hosting and care from North Carolina’s LocalByte LLC."
     />
+    <link rel="canonical" href="https://localbytellc.com/pricing.html" />
     <script>
       (function () {
         document.documentElement.classList.add("js");
@@ -25,7 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/style.css?v=11" />
+    <link rel="stylesheet" href="assets/css/style.css?v=14" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
@@ -104,143 +105,352 @@
     <main id="main">
       <div class="container">
         <section class="page-hero">
-          <span class="eyebrow">Let’s talk numbers</span>
-          <h1>Clear prices.<br />A sensible place to start.</h1>
+          <span class="eyebrow">Project pricing &amp; ongoing care</span>
+          <h1>Clear scope.<br />Clear prices.</h1>
           <p class="lead">
-            These ranges help you plan. Your written quote will spell out the work, the price, and
-            the timeline before we begin.
+            Website projects start at <span data-price="starter">$995</span>, with defined
+            deliverables and direct access to the engineer. Your proposal confirms the price
+            and timeline before work begins. Project builds and ongoing care are priced separately.
+            All prices are in USD.
           </p>
+          <nav class="pricing-nav" aria-label="Pricing sections">
+            <a href="#website-packages">Websites</a>
+            <a href="#app-pricing">Apps &amp; discovery</a>
+            <a href="#care-plans">Ongoing care</a>
+            <a href="#payment-options">Payment options</a>
+            <a href="#additions">Common additions</a>
+            <a href="#pricing-faq">FAQs</a>
+          </nav>
         </section>
-        <section class="section" aria-label="Project pricing">
-          <div class="price-grid">
-            <article class="price-card">
-              <span class="eyebrow">For your local business</span>
-              <h2>Website essentials</h2>
-              <p class="price-intro">
-                A thoughtful home for your business, built to help customers find their way.
-              </p>
-              <p class="price">$1,500–$3,500</p>
-              <p class="price-caption">One-time website build</p>
+        <!-- Prices are maintained in config/pricing.json via npm run pricing:sync. Other pages link here. -->
+        <section class="section" id="website-packages" aria-labelledby="website-heading">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Fixed-price website projects</span>
+              <h2 id="website-heading">A website that fits<br />your business.</h2>
+            </div>
+            <p>
+              For most small businesses, start with the Business Website: room to explain your
+              services, build credibility, and make it easy to get in touch.
+            </p>
+          </div>
+          <div class="price-grid website-grid">
+            <article class="price-card" id="single-page">
+              <span class="eyebrow">A focused introduction</span>
+              <h3>Starter Website</h3>
+              <p class="price"><span data-price="starter">$995</span></p>
+              <p class="price-caption">One-time project · one page</p>
+              <p class="price-intro">A concise home for a business with a simple offer. One scrolling page, not a multi-page site.</p>
               <ul class="list">
-                <li>Website design and build</li>
-                <li>Layouts for phones and larger screens</li>
-                <li>Local search basics</li>
-                <li>Analytics and HTTPS setup</li>
+                <li>One responsive page, approximately five sections</li>
+                <li>Client-provided content and images</li>
+                <li>Contact form and basic SEO setup</li>
+                <li>One consolidated revision round</li>
+                <li>Mobile and browser checks</li>
+                <li>Launch and handover</li>
               </ul>
-              <p class="care">Ongoing care: <strong>$99–$249/month</strong></p>
-              <a class="button primary" href="contact.html"
-                >Talk about a website <span class="arrow" aria-hidden="true">→</span></a
-              >
+              <p class="package-boundary">Additional pages, new functionality, and original copywriting need a separate scope.</p>
+              <nav class="package-examples" aria-label="Starter Website examples">
+                <strong>See what one page can do</strong>
+                <a href="demos/juniper-yard/index.html" target="_blank" rel="noreferrer">Juniper Yard · garden care <span aria-hidden="true">↗</span><span class="visually-hidden"> (concept demo, opens in a new tab)</span></a>
+                <a href="demos/goodform/index.html" target="_blank" rel="noreferrer">Goodform · bookkeeping <span aria-hidden="true">↗</span><span class="visually-hidden"> (concept demo, opens in a new tab)</span></a>
+              </nav>
+              <a class="button secondary" href="contact.html?service=single-page"
+                aria-label="Discuss Your Website — Starter Website">Discuss Your Website <span class="arrow" aria-hidden="true">→</span></a>
             </article>
-            <article class="price-card" id="app-pricing">
-              <span class="eyebrow">For your first app release</span>
-              <h2>App starter</h2>
-              <p class="price-intro">
-                A focused first version of your web or mobile app, with the essentials agreed
-                before we build.
-              </p>
-              <p class="price">$5,000–$12,000</p>
-              <p class="price-caption">Project build</p>
+            <article class="price-card is-featured" id="business-website">
+              <span class="eyebrow">Recommended for most businesses</span>
+              <h3>Business Website</h3>
+              <p class="price"><span data-price="business">$1,995</span></p>
+              <p class="price-caption">One-time project · up to five pages</p>
+              <p class="price-intro">A clear, professional website for an established business and the services its customers need.</p>
               <ul class="list">
-                <li>Planning, screen design, and a clear roadmap</li>
-                <li>Accounts and sign-in as needed</li>
-                <li>Admin tools and useful connections</li>
-                <li>Payment integration if in scope</li>
+                <li>Up to five responsive pages</li>
+                <li>Basic discovery, clear navigation, and content planning</li>
+                <li>Light editing of your supplied content</li>
+                <li>Contact or inquiry form</li>
+                <li>Basic on-page SEO and analytics setup</li>
+                <li>Two consolidated revision rounds</li>
               </ul>
-              <p class="care">Ongoing care: <strong>$199–$499/month</strong></p>
-              <a class="button secondary" href="contact.html"
-                >Talk about an app <span class="arrow" aria-hidden="true">→</span></a
-              >
+              <details class="package-details">
+                <summary>Testing, launch &amp; handover</summary>
+                <p>Includes testing, deployment, and handover. Your proposal defines a post-launch correction period for defects in the agreed work.</p>
+              </details>
+              <p class="package-boundary">Your proposal defines the correction period for defects in agreed work. Custom booking systems, integrations, and new requests are scoped separately.</p>
+              <nav class="package-examples" aria-label="Business Website examples">
+                <strong>Explore two five-page websites</strong>
+                <a href="demos/harbor-home/index.html" target="_blank" rel="noreferrer">Harbor Home · home services <span aria-hidden="true">↗</span><span class="visually-hidden"> (concept demo, opens in a new tab)</span></a>
+                <a href="demos/northline/index.html" target="_blank" rel="noreferrer">Northline Studio · interiors <span aria-hidden="true">↗</span><span class="visually-hidden"> (concept demo, opens in a new tab)</span></a>
+              </nav>
+              <a class="button primary" href="contact.html?service=business-website"
+                aria-label="Discuss Your Website — Business Website">Discuss Your Website <span class="arrow" aria-hidden="true">→</span></a>
             </article>
-            <article class="price-card">
-              <span class="eyebrow">For something more involved</span>
-              <h2>Custom build</h2>
-              <p class="price-intro">
-                A larger project with multiple workflows or more involved integrations.
-              </p>
-              <p class="price">$12,000–$35,000+</p>
-              <p class="price-caption">Project build</p>
+            <article class="price-card" id="business-plus">
+              <span class="eyebrow">More depth &amp; capability</span>
+              <h3>Business Website Plus</h3>
+              <p class="price"><span data-price="businessPlus">$3,495</span></p>
+              <p class="price-caption">One-time project · up to eight pages</p>
+              <p class="price-intro">For businesses that need detailed service pages, stronger inquiry flows, and help connecting an existing tool.</p>
               <ul class="list">
-                <li>Discovery and technical planning</li>
-                <li>Design around complex workflows</li>
-                <li>Performance and security planning</li>
-                <li>Delivery in agreed milestones</li>
+                <li>Up to eight responsive pages, including detailed service or portfolio pages</li>
+                <li>More involved content organization</li>
+                <li>Limited writing assistance within agreed scope</li>
+                <li>More sophisticated inquiry or quote-request forms</li>
+                <li>Configuration of one existing business tool, subject to agreed scope</li>
+                <li>SEO fundamentals, analytics setup, and tracking for agreed conversion events</li>
               </ul>
-              <p class="care">Ongoing care: <strong>$399–$1,200/month</strong></p>
-              <a class="button secondary" href="contact.html"
-                >Discuss your idea <span class="arrow" aria-hidden="true">→</span></a
-              >
+              <details class="package-details">
+                <summary>Testing, launch &amp; handover</summary>
+                <p>Includes testing, deployment, and handover, with a post-launch correction period defined in your proposal for defects in the agreed work.</p>
+              </details>
+              <p class="package-boundary">Your proposal defines writing and revision limits and the correction period for defects in agreed work. Custom integration development is separate.</p>
+              <nav class="package-examples" aria-label="Business Website Plus examples">
+                <strong>Explore eight pages &amp; richer inquiries</strong>
+                <a href="demos/fieldwork/index.html" target="_blank" rel="noreferrer">Fieldwork · landscape studio <span aria-hidden="true">↗</span><span class="visually-hidden"> (concept demo, opens in a new tab)</span></a>
+                <a href="demos/gatherwell/index.html" target="_blank" rel="noreferrer">Gatherwell · event venue <span aria-hidden="true">↗</span><span class="visually-hidden"> (concept demo, opens in a new tab)</span></a>
+              </nav>
+              <a class="button secondary" href="contact.html?service=business-plus"
+                aria-label="Discuss Your Website — Business Website Plus">Discuss Your Website <span class="arrow" aria-hidden="true">→</span></a>
             </article>
           </div>
           <p class="pricing-note">
-            Final pricing depends on the pages, features, platforms, integrations, and timeline.
-            We’ll identify any domain, hosting, app store, or third-party service costs in your
-            proposal so you can see the whole picture.
+            Website packages use client-provided business information, logos, and images.
+            Domains, hosting, software subscriptions, and paid assets are separate unless your
+            proposal includes them. A revision round is one consolidated set of feedback on the agreed work.
+            <a href="#care-plans">Compare optional hosting and care.</a>
+            The examples are fictional concept sites with simulated inquiries. They illustrate
+            each tier; your content, design, and any third-party tools are agreed in the proposal.
           </p>
         </section>
-        <section class="section split" id="care-plans">
+        <section class="section" id="app-pricing" aria-labelledby="app-heading">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Software for a specific business need</span>
+              <h2 id="app-heading">Start with the problem.<br />Define the right app.</h2>
+            </div>
+            <p>Customer portals, internal tools, and workflow applications need a scope built around how people will use them.</p>
+          </div>
+          <div class="price-grid price-grid-two">
+            <article class="price-card">
+              <span class="eyebrow">A narrowly scoped first release</span>
+              <h3>Focused Web Application</h3>
+              <p class="price"><span class="price-qualifier">Starting at</span> <span data-price="webApp">$4,995</span></p>
+              <p class="price-caption">Project development · quoted to requirements</p>
+              <p class="price-intro">A small application built around one clearly defined workflow. More involved applications require custom estimates and can cost substantially more.</p>
+              <ul class="list">
+                <li>Scope and pricing reflect the actual workflows and requirements</li>
+                <li>Complex SaaS platforms, billing systems, multiple integrations, and extensive role-based permissions are outside the starting scope</li>
+                <li>Native mobile applications are scoped and quoted separately</li>
+              </ul>
+              <p class="package-boundary">The starting price applies only to a narrowly scoped web application. We agree the essential workflow and deliverables before implementation.</p>
+              <div class="package-examples">
+                <strong>Real web app &amp; PWA examples</strong>
+                <a href="portfolio.html#nabu">Nabu · shared activity tracking <span aria-hidden="true">→</span></a>
+                <a href="portfolio.html#year-of-bingo">Year of Bingo · goals &amp; progress <span aria-hidden="true">→</span></a>
+                <p>Start with a workflow like a shared log or a progress board. These independent LocalByte products have grown beyond a starting project; their complete feature sets are not included at the starting price.</p>
+              </div>
+              <a class="button secondary" href="contact.html?service=web-app">Talk About Your App <span class="arrow" aria-hidden="true">→</span></a>
+            </article>
+            <article class="price-card" id="discovery">
+              <span class="eyebrow">Application Discovery</span>
+              <h3>A plan you can use.</h3>
+              <p class="price"><span data-price="discovery">$750</span></p>
+              <p class="price-caption">One-time paid discovery deliverable</p>
+              <p class="price-intro">Understand what to build and what it will take. If you proceed with LocalByte, this payment counts toward the agreed total project price and reduces the balance due. It is not an additional discount.</p>
+              <ul class="list">
+                <li>Requirements and workflow review</li>
+                <li>Identification of essential functionality</li>
+                <li>High-level screen and interaction planning</li>
+                <li>Technical approach, delivery scope, and assumptions</li>
+                <li>Fixed-price implementation proposal where feasible</li>
+              </ul>
+              <p class="package-boundary">You receive useful discovery documentation even if you do not proceed. Discovery does not guarantee that LocalByte will accept the implementation project.</p>
+              <a class="button secondary" href="contact.html?service=discovery">Discuss Application Discovery <span class="arrow" aria-hidden="true">→</span></a>
+            </article>
+          </div>
+        </section>
+        <section class="section" id="care-plans" aria-labelledby="care-heading">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Separate from your project build</span>
+              <h2 id="care-heading">Help after launch.</h2>
+            </div>
+            <p>Care plans are optional unless specifically required by your proposed hosting arrangement. Choose the responsibility you want LocalByte to take on.</p>
+          </div>
+          <div class="price-grid care-grid">
+            <article class="price-card">
+              <span class="eyebrow">The hosting essentials</span>
+              <h3>Managed Hosting</h3>
+              <p class="price"><span data-price="hosting">$29</span><span class="price-unit">/month</span></p>
+              <p class="price-caption">Recurring · eligible standardized websites only</p>
+              <ul class="list">
+                <li>Managed website hosting</li>
+                <li>Basic uptime monitoring</li>
+                <li>Recoverable site backups</li>
+                <li>Routine infrastructure checks</li>
+              </ul>
+              <p class="package-boundary">No content updates or ongoing custom development. Troubleshooting beyond the agreed hosting responsibility and third-party subscriptions are separate.</p>
+              <a class="button secondary" href="contact.html?service=hosting">Ask About Hosting <span class="arrow" aria-hidden="true">→</span></a>
+            </article>
+            <article class="price-card is-featured">
+              <span class="eyebrow">Recommended website care</span>
+              <h3>Website Care</h3>
+              <p class="price"><span data-price="websiteCare">$99</span><span class="price-unit">/month</span></p>
+              <p class="price-caption">Recurring · keep your website current</p>
+              <ul class="list">
+                <li>Managed hosting and backups</li>
+                <li>Routine website and contact form checks</li>
+                <li>Up to 30 minutes of small content updates monthly</li>
+                <li>Standard support request handling</li>
+              </ul>
+              <p class="package-boundary">For keeping a website operating and current. Continuous redesign, development, and new features need a separate scope.</p>
+              <a class="button primary" href="contact.html?service=website-care">Ask About Website Care <span class="arrow" aria-hidden="true">→</span></a>
+            </article>
+            <article class="price-card">
+              <span class="eyebrow">More room for small updates</span>
+              <h3>Website Care Plus</h3>
+              <p class="price"><span data-price="carePlus">$199</span><span class="price-unit">/month</span></p>
+              <p class="price-caption">Recurring · a larger monthly allowance</p>
+              <ul class="list">
+                <li>Everything in Website Care</li>
+                <li>Up to 90 minutes total of agreed content updates or small website improvements monthly</li>
+              </ul>
+              <p class="package-boundary">The 90-minute allowance is the total monthly time, including Website Care’s 30 minutes. Larger improvements and new features are quoted separately.</p>
+              <a class="button secondary" href="contact.html?service=care-plus">Ask About Care Plus <span class="arrow" aria-hidden="true">→</span></a>
+            </article>
+            <article class="price-card">
+              <span class="eyebrow">Support for custom software</span>
+              <h3>Application Care</h3>
+              <p class="price"><span class="price-qualifier">Starting at</span> <span data-price="applicationCare">$299</span><span class="price-unit">/month</span></p>
+              <p class="price-caption">Recurring · tailored to the application</p>
+              <ul class="list">
+                <li>Narrowly scoped maintenance and monitoring</li>
+                <li>Responsibilities and any minor-fix allowance established in the service agreement</li>
+              </ul>
+              <p class="package-boundary">Infrastructure, third-party subscriptions, new features, and substantial fixes may cost extra. The agreement defines included work and support limits.</p>
+              <a class="button secondary" href="contact.html?service=application-care">Discuss Application Care <span class="arrow" aria-hidden="true">→</span></a>
+            </article>
+          </div>
+          <aside class="aside-note care-policy" aria-labelledby="care-policy-heading">
+            <h3 id="care-policy-heading">Clear boundaries for ongoing support.</h3>
+            <ul class="policy-list">
+              <li>Unused monthly service time does not roll over. Additional work needs your approval and may be quoted separately.</li>
+              <li>Response times are separate from resolution. These plans do not include 24/7 support or a guaranteed uptime SLA.</li>
+              <li>Exact responsibilities, support hours, and response policies are established in the service agreement before service begins.</li>
+              <li>You retain ownership of your domain and applicable business accounts. Third-party charges are separate unless explicitly included.</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="section" id="payment-options" aria-labelledby="payment-heading">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Ways to pay</span>
+              <h2 id="payment-heading">A fixed project price.<br />An agreed payment schedule.</h2>
+            </div>
+            <p>Standard project payments are generally <strong>50% to begin and 50% when the agreed deliverable is ready for launch</strong>, subject to the final project agreement.</p>
+          </div>
+          <article class="payment-plan" aria-labelledby="payment-plan-heading">
+            <div>
+              <span class="eyebrow">Optional · subject to approval &amp; a custom proposal</span>
+              <h3 id="payment-plan-heading">Business Website Payment Plan</h3>
+              <p class="price"><span data-price="planInitial">$495</span> upfront <span class="price-qualifier">+ <span data-price="planMonthly">$229</span>/month for <span data-pricing-months>12</span> months</span></p>
+              <p class="payment-total"><strong>Total first-year commitment: <span data-price="planTotal">$3,243</span></strong></p>
+              <p>An alternative to the <span data-price="business">$1,995</span> one-time Business Website price for qualifying projects. The build totals <span data-price="planBuildTotal">$2,055</span> when paid over time; the first-year commitment also includes Website Care.</p>
+              <a class="text-link" href="contact.html?service=payment-plan">Ask About a Payment Plan <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+            <div>
+              <ul class="policy-list">
+                <li>The initial <span data-price="planInitial">$495</span> payment goes toward the build.</li>
+                <li>Each monthly payment includes <strong><span data-price="planBuildMonthly">$130</span> toward the build and <span data-price="websiteCare">$99</span> for Website Care</strong>.</li>
+                <li>After the initial <span data-pricing-months>12</span> months, optional care continues at <strong><span data-price="websiteCare">$99</span>/month</strong>.</li>
+                <li>The <span data-pricing-months>12</span>-month build commitment must be satisfied under the agreed terms.</li>
+                <li>Your domain and business accounts remain yours. Deliverable transfer, early termination, and payment obligations are governed by a written agreement.</li>
+              </ul>
+              <p class="small">Available only after approval and a custom proposal. A written payment-plan agreement must be in place before work starts; this page is not an enrollment or payment form.</p>
+            </div>
+          </article>
+        </section>
+        <section class="section split" id="additions" aria-labelledby="additions-heading">
+          <div class="split-heading">
+            <span class="eyebrow">When you need a little more</span>
+            <h2 id="additions-heading">Common additions.</h2>
+            <p>These guide prices depend on a defined scope. We confirm the work and cost before proceeding.</p>
+            <a class="text-link" href="contact.html">Request a Project Quote <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+          <dl class="addition-list">
+            <div><dt>Additional website page using an existing layout</dt><dd><span data-price="additionalPage">$250</span></dd></div>
+            <div><dt>Booking / payment integration setup for an existing service</dt><dd><span data-price="integrationMin">$750</span>–<span data-price="integrationMax">$1,500</span></dd></div>
+            <div><dt>Additional development</dt><dd><span data-price="developmentHourly">$150</span>/hour or a fixed quote</dd></div>
+            <div><dt><a href="contact.html?service=assessment">Existing website assessment</a></dt><dd><span data-price="assessment">$300</span></dd></div>
+          </dl>
+        </section>
+        <section class="section split" id="pricing-faq" aria-labelledby="faq-heading">
           <div class="split-heading">
             <span class="eyebrow">Before you decide</span>
-            <h2>A few things<br />you might be wondering.</h2>
-            <p>
-              Have a different question? <a href="mailto:info@localbytellc.com">Email us</a> and
-              we’ll talk it through.
-            </p>
+            <h2 id="faq-heading">A few things<br />you might be wondering.</h2>
+            <p>No package choice is needed to start a conversation. <a href="contact.html">Tell us what you need.</a></p>
           </div>
           <div class="faq">
-            <details open>
-              <summary>What does a care plan cover?</summary>
-              <p>
-                Care plans cover agreed updates, fixes, and monitoring after launch. The scope and
-                monthly cost are set out in your proposal. We’ll explain the options so you can
-                choose the support that fits.
-              </p>
+            <details>
+              <summary>Do I own my website?</summary>
+              <p>Upon final payment, you receive rights to the final deliverables under your agreement. LocalByte retains rights to reusable frameworks and process materials; third-party components remain subject to their licenses. Your domain and applicable business accounts remain yours. See our <a href="terms.html">terms of service</a>.</p>
             </details>
             <details>
-              <summary>Do I need all my content ready?</summary>
-              <p>
-                No. Start with what you have: your current site, a menu, some photos, or just an
-                idea. We’ll work out what’s needed and who will provide it as part of the plan.
-              </p>
+              <summary>Are hosting and maintenance required?</summary>
+              <p>Care plans are optional unless specifically required by the proposed hosting arrangement. We explain your hosting options, responsibilities, and ongoing costs in the proposal.</p>
             </details>
             <details>
-              <summary>How long will my project take?</summary>
-              <p>
-                It depends on the size of the project and how quickly content and feedback are
-                ready. We’ll agree on a realistic timeline with you before work starts.
-              </p>
+              <summary>What happens after launch?</summary>
+              <p>We hand over the agreed work and explain ongoing support options. Business Website and Business Website Plus proposals define a correction period for defects in the agreed work. New requests and ongoing maintenance sit outside that correction period.</p>
             </details>
             <details>
-              <summary>Can you work on my existing website or app?</summary>
-              <p>
-                Tell us what you have and what you’d like to change. We’ll look at how it was built
-                and discuss whether an update or a new build makes more sense.
-              </p>
+              <summary>Can I request changes later?</summary>
+              <p>Yes. Eligible small updates can use your care plan’s monthly allowance. Other work requires approval and a separate quote or agreed development rate. Unused monthly time does not roll over.</p>
             </details>
             <details>
-              <summary>What happens if I need something extra?</summary>
-              <p>
-                We’ll discuss the extra work and any effect on price or timing with you before
-                adding it to the project.
-              </p>
+              <summary>What if I need more pages?</summary>
+              <p>We can add pages to the agreed scope. See <a href="#additions">common additions</a> for a page using an existing layout; pages needing new design or functionality are quoted separately.</p>
+            </details>
+            <details>
+              <summary>Can LocalByte work with my existing website?</summary>
+              <p>Yes, where the platform and access allow it. Tell us what you have and what needs to change. An <a href="contact.html?service=assessment">existing website assessment</a> can help establish whether targeted improvements or a rebuild make sense.</p>
+            </details>
+            <details>
+              <summary>What is included in application discovery?</summary>
+              <p>Requirements and workflow planning, essential functionality, high-level screen planning, a technical approach, and documented scope and assumptions. You receive a fixed-price implementation proposal where feasible and useful documentation even if you stop there. If you proceed with LocalByte, the <a href="#discovery">discovery payment</a> counts toward the total project price and reduces the remaining balance; it is not an additional discount. Acceptance of implementation is not guaranteed.</p>
+            </details>
+            <details>
+              <summary>How are custom apps priced?</summary>
+              <p>According to actual requirements, workflows, integrations, and complexity. The <a href="#app-pricing">starting price</a> covers only a narrowly scoped web application. Complex SaaS platforms, billing systems, multiple integrations, and extensive permissions require custom estimates and can cost substantially more. Native mobile apps are scoped separately.</p>
+            </details>
+            <details>
+              <summary>Do you offer monthly payment options?</summary>
+              <p>Qualifying Business Website projects may use the <a href="#payment-options">payment plan above</a>, subject to approval and a custom written agreement. It includes a <span data-pricing-months>12</span>-month build obligation and Website Care, and costs more than the one-time build price. The full first-year commitment is shown above. Transfer, early termination, and payment obligations must be agreed before starting.</p>
+            </details>
+            <details>
+              <summary>Are domain, software, and third-party costs included?</summary>
+              <p>Only when explicitly included in your proposal or service agreement. Domains, paid assets, subscriptions, app store fees, and usage-based services may cost extra. We identify expected costs and who manages each account before you approve the work.</p>
+            </details>
+            <details>
+              <summary>How long does a project take?</summary>
+              <p>Timing depends on the scope, content readiness, feedback, and external dependencies. We agree a realistic schedule in your proposal. There is no universal turnaround guarantee.</p>
+            </details>
+            <details>
+              <summary>What happens if the scope changes?</summary>
+              <p>We document the requested change and its effect on price and timing, then get your approval before doing the additional work. Consolidated revisions refine the agreed work; new pages, workflows, or features may change the scope.</p>
             </details>
           </div>
         </section>
       </div>
       <section class="container invitation" aria-label="Start a conversation">
         <div>
-          <span class="eyebrow">Let’s make something useful</span>
+          <span class="eyebrow">Work directly with the engineer</span>
           <h2>Let’s find the right fit.</h2>
-          <p>
-            A short description of your business or app idea is enough to begin. We’ll help you
-            understand the options and what they’re likely to cost.
-          </p>
+          <p>Tell us about your business, your current website, or the task you want to make easier. We’ll talk through a practical next step.</p>
         </div>
         <div class="invitation-actions">
-          <a class="button" href="contact.html"
-            >Tell us what you have in mind <span class="arrow" aria-hidden="true">→</span></a
-          >
-          <p>No polished brief needed. No pressure.</p>
+          <a class="button" href="contact.html">Request a Project Quote <span class="arrow" aria-hidden="true">→</span></a>
+          <p>No package choice or polished brief needed.</p>
         </div>
       </section>
     </main>
