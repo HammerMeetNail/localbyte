@@ -1,10 +1,10 @@
 # Gatherwell — Business Website Plus example
 
-A fictional hospitality and event venue with a warm pink/cherry/cream identity, expressive sans typography, capsule navigation, a layered photo/poster homepage, and varied photo-led interiors. Venue imagery is AI-generated concept photography, not an operating venue. No address, capacity, availability, testimonial, or customer result is claimed.
+A fictional independent event venue with warm neutral surfaces, charcoal text, restrained burgundy accents, moderate serif headings, conventional navigation, and unobstructed space photography. Venue imagery is AI-generated concept photography, not an operating venue. No address, capacity, availability, testimonial, or customer result is claimed.
 
 ## Eight routes
 
-- `index.html` — photographic setting and expressive hospitality introduction.
+- `index.html` — clear venue offer, room photograph, space exploration, and inquiry pathways.
 - `spaces.html` — hall, courtyard, and drawing room exploration with in-page links.
 - `gatherings.html` — personal, team, and community occasion guidance.
 - `gallery.html` — six views of three fictional concepts, including labelled detail crops.
@@ -13,7 +13,7 @@ A fictional hospitality and event venue with a warm pink/cherry/cream identity, 
 - `about.html` — fictional venue character and guiding idea.
 - `inquiry.html` — concierge inquiry, live planning notes, local review, and handoff.
 
-Every page links to `../../pricing.html#business-plus` and `../../contact.html?service=business-plus`. Central Pricing owns package amounts. All eight routes use `assets/site.css?v=2` and `assets/site.js?v=2`.
+Every page links to `../../pricing.html#business-plus` and `../../contact.html?service=business-plus`. Central Pricing owns package amounts. All eight routes use `assets/site.css?v=3` and `assets/site.js?v=2`.
 
 ## Tier boundary
 
@@ -42,6 +42,12 @@ The inquiry is a single approachable form with a live local planning snapshot be
 The lead provides `assets/img/{courtyard,hall,room}-concept.webp` (1536×1024). All visible uses disclose their fictional AI-generated nature. Full-image and detail views reuse the same three concepts; detail captions explicitly identify that relationship.
 
 Native gallery filter buttons (`data-filter` values `all`, `hall`, `courtyard`, `room`) update pressed state, item visibility, and a live count. Controls start hidden and are revealed by JavaScript. All six images and site navigation remain available without JavaScript.
+
+## Commercial-site reference patterns
+
+Read-only review of [The Foundry’s weddings and events information](https://www.thefoundry.info/weddings-events/) and [Clapton Country Club](https://www.claptoncountryclub.co.uk/) informed the emphasis on named spaces, photographs, event formats, planning questions, and a clear contact route. These are content-organisation patterns; their photography, wording, addresses, capacities, supplier policies, reviews, and operating claims were not copied.
+
+The decorative poster, sticker, slogan ribbon, extensive pink fills, and capsule framing were removed. Practical space descriptions and planning considerations lead the content. The concierge script, native validation, safe local summary, reset/edit behaviour, and gallery selectors remain unchanged.
 
 ## Validation ownership
 
